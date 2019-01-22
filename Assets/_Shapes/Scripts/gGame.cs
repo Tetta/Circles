@@ -29,4 +29,8 @@ public class gGame : MonoBehaviour {
 	void Update () {
 		
 	}
+
+    public void restart() {
+        Debug.Log("restart");
+    }
 }

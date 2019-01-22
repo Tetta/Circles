@@ -55,7 +55,7 @@ public class gHint : MonoBehaviour {
 		foreach (var stepH in hintSaves[gGame.level]) {
 			if (step == counter) {
 
-				hand.transform.position = gGame.instance.dotShapes[stepH.Key].transform.position + new Vector3(0.4f, - 0.4f, 0);
+				hand.transform.position = gGame.instance.dotShapes[stepH.Key].transform.position + new Vector3(0.43f, - 0.4f, 0);
 				currentId = stepH.Key;
 				currentR = stepH.Value;
 			}

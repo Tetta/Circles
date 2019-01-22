@@ -10,8 +10,8 @@ public class gGenerator : MonoBehaviour {
     //int layer;
     int dotshapesMin = 6;
     int dotshapesMax = 7;
-    int circlesMin = 10;
-    int circlesMax = 15;
+    int circlesMin = 5;
+    int circlesMax = 10;
     int colorsMin = 2;
     int colorsMax = 7;
     float scaleMin = 3;
@@ -28,8 +28,9 @@ public class gGenerator : MonoBehaviour {
 	{
 		gGame.instance.dotShapes.Clear();
 		gGame.instance.circles.Clear();
+        generateLevel();
 
-		generate();
+        //generate();
 	}
 
 	// Use this for initialization
@@ -161,4 +162,87 @@ public class gGenerator : MonoBehaviour {
 		return v;
 
 	}
+
+    public void generateLevel() {
+        int level = 1;
+        clear();
+        //int dotshapesCount = Random.Range(dotshapesMin, dotshapesMax);
+        int circlesCount = Random.Range(circlesMin, circlesMax);
+        int colorsCount = Random.Range(colorsMin, colorsMax);
+        List<LevelPreset> presets = gLevel.levels[level - 1].preset;
+        int dotshapesCount = 0;
+        foreach (LevelPreset preset in presets) {
+            //if dotshape
+            if (preset.dot == 0) {
+                GameObject go = Instantiate(dotShapePrefab);
+                gDotShape dotshape = go.GetComponent<gDotShape>();
+                dotshape.id = preset.color; // dotshapesCount; //fix colorsCount
+                                              //dotshape.color = (Colors) Random.Range(1, colorsMax); //fix colorsCount
+                dotshape.color = (Colors)preset.color; //fix colorsCount
+                                                       //float scale = Random.Range(scaleMin, scaleMax); //fix
+                                                       //float scale = Random.Range(scaleMin, scaleMin + dotshapesCount * 3);
+
+                //dotshape.shape.transform.localScale = dotshape.shape.transform.localScale + new Vector3(scale, scale, 1);
+                dotshape.transform.localPosition = preset.position;
+
+
+                paint(dotshape.dot.transform.GetChild(0).gameObject, dotshape.color, gGame.instance.colorsCircle);
+                paint(dotshape.shapeImage.gameObject, dotshape.color, gGame.instance.colorsShape);
+                paint(dotshape.shadowImage.gameObject, dotshape.color, gGame.instance.colorsShadow);
+
+                dotshape.changeLayer(200 - dotshapesCount, false);
+                //dotshapes.Add(dotshape);
+                gGame.instance.dotShapes.Add(dotshape);
+                dotshapesCount++;
+            } else {
+                GameObject go = Instantiate(circlePrefab);
+                gCircle circle = go.GetComponent<gCircle>();
+
+                circle.transform.localPosition = preset.position;
+
+
+                for (int j = 0; j < dotshapesCount; j++) {
+                    //float magnitude = (circle.transform.localPosition - gGame.instance.dotShapes[j].transform.position).magnitude;
+                    //if (magnitude * 4.4f - 2.5f < gGame.instance.dotShapes[j].shape.transform.localScale.x) {
+
+
+                        //if (circle.id == -1) {
+                            //Debug.Log("_____");
+                            //Debug.Log(dotshapes[j].id);
+                            //Debug.Log(dotshapes[j].color); 
+                            circle.id = preset.color;
+                            circle.color = (Colors)preset.color;
+                            paint(circle.transform.GetChild(0).gameObject, circle.color, gGame.instance.colorsCircle);
+                            paint(circle.filledGO.transform.gameObject, circle.color, gGame.instance.colorsShape);
+                            paint(circle.shadowImage.gameObject, circle.color, gGame.instance.colorsShadow);
+                            foreach (Transform child in circle.emptyGO.transform.GetChild(0)) {
+                                //paint(child.gameObject, circle.color, gGame.instance.colorsShadow);
+                                //paint(child.gameObject, circle.color, gGame.instance.colorsCircle);
+                                Color c = gGame.instance.colorsCircle[(int)circle.color - 1];
+                                child.GetComponent<SpriteRenderer>().color = new Color(c.r, c.g, c.b, child.GetComponent<SpriteRenderer>().color.a);
+
+                            }
+
+                            gGame.instance.circles.Add(circle);
+                        //}
+                    //}
+
+                }
+
+
+            }
+        }
+
+        /*
+
+        foreach (gDotShape ds in gGame.instance.dotShapes) {
+            ds.OnMouseDown();
+            ds.OnMouseUp();
+
+        }
+        */
+
+    }
+
+
 }
