@@ -1,5 +1,23 @@
 /[Ll]ibrary/
 /[Tt]emp/
+/Logs
+
+/Assets/_IsometricBundle
+/Assets/_TheRings
+/Assets/3D Cartoon Box Map
+/Assets/AxeyWorks
+/Assets/DungeonVoxels
+/Assets/Energy Node
+/Assets/LiquidPhysics
+/Assets/mmmm
+/Assets/SampleScenes
+/Assets/SharedAssets
+/Assets/UltimateIsometricToolkit
+
+
+
+
+
 #/[Oo]bj/
 #/[Bb]uild/
 #/[Bb]uilds/

@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 8f9bfa698febc38438aae6257277c2b0
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Bank Sans EF CY Condensed
+  fontNames:
+  - Bank Sans EF CY Condensed
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 43ef80a699e7fde44be948a158d94232, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

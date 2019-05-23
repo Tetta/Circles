@@ -4,4 +4,14 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/_Shapes/Scenes/EscapeLabirint.unity
+    guid: bec74fdd19bacef448bca5645f444694
+  - enabled: 1
+    path: Assets/_Shapes/Scenes/EscapeLabirint 2.unity
+    guid: 44b89cfaa0250c54d80866fccb5c3b5e
+  - enabled: 1
+    path: Assets/_Shapes/Scenes/1.unity
+    guid: 2846abc4ee4538042b0cfbc60432c903
+  m_configObjects: {}

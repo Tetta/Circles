@@ -25,15 +25,14 @@ namespace UnityStandardAssets.Utility
             // find out the maximum lifetime of any particles in this effect
             foreach (var system in systems)
             {
-                ParticleSystem.MainModule mainModule = system.main;
-                m_MaxLifetime = Mathf.Max(mainModule.startLifetimeMultiplier, m_MaxLifetime);
+                m_MaxLifetime = Mathf.Max(system.main.startLifetime.constant, m_MaxLifetime);
             }
 
             // wait for random duration
 
             float stopTime = Time.time + Random.Range(minDuration, maxDuration);
 
-            while (Time.time < stopTime || m_EarlyStop)
+            while (Time.time < stopTime && !m_EarlyStop)
             {
                 yield return null;
             }
