@@ -85,6 +85,7 @@
     <Compile Include="Assets\_Shapes\Scripts\Peak.cs" />
     <Compile Include="Assets\_Shapes\Scripts\Player.cs" />
     <Compile Include="Assets\_Shapes\Scripts\Shooter.cs" />
+    <Compile Include="Assets\_Shapes\Scripts\Singleton.cs" />
     <Compile Include="Assets\_Shapes\Scripts\Teleport.cs" />
     <Compile Include="Assets\_Shapes\Scripts\TileConstructor.cs" />
     <Compile Include="Assets\_Shapes\Scripts\Tools.cs" />
@@ -163,7 +164,6 @@
     <Compile Include="Assets\Energy Node\scripts\musicScript.cs" />
     <Compile Include="Assets\Energy Node\scripts\PanelMain.cs" />
     <Compile Include="Assets\Energy Node\scripts\SimpleJSON.cs" />
-    <Compile Include="Assets\Energy Node\scripts\Singleton.cs" />
     <Compile Include="Assets\Energy Node\scripts\StartSplash.cs" />
     <Compile Include="Assets\Energy Node\scripts\SwipeHandler.cs" />
     <Compile Include="Assets\Energy Node\scripts\TipPanel.cs" />
