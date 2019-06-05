@@ -15,7 +15,7 @@ public class TouchController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = Player.instance.transform.position;
+        transform.position = Player.instance.transform.position + new Vector3(0, 0, -100);
         
     }
 

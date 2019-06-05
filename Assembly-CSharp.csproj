@@ -87,6 +87,7 @@
     <Compile Include="Assets\_Shapes\Scripts\Shooter.cs" />
     <Compile Include="Assets\_Shapes\Scripts\Singleton.cs" />
     <Compile Include="Assets\_Shapes\Scripts\Teleport.cs" />
+    <Compile Include="Assets\_Shapes\Scripts\TeleportAnother.cs" />
     <Compile Include="Assets\_Shapes\Scripts\TileConstructor.cs" />
     <Compile Include="Assets\_Shapes\Scripts\Tools.cs" />
     <Compile Include="Assets\_Shapes\Scripts\TutorialManager.cs" />
@@ -122,6 +123,7 @@
     <Compile Include="Assets\AxeyWorks\PolyWorks\Poly Water\Scripts\Tools\MeshSubdivider.cs" />
     <Compile Include="Assets\AxeyWorks\PolyWorks\Poly Water\Scripts\Tools\NoSharedVertices.cs" />
     <Compile Include="Assets\AxeyWorks\PolyWorks\Poly Water\Scripts\WaveModel.cs" />
+    <Compile Include="Assets\ButtonView.cs" />
     <Compile Include="Assets\DungeonVoxels\Scripts\Knight.cs" />
     <Compile Include="Assets\DungeonVoxels\Scripts\LightFlicker.cs" />
     <Compile Include="Assets\DungeonVoxels\Scripts\SpikeTrap.cs" />
@@ -170,6 +172,16 @@
     <Compile Include="Assets\Energy Node\scripts\WinPanel.cs" />
     <Compile Include="Assets\ExampleScript.cs" />
     <Compile Include="Assets\Fat.cs" />
+    <Compile Include="Assets\JMO Assets\Cartoon FX\Demo\Assets\CFX_AutoStopLoopedEffect.cs" />
+    <Compile Include="Assets\JMO Assets\Cartoon FX\Demo\Assets\CFX_Demo_New.cs" />
+    <Compile Include="Assets\JMO Assets\Cartoon FX\Demo\Assets\CFX_Demo_RandomDir.cs" />
+    <Compile Include="Assets\JMO Assets\Cartoon FX\Demo\Assets\CFX_Demo_RandomDirectionTranslate.cs" />
+    <Compile Include="Assets\JMO Assets\Cartoon FX\Demo\Assets\CFX_Demo_RotateCamera.cs" />
+    <Compile Include="Assets\JMO Assets\Cartoon FX\Demo\Assets\CFX_Demo_Translate.cs" />
+    <Compile Include="Assets\JMO Assets\Cartoon FX\Scripts\CFX_AutoDestructShuriken.cs" />
+    <Compile Include="Assets\JMO Assets\Cartoon FX\Scripts\CFX_AutoRotate.cs" />
+    <Compile Include="Assets\JMO Assets\Cartoon FX\Scripts\CFX_LightFlicker.cs" />
+    <Compile Include="Assets\JMO Assets\Cartoon FX\Scripts\CFX_LightIntensityFade.cs" />
     <Compile Include="Assets\Let's Try Shooter\Scripts\CompletedScripts\RayCastShootComplete.cs" />
     <Compile Include="Assets\Let's Try Shooter\Scripts\CompletedScripts\RayViewerComplete.cs" />
     <Compile Include="Assets\Let's Try Shooter\Scripts\CompletedScripts\ShootableBox.cs" />
@@ -214,11 +226,13 @@
     <Compile Include="Assets\UltraMare\Minimalist Cartoon UI Pack\Scripts\StatsExample.cs" />
     <None Include="Assets\UltimateIsometricToolkit\Graphics\Misc\moreenemiesanimations\Spritesheets\alienGreen.xml" />
     <None Include="Assets\AxeyWorks\PolyWorks\Full Pack\Shaders\ToonShader\Shaders\AxeyWorksToonBasic.shader" />
+    <None Include="Assets\JMO Assets\Cartoon FX\Shaders\CFX3 Multiply Color.shader" />
     <None Include="Assets\2 Fire.shader" />
     <None Include="Assets\_Shapes\FX\2 Fire.shader" />
     <None Include="Assets\AxeyWorks\PolyWorks\Full Pack\Shaders\MobileDistortionShader\AxeyWorksMobDist.shader" />
     <None Include="Assets\Resources\Levels\Level1.txt" />
     <None Include="Assets\Resources\levels.txt" />
+    <None Include="Assets\JMO Assets\Cartoon FX\CartoonFX Free.txt" />
     <None Include="Assets\AxeyWorks\PolyWorks\Full Pack\Shaders\MobileDistortionShader\AxeyWorksMobDist.cginc" />
     <None Include="Assets\AxeyWorks\PolyWorks\Poly Water\Shaders\LowPolyWaterv2.shader" />
     <None Include="Assets\UltimateIsometricToolkit\Graphics\Misc\moreenemiesanimations\Spritesheets\alienBlue.xml" />
@@ -237,6 +251,7 @@
     <None Include="Assets\Resources\Levels\Level8.txt" />
     <None Include="Assets\AxeyWorks\PolyWorks\Full Pack\Shaders\ToonShader\Shaders\AxeyWorksToonBasicOutline.shader" />
     <None Include="Assets\UltimateIsometricToolkit\License.txt" />
+    <None Include="Assets\JMO Assets\Cartoon FX Easy Editor\CartoonFX Easy Editor Readme.txt" />
     <None Include="Assets\_Shapes\Fonts\OFL.txt" />
     <None Include="Assets\Resources\Levels\Level11.txt" />
     <None Include="Assets\DOTween\readme.txt" />

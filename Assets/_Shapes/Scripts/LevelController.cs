@@ -8,8 +8,8 @@ public class LevelController : MonoBehaviour
 {
     public static LevelController instance;
     //---------------------------------
-    public static int level = 1; //18
-    public static int skin = 1;
+    public static int level = 11; //18
+    public static int skin = 2;
     //---------------------------------
 
     public static int tileSize = 30;
@@ -56,7 +56,7 @@ public class LevelController : MonoBehaviour
     
     public void create (List<Vector2> list, GameObject prefab, Transform parent,List<Vector2> listSize = null) {
         GameController.logTime("create " + prefab.name);
-
+        //for skins
         if (prefab.name == "TilePrefab" || prefab.name == "Decor0" || prefab.name == "DangerWallPrefab") {
 
             foreach (Transform c in prefab.transform) {
@@ -72,7 +72,7 @@ public class LevelController : MonoBehaviour
         int counter = 0;
 
         foreach (Vector2 point in list) {
-            if (skin == 2 && prefab.name == "Decor0") {
+            if ((skin == 0 || skin == 2) && prefab.name == "Decor0") {
                 int r = UnityEngine.Random.Range(0, 2);
                 //Debug.Log(r);
                 prefab.transform.GetChild(skin).GetChild(0).gameObject.SetActive(false);
@@ -131,6 +131,8 @@ public class LevelController : MonoBehaviour
             create(levelData.shooter1, prefabs.GetChild(15).gameObject, tileField);
             create(levelData.shooter2, prefabs.GetChild(16).gameObject, tileField);
             create(levelData.shooter3, prefabs.GetChild(17).gameObject, tileField);
+            create(levelData.teleportAnother1, prefabs.GetChild(18).gameObject, tileField);
+            create(levelData.teleportAnother2, prefabs.GetChild(19).gameObject, tileField);
             /*
             create(levelData.tiles, tilePrefab, tileField);
             create(levelData.coins, coinPrefab, tileField);
@@ -151,6 +153,10 @@ public class LevelController : MonoBehaviour
     public static void addLevel () {
         level ++;
         PlayerPrefs.GetInt("LEVEL", level);
+    }
+
+    public void centerLevelPS(Vector3 pos) {
+        psBg.GetComponent<IsoTransform>().Position = pos;
     }
 }
 [Serializable]
@@ -175,6 +181,8 @@ public class LevelData {
     [SerializeField] public List<Vector2> shooter1 = new List<Vector2>();
     [SerializeField] public List<Vector2> shooter2 = new List<Vector2>();
     [SerializeField] public List<Vector2> shooter3 = new List<Vector2>();
+    [SerializeField] public List<Vector2> teleportAnother1 = new List<Vector2>();
+    [SerializeField] public List<Vector2> teleportAnother2 = new List<Vector2>();
 }
 
 /// <summary>

@@ -84,7 +84,7 @@ public class CharsUI : MonoBehaviour, IBeginDragHandler, IEndDragHandler {
         else if (isAvailable(id)) buttons.Find("Select").gameObject.SetActive(true);
         else {
             if (GameController.instance.chars[id].vip)
-                buttons.Find("Vip").gameObject.SetActive(true);
+                buttons.Find("VipButton").gameObject.SetActive(true);
             else {
                 buttons.Find("Price").gameObject.SetActive(true);
                 buttons.Find("Price/Price/Text").GetComponent<Text>().text = GameController.instance.chars[id].price.ToString();

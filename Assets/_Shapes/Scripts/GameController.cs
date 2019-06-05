@@ -28,8 +28,13 @@ public class GameController : MonoBehaviour {
     public GameObject tutorial;
     public List<Character> chars;
 
+    [Header("Buttons")]
+    public Color32[] colorsBg;
+    public Color32[] colorsBgVip;
+
     // Start is called before the first frame update
     private void Awake() {
+        Debug.Log("GameController Awake");
         instance = this;
         awakeScene();
     }
@@ -164,6 +169,8 @@ public class GameController : MonoBehaviour {
 
         restart();
     }
+
+
 }
 
 [Serializable]

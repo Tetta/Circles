@@ -72,6 +72,8 @@ public class LevelConstructor : MonoBehaviour
                 create(levelData.shooter1, prefabs[15], tileField);
                 create(levelData.shooter2, prefabs[16], tileField);
                 create(levelData.shooter3, prefabs[17], tileField);
+                create(levelData.teleportAnother1, prefabs[18], tileField);
+                create(levelData.teleportAnother2, prefabs[19], tileField);
 
             }
         }
@@ -116,6 +118,8 @@ public class LevelConstructor : MonoBehaviour
             levelData.shooter1.Remove(v);
             levelData.shooter2.Remove(v);
             levelData.shooter3.Remove(v);
+            levelData.teleportAnother1.Remove(v);
+            levelData.teleportAnother2.Remove(v);
         }
         else {
 
@@ -144,6 +148,9 @@ public class LevelConstructor : MonoBehaviour
             if (toggleNumber == 15) levelData.shooter1.Add(v);
             if (toggleNumber == 16) levelData.shooter2.Add(v);
             if (toggleNumber == 17) levelData.shooter3.Add(v);
+            if (toggleNumber == 18) levelData.teleportAnother1.Add(v);
+            if (toggleNumber == 19) levelData.teleportAnother2.Add(v);
+
         }
         save(LevelController.level);
     }
@@ -189,13 +196,11 @@ public class LevelConstructor : MonoBehaviour
 
     public static void load(int level) {
 
+        //from resources -----------------
+        /*
         string levelsTxt = Tools.LoadAsText("Levels/Level" + level, "gd");
         Debug.Log(levelsTxt);
         XmlSerializer bf = new XmlSerializer(typeof(LevelData));
-        
-        //FileStream file = File.Open(Application.persistentDataPath + "/Level" + level + ".gd", FileMode.Open);
-        //levelData = (LevelData)bf.Deserialize(levelsTxt);
-        //bf.Deserialize("sdfsdf");
         using (TextReader reader = new StringReader(levelsTxt)) {
             levelData = (LevelData)bf.Deserialize(reader);
         }
@@ -204,8 +209,24 @@ public class LevelConstructor : MonoBehaviour
         //file.Close();
 
         LevelController.levelLoaded = LevelController.level;
+        */
+        //------------------------
 
-        /*
+
+
+        //FileStream file = File.Open(Application.persistentDataPath + "/Level" + level + ".gd", FileMode.Open);
+        //levelData = (LevelData)bf.Deserialize(levelsTxt);
+        //bf.Deserialize("sdfsdf");
+        //using (TextReader reader = new StringReader(levelsTxt)) {
+        //    levelData = (LevelData)bf.Deserialize(reader);
+        //}
+
+        //LevelController.levelData = levelData;
+        //file.Close();
+
+        //LevelController.levelLoaded = LevelController.level;
+
+        
         if (File.Exists(Application.persistentDataPath + "/Level" + level + ".gd")) {
             //BinaryFormatter bf = new BinaryFormatter();
             XmlSerializer bf = new XmlSerializer(typeof(LevelData));
@@ -216,7 +237,7 @@ public class LevelConstructor : MonoBehaviour
 
             LevelController.levelLoaded = LevelController.level;
         }
-        */
+        
     }
 
 

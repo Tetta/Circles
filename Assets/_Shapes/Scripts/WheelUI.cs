@@ -20,7 +20,7 @@ public class WheelUI : MonoBehaviour
 
 
     private void OnEnable() {
-        wheelCircle.angularVelocity = 3345;
+        wheelCircle.angularVelocity = 4000;
         wheelCircle.angularDrag = 2;
 
         started = true;
@@ -42,7 +42,7 @@ public class WheelUI : MonoBehaviour
             else Debug.Log("reward: " + rewards[id]);
 
             peaces.GetChild(id).GetComponent<Image>().DOColor(Color.blue, 0.1f).SetLoops(10, LoopType.Yoyo).OnComplete(() =>{
-                GameController.instance.restart();
+                //GameController.instance.restart();
             });
 
         }

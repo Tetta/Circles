@@ -42,6 +42,7 @@ public class WinUI : MonoBehaviour
         tapText.color = new Color32(255, 255, 255, 0);
         tapText.DOColor(new Color32(255, 255, 255, 0), 2).OnComplete(() => {
 
+            Debug.Log("tapText.DOColor OnComplete");
             if (!freeGift) tapText.DOColor(new Color32(255, 255, 255, 255), 1);
         });
 
@@ -86,6 +87,7 @@ public class WinUI : MonoBehaviour
 
         GameController.enableObg(giftButtons, 2);
         //if (LevelController.level == 1 || LevelController.level == 2) PlayerPrefs.SetInt("FREE_GIFT_" + LevelController.level, 1);
+        tapText.DOKill();
         tapText.color = new Color32(255, 255, 255, 255);
     }
 

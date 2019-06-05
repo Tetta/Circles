@@ -155,6 +155,7 @@ public class Decor : MonoBehaviour
         GameController.logTime("decor create start");
 
         List<Vector2> tiles = LevelController.levelData.tiles;
+        tiles.AddRange(LevelController.levelData.dangers);
 
         dPos = new List<Vector2>();
         dSize = new List<Vector2>();
@@ -170,6 +171,8 @@ public class Decor : MonoBehaviour
             if (tile.y < yMin) yMin = (int)tile.y;
             if (tile.y > yMax) yMax = (int)tile.y;
         }
+
+        LevelController.instance.centerLevelPS(new Vector3((xMax + xMin) / 2, (yMax + yMin) / 2, 0));
 
         xMin -= 10;
         xMax += 10;

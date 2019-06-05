@@ -28,8 +28,11 @@ public class Player : MonoBehaviour
     float speed = 25f;
     //public static int lives;
 
+    int imageSide = 0;
     void Start()
     {
+        //Time.timeScale = 0.1f;
+
         instance = this;
         pos = LevelController. levelData.start[0];
         move((Vector3)pos + new Vector3(0, 0, 1));
@@ -38,6 +41,7 @@ public class Player : MonoBehaviour
         GetComponent<Animator>().Play("PlayerIdle");
 
         changeChar();
+
     }
     void OnMouseDown() {
         if (state == State.Stay) {
@@ -68,26 +72,29 @@ public class Player : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.UpArrow) || directionName == Direction.Up) {
                 f = true;
                 direction = new Vector3(0, 1);
-
-                changeSprite(0);
+                imageSide = 0;
+                //changeSprite(0);
             }
             if (Input.GetKeyDown(KeyCode.DownArrow) || directionName == Direction.Down) {
                 f = true;
                 direction = new Vector3(0,  -1);
+                imageSide = 1;
 
-                changeSprite(1);
+                //changeSprite(1);
 
             }
             if (Input.GetKeyDown(KeyCode.LeftArrow) || directionName == Direction.Left) {
                 f = true;
                 direction = new Vector3(-1,  0);
-                changeSprite(2);
+                imageSide = 2;
+                //changeSprite(2);
 
             }
             if (Input.GetKeyDown(KeyCode.RightArrow) || directionName == Direction.Right) {
                 f = true;
                 direction = new Vector3(1,  0);
-                changeSprite(3);
+                imageSide = 3;
+                //changeSprite(3);
 
             }
         }
@@ -119,7 +126,7 @@ public class Player : MonoBehaviour
 
             f = false;
             state = State.Run;
-
+            changeSprite(imageSide, (pos - (Vector2)GetComponent<IsoTransform>().Position).magnitude);
         }
         if (state == State.Run) {
 
@@ -129,20 +136,26 @@ public class Player : MonoBehaviour
 
             if (diffV.x < 0 || diffV.y < 0) {
                 move((Vector3)pos + new Vector3(0, 0, 1));
+
+
                 //if teleport => change direction
                 if (Teleport.checkTeleport(pos, dirTemp)) {
                     speed = 40;
 
+                } //else if (TeleportAnother.checkTeleport(pos, dirTemp)) {
+                else if (TeleportAnother.checkTeleport(pos, dirTemp).z != 100) {
+                    pos = TeleportAnother.checkTeleport(pos, dirTemp);
+                    move((Vector3)pos + new Vector3(0, 0, 1));
+
                 }
-                else
-                {
+                else {
 
                     onStopPlayer();
                 }
 
-                
+                Handheld.Vibrate();
                 state = State.Stay;
-                
+
             } else
                 move((Vector3)nextPos + new Vector3(0, 0, 1));
         }
@@ -155,8 +168,8 @@ public class Player : MonoBehaviour
         cameraMain.position = transform.position;
     }
 
-    private void changeSprite(int s) {
-        //Debug.Log("changeSprite");
+    private void changeSprite(int s, float magnitude) {
+        Debug.Log("changeSprite magnitude: " + magnitude);
         foreach (Transform child in images) {
             child.gameObject.SetActive(false);
         }
@@ -170,8 +183,19 @@ public class Player : MonoBehaviour
         //GetComponent<Animator>().Play("Empty");
         GetComponent<Animator>().enabled = false;
         //resize images
-        images.DOScaleY(0.8f, 0.05f);
-        images.gameObject.transform.DOLocalMoveY(-0.172f, 0.05f);
+        //scale 0.1 == moveY -0.086
+        images.DOKill();
+        float scale = 0.1f * (magnitude) / 2;
+        if (scale > 0.2) scale = 0.2f;
+        
+        images.DOScaleY(1 - scale, 0.05f);  
+
+        float moveY = -0.086f * (magnitude) / 2;
+        if (moveY < -0.172f) moveY = -0.172f;
+        Debug.Log(1- scale);
+        Debug.Log(moveY);
+
+        images.gameObject.transform.DOLocalMoveY(moveY, 0.05f);
     }
 
     void onStopPlayer () {
@@ -179,18 +203,18 @@ public class Player : MonoBehaviour
         foreach (Transform child in psTrail) {
             child.gameObject.SetActive(false);
         }
-
+        images.DOKill();
         //resize images
+        
         images.gameObject.transform.DOScaleY(1, 0.05f).OnComplete(() => {
-            GetComponent<Animator>().Rebind();
-            GetComponent<Animator>().enabled = true;
-            //GetComponent<Animator>().Play("PlayerIdle");
+            //GetComponent<Animator>().Rebind();
+            //GetComponent<Animator>().enabled = true;
+            
         });
-
         images.DOLocalMove(new Vector3(0, 0, 0), 0.05f);
 
         
-        //GetComponent<Animator>().Play("PlayerIdle");
+
     }
 
 
@@ -241,7 +265,7 @@ public class Player : MonoBehaviour
 
             Debug.Log("IEnumerator death start");
             images.gameObject.SetActive(false);
-
+            state = State.Death;
             psDeath.Play();
             yield return new WaitForSeconds(0.7f);
             GameController.instance.showScreen("GameoverUI");
@@ -264,6 +288,8 @@ public class Player : MonoBehaviour
             child.GetComponent<SpriteRenderer>().color = new Color32(255, 255, 255, 255);
         }
         GetComponent<Collider2D>().enabled = true;
+        state = State.Stay;
+
     }
 
     public void changeChar () {
@@ -279,7 +305,9 @@ public class Player : MonoBehaviour
 
         Stay = 0,
 
-        Run = 1
+        Run = 1,
+        Death = 2
+
 
     }
     public enum Direction {
