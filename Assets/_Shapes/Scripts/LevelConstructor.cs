@@ -197,8 +197,8 @@ public class LevelConstructor : MonoBehaviour
     public static void load(int level) {
 
         //from resources -----------------
-        /*
-        string levelsTxt = Tools.LoadAsText("Levels/Level" + level, "gd");
+#if UNITY_IOS
+        string levelsTxt = Tools.LoadAsText("Levels/Level" + level, "txt");
         Debug.Log(levelsTxt);
         XmlSerializer bf = new XmlSerializer(typeof(LevelData));
         using (TextReader reader = new StringReader(levelsTxt)) {
@@ -209,7 +209,7 @@ public class LevelConstructor : MonoBehaviour
         //file.Close();
 
         LevelController.levelLoaded = LevelController.level;
-        */
+#else      
         //------------------------
 
 
@@ -237,7 +237,8 @@ public class LevelConstructor : MonoBehaviour
 
             LevelController.levelLoaded = LevelController.level;
         }
-        
+#endif
+
     }
 
 
