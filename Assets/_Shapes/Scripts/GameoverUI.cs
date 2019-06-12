@@ -75,6 +75,7 @@ public class GameoverUI : MonoBehaviour
     }
 
     public void noThanksClick() {
+        if (LevelController.level == 5) AdController.ShowInterstitial();
         GameController.instance.restart();
     }
 

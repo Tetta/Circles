@@ -59,7 +59,7 @@ public class AdController : MonoBehaviour, IInterstitialAdListener, IRewardedVid
 
     #endregion
 
-    public void ShowInterstitial() {
+    public static void ShowInterstitial() {
         Debug.Log("ShowInterstitial");
         if (IsInterstitialReady) {
             Pause(true);

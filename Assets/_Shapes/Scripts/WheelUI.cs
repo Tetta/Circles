@@ -44,7 +44,8 @@ public class WheelUI : MonoBehaviour
         if (GameController.instance.skinsBg.gameObject.activeSelf) GameController.instance.showScreen("MainUI");
         else
             //GameController.instance.showScreen("WinUI");
-        GameController.instance.restart();
+        //GameController.instance.restart();
+        WinUI.instance.continueClick();
     }
 
 }

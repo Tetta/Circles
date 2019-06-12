@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using DG.Tweening;
 public class WinUI : MonoBehaviour
 {
+    public static WinUI instance;
     public Text levelText;
     public Text gemsCountText;
     public Text tapText;
@@ -20,6 +21,7 @@ public class WinUI : MonoBehaviour
     //bool shown;
     private void Awake() {
         //shown = false;
+        instance = this;
     }
 
     // Start is called before the first frame update
@@ -95,7 +97,9 @@ public class WinUI : MonoBehaviour
 
 
     public void continueClick() {
+        if (LevelController.level == 5) AdController.ShowInterstitial();
         GameController.instance.restart();
+
     }
 
 
