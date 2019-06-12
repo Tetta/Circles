@@ -145,7 +145,7 @@ public class CharsUI : MonoBehaviour, IBeginDragHandler, IEndDragHandler {
         }
 
     }
-    bool isAvailable (int id) {
+    public static bool isAvailable (int id) {
         if (id == 0) return true;
         if (GameController.instance.chars[id].vip) return IAPManager.vip;
         

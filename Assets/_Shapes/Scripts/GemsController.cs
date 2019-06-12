@@ -41,4 +41,11 @@ public class GemsController : Singleton<GemsController> {
 
         return true;
     }
+
+    public static bool availableBuyChar () {
+        foreach (Character character in GameController.instance.chars) {
+            if (!CharsUI.isAvailable(character.id) && !character.vip && gems >= character.price) return true;
+        }
+        return false;
+    }
 }

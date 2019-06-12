@@ -8,7 +8,7 @@ public class LevelController : MonoBehaviour
 {
     public static LevelController instance;
     //---------------------------------
-    public static int level = 11; //18
+    public static int level = 25; //18
     public static int skin = 2;
     //---------------------------------
 
@@ -59,13 +59,23 @@ public class LevelController : MonoBehaviour
         //for skins
         if (prefab.name == "TilePrefab" || prefab.name == "Decor0" || prefab.name == "DangerWallPrefab") {
 
-            foreach (Transform c in prefab.transform) {
+            int localCounter = 0;
+            //foreach (Transform c in prefab.transform) {
+            for (int i =  0; i < prefab.transform.childCount; i ++) {
+                Transform c = prefab.transform.GetChild(i);
                 //Debug.Log(c.name);
-                c.gameObject.SetActive(false);
+
+                //c.gameObject.SetActive(false);
+                if (localCounter != skin) {
+                    //Debug.Log(c.name);
+                    DestroyImmediate (c.gameObject);
+                    i--;
+                }
+                localCounter++;
             }
             //Debug.Log(prefab.name);
-
-            prefab.transform.GetChild(skin).gameObject.SetActive(true);
+            prefab.transform.GetChild(0).gameObject.SetActive(true);
+            //prefab.transform.GetChild(skin).gameObject.SetActive(true);
 
         }
 
@@ -75,9 +85,9 @@ public class LevelController : MonoBehaviour
             if ((skin == 0 || skin == 2) && prefab.name == "Decor0") {
                 int r = UnityEngine.Random.Range(0, 2);
                 //Debug.Log(r);
-                prefab.transform.GetChild(skin).GetChild(0).gameObject.SetActive(false);
-                prefab.transform.GetChild(skin).GetChild(1).gameObject.SetActive(false);
-                prefab.transform.GetChild(skin).GetChild(r).gameObject.SetActive(true);
+                prefab.transform.GetChild(0).GetChild(0).gameObject.SetActive(false);
+                prefab.transform.GetChild(0).GetChild(1).gameObject.SetActive(false);
+                prefab.transform.GetChild(0).GetChild(r).gameObject.SetActive(true);
 
             }
 

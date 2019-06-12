@@ -610,10 +610,6 @@
       <y>-2</y>
     </Vector2>
     <Vector2>
-      <x>4</x>
-      <y>-2</y>
-    </Vector2>
-    <Vector2>
       <x>5</x>
       <y>-2</y>
     </Vector2>
@@ -852,10 +848,6 @@
     <Vector2>
       <x>-6</x>
       <y>-3</y>
-    </Vector2>
-    <Vector2>
-      <x>-6</x>
-      <y>-4</y>
     </Vector2>
     <Vector2>
       <x>-6</x>
@@ -1082,10 +1074,6 @@
       <y>4</y>
     </Vector2>
     <Vector2>
-      <x>10</x>
-      <y>2</y>
-    </Vector2>
-    <Vector2>
       <x>11</x>
       <y>2</y>
     </Vector2>
@@ -1107,6 +1095,18 @@
     </Vector2>
     <Vector2>
       <x>-10</x>
+      <y>2</y>
+    </Vector2>
+    <Vector2>
+      <x>4</x>
+      <y>-2</y>
+    </Vector2>
+    <Vector2>
+      <x>-6</x>
+      <y>-4</y>
+    </Vector2>
+    <Vector2>
+      <x>10</x>
       <y>2</y>
     </Vector2>
   </tiles>
@@ -1403,10 +1403,6 @@
     </Vector2>
     <Vector2>
       <x>-6</x>
-      <y>-4</y>
-    </Vector2>
-    <Vector2>
-      <x>-6</x>
       <y>-3</y>
     </Vector2>
     <Vector2>
@@ -2005,6 +2001,10 @@
       <x>-10</x>
       <y>2</y>
     </Vector2>
+    <Vector2>
+      <x>-6</x>
+      <y>-4</y>
+    </Vector2>
   </dots>
   <dangers />
   <birds />
@@ -2124,10 +2124,6 @@
     </Vector2>
     <Vector2>
       <x>10</x>
-      <y>2</y>
-    </Vector2>
-    <Vector2>
-      <x>10</x>
       <y>3</y>
     </Vector2>
     <Vector2>
@@ -2207,4 +2203,6 @@
       <y>-14</y>
     </Vector2>
   </shooter3>
+  <teleportAnother1 />
+  <teleportAnother2 />
 </LevelData>

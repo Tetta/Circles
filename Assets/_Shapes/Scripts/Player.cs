@@ -12,10 +12,11 @@ public class Player : MonoBehaviour
     
 
     public Transform images;
+    public ParticleSystem psEnable;
     public ParticleSystem psDeath;
     public Transform psTrail;
     public Transform cameraMain;
-
+    
 
     Vector2 pos;
     Vector2 direction;
@@ -24,9 +25,10 @@ public class Player : MonoBehaviour
     bool mouseDrag;
     Vector3 mousePos;
 
-    Direction dirTemp = Direction.None;
-    float speed = 25f;
+    public static Direction dirTemp = Direction.None;
+    public static float speed = 25f;
     //public static int lives;
+    bool isDangerDeath = false;
 
     int imageSide = 0;
     void Start()
@@ -41,6 +43,7 @@ public class Player : MonoBehaviour
         GetComponent<Animator>().Play("PlayerIdle");
 
         changeChar();
+
 
     }
     void OnMouseDown() {
@@ -116,8 +119,9 @@ public class Player : MonoBehaviour
                 }
                 else if (LevelController.levelData.dangers.Contains(tempPos)) {
                     flag = false;
-                    Debug.Log("------- Failed!!! -------------");
-                    StartCoroutine(death());
+                    //Debug.Log("------- Failed!!! -------------");
+                    //StartCoroutine(death());
+                    isDangerDeath = true;
                 }
                 else
                     flag = false;
@@ -137,13 +141,19 @@ public class Player : MonoBehaviour
             if (diffV.x < 0 || diffV.y < 0) {
                 move((Vector3)pos + new Vector3(0, 0, 1));
 
+                //if danger
+                if (isDangerDeath && GetComponent<Collider2D>().enabled) {
+                    Debug.Log("------- Failed!!! -------------");
+                    StartCoroutine(death());
+                }
 
                 //if teleport => change direction
-                if (Teleport.checkTeleport(pos, dirTemp)) {
+                else if (Teleport.checkTeleport2(pos, dirTemp)) {
                     speed = 40;
-
-                } //else if (TeleportAnother.checkTeleport(pos, dirTemp)) {
-                else if (TeleportAnother.checkTeleport(pos, dirTemp).z != 100) {
+                
+                } 
+                else 
+                if (TeleportAnother.checkTeleport(pos, dirTemp).z != 100) {
                     pos = TeleportAnother.checkTeleport(pos, dirTemp);
                     move((Vector3)pos + new Vector3(0, 0, 1));
 
@@ -153,7 +163,7 @@ public class Player : MonoBehaviour
                     onStopPlayer();
                 }
 
-                Handheld.Vibrate();
+                Taptic.Medium();
                 state = State.Stay;
 
             } else
@@ -173,6 +183,7 @@ public class Player : MonoBehaviour
         foreach (Transform child in images) {
             child.gameObject.SetActive(false);
         }
+
         images.GetChild(s).gameObject.SetActive(true);
         //ps trail
         foreach (Transform child in psTrail) {
@@ -192,8 +203,8 @@ public class Player : MonoBehaviour
 
         float moveY = -0.086f * (magnitude) / 2;
         if (moveY < -0.172f) moveY = -0.172f;
-        Debug.Log(1- scale);
-        Debug.Log(moveY);
+        //Debug.Log(1- scale);
+        //Debug.Log(moveY);
 
         images.gameObject.transform.DOLocalMoveY(moveY, 0.05f);
     }
@@ -207,8 +218,8 @@ public class Player : MonoBehaviour
         //resize images
         
         images.gameObject.transform.DOScaleY(1, 0.05f).OnComplete(() => {
-            //GetComponent<Animator>().Rebind();
-            //GetComponent<Animator>().enabled = true;
+            GetComponent<Animator>().Rebind();
+            GetComponent<Animator>().enabled = true;
             
         });
         images.DOLocalMove(new Vector3(0, 0, 0), 0.05f);
@@ -232,36 +243,41 @@ public class Player : MonoBehaviour
         else if (collision.gameObject.name == "BirdPrefab(Clone)") {
             Debug.Log("------- Failed!!! Bird -------------");
 
-            collision.gameObject.SetActive(false);
+            //collision.gameObject.SetActive(false);
             StartCoroutine(death());
         }
         else if (collision.gameObject.name == "Shoot") {
             Debug.Log("------- Failed!!! Shoot -------------");
 
-            StartCoroutine( death());
+            StartCoroutine(death());
         }
         else if (collision.transform.gameObject.name == "ExitPrefab(Clone)") {
             Debug.Log("------- Exit!!! -------------");
+            hideChar();
+           
 
-            GameController.instance.complete();
-            
         }
         else if (collision.transform.parent.parent.gameObject.name == "FatPrefab(Clone)") {
             Debug.Log("------- Failed!!! Fat -------------");
 
             StartCoroutine(death());
         }
+        //else Teleport.checkTeleport(collision.transform.gameObject.name);
 
     }
 
     public IEnumerator death() {
+        onStopPlayer(); 
+        //bug transform player
         GetComponent<Collider2D>().enabled = false;
-
         if (GameController.instance.lives > 0) {
             Debug.Log("minusLives");
             GameController.instance.minusLives();
             revive();
-        } else { 
+        } else {
+
+            //ps trail
+            //GameController.enableObg(psTrail, -1);
 
             Debug.Log("IEnumerator death start");
             images.gameObject.SetActive(false);
@@ -269,6 +285,8 @@ public class Player : MonoBehaviour
             psDeath.Play();
             yield return new WaitForSeconds(0.7f);
             GameController.instance.showScreen("GameoverUI");
+
+
         }
 
     }
@@ -278,8 +296,12 @@ public class Player : MonoBehaviour
     }
     public IEnumerator reviveCoroutine() {
         Debug.Log("IEnumerator revive start");
+        GameController.levelPaused = false;
         GameController.instance.showScreen("GameUI");
+        move(new Vector3((int)GetComponent<IsoTransform>().Position.x, (int)GetComponent<IsoTransform>().Position.y, (int)GetComponent<IsoTransform>().Position.z));
+        
         images.gameObject.SetActive(true);
+        state = State.Stay;
         foreach (Transform child in images) {
             child.GetComponent<SpriteRenderer>().color = new Color32(255, 255, 255, 150);
         }
@@ -288,8 +310,8 @@ public class Player : MonoBehaviour
             child.GetComponent<SpriteRenderer>().color = new Color32(255, 255, 255, 255);
         }
         GetComponent<Collider2D>().enabled = true;
-        state = State.Stay;
 
+        isDangerDeath = false;
     }
 
     public void changeChar () {
@@ -301,6 +323,23 @@ public class Player : MonoBehaviour
         GameController.instance.playerMainMenu.sprite = GameController.instance.chars[GameController.charId].sprites[2];
     }
 
+    public void showChar () {
+        psEnable.Play();
+        images.GetChild(0).GetComponent<SpriteRenderer>().color = new Color32(255, 255, 255, 0);
+        images.GetChild(0).GetComponent<SpriteRenderer>().DOColor(new Color32(255, 255, 255, 0), 0.15f).OnComplete(() => {
+            images.GetChild(0).GetComponent<SpriteRenderer>().DOColor(new Color32(255, 255, 255, 255), 0.15f); });
+        
+    }
+    public void hideChar() {
+        psEnable.Play();
+        //images.GetChild(0).GetComponent<SpriteRenderer>().color = new Color32(255, 255, 255, 0);
+        images.GetChild(0).GetComponent<SpriteRenderer>().DOColor(new Color32(255, 255, 255, 255), 0.15f).OnComplete(() => {
+            images.GetChild(0).GetComponent<SpriteRenderer>().DOColor(new Color32(255, 255, 255, 0), 0.15f).OnComplete(() => {
+                GameController.instance.complete();
+            });
+        });
+
+    }
     public enum State {
 
         Stay = 0,

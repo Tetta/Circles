@@ -49,8 +49,44 @@ public class Teleport : MonoBehaviour
     {
 
     }
+    public static bool checkTeleport(string title) {
+        Debug.Log("checkTeleport: " + title);
 
-    public static bool checkTeleport (Vector2 pos, Player.Direction dirTemp) {
+        bool isTeleport = false;
+        if (title == "TeleportPrefab1(Clone)") {
+            if (Player.dirTemp == Player.Direction.Up) Player.directionName = Player.Direction.Right;
+            if (Player.dirTemp == Player.Direction.Left) Player.directionName = Player.Direction.Down;
+            isTeleport = true;
+        }
+        else if (title == "TeleportPrefab2(Clone)") {
+            if (Player.dirTemp == Player.Direction.Up) Player.directionName = Player.Direction.Left;
+            if (Player.dirTemp == Player.Direction.Right) Player.directionName = Player.Direction.Down;
+
+            isTeleport = true;
+        }
+        else if(title == "TeleportPrefab3(Clone)") {
+            if (Player.dirTemp == Player.Direction.Down) Player.directionName = Player.Direction.Right;
+            if (Player.dirTemp == Player.Direction.Left) Player.directionName = Player.Direction.Up;
+            isTeleport = true;
+
+        }
+        else if(title == "TeleportPrefab4(Clone)") {
+            if (Player.dirTemp == Player.Direction.Down) Player.directionName = Player.Direction.Left;
+            if (Player.dirTemp == Player.Direction.Right) Player.directionName = Player.Direction.Up;
+            isTeleport = true;
+
+        }
+        if (isTeleport) {
+            Player.speed = 40;
+            Player.state = Player.State.Stay;
+            return true;
+        }
+
+
+        return false;
+
+    }
+    public static bool checkTeleport2 (Vector2 pos, Player.Direction dirTemp) {
         if (LevelController.levelData.teleport1.Contains(pos)) {
             if (dirTemp == Player.Direction.Up) Player.directionName = Player.Direction.Right;
             if (dirTemp == Player.Direction.Left) Player.directionName = Player.Direction.Down;

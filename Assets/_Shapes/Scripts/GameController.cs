@@ -14,6 +14,9 @@ public class GameController : MonoBehaviour {
 
     [Header("MainUI")]
     public Text levelText;
+    public Button giftButton;
+    public Text giftTimerText;
+    public GameObject CharButtonBadge;
 
     [Header("UI Skins")]
     //UI Skins
@@ -45,6 +48,8 @@ public class GameController : MonoBehaviour {
     }
     private void Update() {
         //GameController.logTime("update");
+        if (TimerManager.timers["gift"].enable)
+            giftTimerText.text = TimerManager.timers["gift"].timer.Hours.ToString("00") + ":" + TimerManager.timers["gift"].timer.Minutes.ToString("00") + ":" + TimerManager.timers["gift"].timer.Seconds.ToString("00");
 
     }
 
@@ -67,10 +72,31 @@ public class GameController : MonoBehaviour {
         enableObg(skinsBg, LevelController.skin);
         enableObg(tileMainMenu, LevelController.skin);
 
+
         levelText.text = "LEVEL " + LevelController.level;
 
+        //gift wheel
+        //fix 4 * 60 * 60
+        TimerManager.timers["gift"] = new Timer("gift", 20, updateGiftButton);
+        //first launch
+        if (PlayerPrefs.GetInt("USER_GROUP", 0) == 0) {
+            PlayerPrefs.SetInt("USER_GROUP", UnityEngine.Random.Range(1, 10));
+            //gift
+            TimerManager.timers["gift"].init(true);
+            updateGiftButton();
+        }
 
+        //char badge
+        //CharButtonBadge.SetActive(GemsController.availableBuyChar());
     }
+
+    public void updateGiftButton () {
+        bool giftEnable = !TimerManager.timers["gift"].enable;
+        giftButton.interactable = giftEnable;
+        giftTimerText.text = "GET GIFT!";
+        giftButton.GetComponent<Animator>().enabled = giftEnable;
+    }
+
     void startLevel () {
         Debug.Log("startLevel");
         levelStarted = true;
@@ -84,7 +110,7 @@ public class GameController : MonoBehaviour {
         TutorialManager.step = -1;
         tutorial.SetActive(LevelController.level == 1);
 
-        
+        Player.instance.showChar();
     }
 
     //public IEnumerator complete () {
@@ -105,13 +131,16 @@ public class GameController : MonoBehaviour {
             //else 
             
                 //if (!(screen.Key == "Level" && title == "GameoverUI"))
-                    screen.Value.SetActive(false);
+                   // if (title != "WheelUI")
+                screen.Value.SetActive(false);
         }
         //if (title == "Level") screens[title].transform.position = new Vector3(0, 0, 0);
         screens[title].SetActive(true);
         //if (screens["GameoverUI"].activeSelf) screens["Level"].SetActive(true);
         //if (screens["Level"].transform.position == new Vector3(0, 0, 0)) screens["GameUI"].SetActive(true);
-
+        
+        //char badge
+        if (title == "MainUI") CharButtonBadge.SetActive(GemsController.availableBuyChar());
     }
 
 
@@ -146,7 +175,7 @@ public class GameController : MonoBehaviour {
     public static void enableObg(Transform t, int id) {
         foreach (Transform child in t) {
             if (child.GetSiblingIndex() != id) child.gameObject.SetActive(false);
-            else child.gameObject.SetActive(true);
+            else if (id != -1) child.gameObject.SetActive(true);
         }
     }
 
@@ -161,7 +190,7 @@ public class GameController : MonoBehaviour {
     }
     public void changeLevel() {
         LevelController.level++;
-        if (LevelController.level > 8) LevelController.level = 1;
+        if (LevelController.level > 19) LevelController.level = 1;
         restart();
     }
     public void disableDecor() {

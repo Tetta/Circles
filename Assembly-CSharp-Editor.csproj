@@ -87,6 +87,7 @@
     <Compile Include="Assets\Editor\AppodealPreProcess.cs" />
     <Compile Include="Assets\Editor\LabirintMenu.cs" />
     <Compile Include="Assets\Energy Node\scripts\Localization\Editor\LocalizationInpector.cs" />
+    <Compile Include="Assets\GB_SpinWheel\Scripts\Editor\SpinWheelEditor.cs" />
     <Compile Include="Assets\JMO Assets\Cartoon FX Easy Editor\Editor\CFXEasyEditor.cs" />
     <Compile Include="Assets\UltimateIsometricToolkit\Editor\ExposeProperties.cs" />
     <Compile Include="Assets\UltimateIsometricToolkit\Editor\IsoSnapping.cs" />

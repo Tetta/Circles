@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LevelData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<?xml version="1.0"?>
+<LevelData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <tiles>
     <Vector2>
       <x>8</x>
@@ -130,10 +130,6 @@
       <y>-6</y>
     </Vector2>
     <Vector2>
-      <x>2</x>
-      <y>-8</y>
-    </Vector2>
-    <Vector2>
       <x>1</x>
       <y>-8</y>
     </Vector2>
@@ -148,10 +144,6 @@
     <Vector2>
       <x>0</x>
       <y>-7</y>
-    </Vector2>
-    <Vector2>
-      <x>0</x>
-      <y>-6</y>
     </Vector2>
     <Vector2>
       <x>1</x>
@@ -493,6 +485,14 @@
       <x>5</x>
       <y>-1</y>
     </Vector2>
+    <Vector2>
+      <x>2</x>
+      <y>-8</y>
+    </Vector2>
+    <Vector2>
+      <x>0</x>
+      <y>-6</y>
+    </Vector2>
   </tiles>
   <coins>
     <Vector2>
@@ -510,6 +510,10 @@
     <Vector2>
       <x>5</x>
       <y>-1</y>
+    </Vector2>
+    <Vector2>
+      <x>2</x>
+      <y>-8</y>
     </Vector2>
   </coins>
   <dots>
@@ -551,10 +555,6 @@
     </Vector2>
     <Vector2>
       <x>0</x>
-      <y>-6</y>
-    </Vector2>
-    <Vector2>
-      <x>0</x>
       <y>-7</y>
     </Vector2>
     <Vector2>
@@ -563,10 +563,6 @@
     </Vector2>
     <Vector2>
       <x>1</x>
-      <y>-8</y>
-    </Vector2>
-    <Vector2>
-      <x>2</x>
       <y>-8</y>
     </Vector2>
     <Vector2>
@@ -820,6 +816,14 @@
     <Vector2>
       <x>4</x>
       <y>5</y>
+    </Vector2>
+    <Vector2>
+      <x>0</x>
+      <y>-6</y>
+    </Vector2>
+    <Vector2>
+      <x>1</x>
+      <y>20</y>
     </Vector2>
   </dots>
   <dangers>
@@ -887,10 +891,6 @@
       <x>9</x>
       <y>-4</y>
     </Vector2>
-    <Vector2>
-      <x>-1</x>
-      <y>-5</y>
-    </Vector2>
   </dangers>
   <birds>
     <Vector2>
@@ -928,4 +928,43 @@
       <y>1</y>
     </Vector2>
   </birds2>
+  <decor0 />
+  <decor0Size />
+  <teleport1 />
+  <teleport2 />
+  <teleport3 />
+  <teleport4 />
+  <peaks>
+    <Vector2>
+      <x>-7</x>
+      <y>0</y>
+    </Vector2>
+    <Vector2>
+      <x>-7</x>
+      <y>-1</y>
+    </Vector2>
+    <Vector2>
+      <x>-1</x>
+      <y>-4</y>
+    </Vector2>
+  </peaks>
+  <fats />
+  <start>
+    <Vector2>
+      <x>6</x>
+      <y>-10</y>
+    </Vector2>
+  </start>
+  <exit>
+    <Vector2>
+      <x>2</x>
+      <y>5</y>
+    </Vector2>
+  </exit>
+  <shooter0 />
+  <shooter1 />
+  <shooter2 />
+  <shooter3 />
+  <teleportAnother1 />
+  <teleportAnother2 />
 </LevelData>

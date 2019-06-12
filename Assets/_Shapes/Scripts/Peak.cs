@@ -21,7 +21,7 @@ public class Peak : MonoBehaviour
     }
 
     IEnumerator showHide () {
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(0.5f);
         exist = true;
         //GetComponent<Collider2D>().enabled = true;
         foreach (Transform peak in transform) {

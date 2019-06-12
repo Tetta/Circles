@@ -6,7 +6,7 @@ public class BirdManager : MonoBehaviour
 {
     Vector2 pos1;
     Vector2 pos2;
-    int speed = 1;
+    float speed = 4f; 
     Vector2 pos;
     Vector2 direction;
     // Start is called before the first frame update
@@ -30,7 +30,7 @@ public class BirdManager : MonoBehaviour
             if (pos == pos2) pos = pos1;
             else pos = pos2;
             //Debug.Log(direction.normalized);
-            changeSprite(direction.normalized);
+            changeSprite(direction);
         }
         else
             GetComponent<IsoTransform>().Position = (Vector3)nextPos + new Vector3(0, 0, 1);
@@ -39,8 +39,9 @@ public class BirdManager : MonoBehaviour
     public void create (Vector2 p1, Vector2 p2) {
         pos1 = p1;
         pos2 = p2;
-        direction = pos2 - pos1;
+        direction = (pos2 - pos1).normalized;
         pos = pos2;
+        changeSprite(direction);
     }
     private void changeSprite(Vector2 dir) {
         int s = 0;

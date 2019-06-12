@@ -89,6 +89,8 @@ public class WinUI : MonoBehaviour
         //if (LevelController.level == 1 || LevelController.level == 2) PlayerPrefs.SetInt("FREE_GIFT_" + LevelController.level, 1);
         tapText.DOKill();
         tapText.color = new Color32(255, 255, 255, 255);
+
+        GameController.instance.showScreen("WheelUI");
     }
 
 

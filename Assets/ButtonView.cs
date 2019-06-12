@@ -16,17 +16,17 @@ public class ButtonView : MonoBehaviour
     }
     void updateView () {
         if (name == "VipButton") {
-            bg.color = GameController.instance. colorsBgVip[LevelController.skin];
+            if (bg != null) bg.color = GameController.instance. colorsBgVip[LevelController.skin];
             StartCoroutine(vipLineCoroutine());
         } else {
-            bg.color = GameController.instance.colorsBg[LevelController.skin];
+            if (bg != null) bg.color = GameController.instance.colorsBg[LevelController.skin];
 
         }
     }
 
     IEnumerator vipLineCoroutine() {
         vipLine.transform.localPosition = new Vector3(-300, 0, 0);
-        vipLine.DOLocalMoveX(370, 0.5f);
+        vipLine.DOLocalMoveX(520, 0.5f);
         yield return new WaitForSecondsRealtime(UnityEngine.Random.Range(1f, 3f));
         StartCoroutine(vipLineCoroutine());
     }

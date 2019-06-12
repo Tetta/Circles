@@ -189,7 +189,7 @@ public class LevelConstructor : MonoBehaviour
         //BinaryFormatter bf = new BinaryFormatter();
         XmlSerializer bf = new XmlSerializer(typeof(LevelData));
         //Application.persistentDataPath это строка; выведите ее в логах и вы увидите расположение файла сохранений
-        FileStream file = File.Create(Application.persistentDataPath + "/Level" + level + ".gd");
+        FileStream file = File.Create(Application.persistentDataPath + "/Level" + level + ".txt");
         bf.Serialize(file, levelData);
         file.Close();
     }
@@ -227,10 +227,10 @@ public class LevelConstructor : MonoBehaviour
         //LevelController.levelLoaded = LevelController.level;
 
         
-        if (File.Exists(Application.persistentDataPath + "/Level" + level + ".gd")) {
+        if (File.Exists(Application.persistentDataPath + "/Level" + level + ".txt")) {
             //BinaryFormatter bf = new BinaryFormatter();
             XmlSerializer bf = new XmlSerializer(typeof(LevelData));
-            FileStream file = File.Open(Application.persistentDataPath + "/Level" + level + ".gd", FileMode.Open);
+            FileStream file = File.Open(Application.persistentDataPath + "/Level" + level + ".txt", FileMode.Open);
             levelData = (LevelData)bf.Deserialize(file);
             LevelController. levelData = levelData;
             file.Close();

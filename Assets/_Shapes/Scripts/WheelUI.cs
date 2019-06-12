@@ -5,48 +5,46 @@ using UnityEngine.UI;
 using DG.Tweening;
 public class WheelUI : MonoBehaviour
 {
-
-    public Rigidbody2D wheelCircle;
-    public Transform peaces;
+    public static WheelUI instance;
 
     //25, 200, 25, shield, 25, 250, 25, char
     public List<int> rewards = new List<int> { 25, 200, 25, 0, 25, 250, 25, 0 };
 
 
 
+    public Text tapText;
+    public Button bgButton;
+    public GameObject ps;
 
-
-    bool started = false;
-
+    private void Awake() {
+        instance = this;
+    }
 
     private void OnEnable() {
-        wheelCircle.angularVelocity = 4000;
-        wheelCircle.angularDrag = 2;
 
-        started = true;
+        tapText.DOKill();
+        tapText.color = new Color32(255, 255, 255, 0);
+        bgButton.enabled = false;
+        ps.SetActive(false);
+        bgButton.transform.GetChild(0).gameObject.SetActive(!GameController.instance.skinsBg.gameObject.activeSelf);
     }
 
-    private void Update() {
-        if (started && wheelCircle.angularVelocity < 0.01f) {
-            wheelCircle.angularDrag = 5;
-            started = false;
-            Debug.Log("Stop wheel");
-            Debug.Log(wheelCircle.transform.localRotation.eulerAngles);
+    public void onStopWheel () {
 
-            int id = Mathf.FloorToInt(wheelCircle.transform.localRotation.eulerAngles.z / 45);
-            Debug.Log("id: " + id);
-            Debug.Log("id: " + (int)wheelCircle.transform.localRotation.eulerAngles.z / 45);
-
-            if (id == 3) Debug.Log("reward: shield");
-            else if (id == 7) Debug.Log("reward: char");
-            else Debug.Log("reward: " + rewards[id]);
-
-            peaces.GetChild(id).GetComponent<Image>().DOColor(Color.blue, 0.1f).SetLoops(10, LoopType.Yoyo).OnComplete(() =>{
-                //GameController.instance.restart();
-            });
-
-        }
+        tapText.DOColor(new Color32(255, 255, 255, 255), 1);
+        bgButton.enabled = true;
+        ps.SetActive(true);
+        //fix set reward
+        //fix timer on mainUI
+        if (GameController.instance.skinsBg.gameObject.activeSelf) TimerManager.timers["gift"].init(true);
+        GameController.instance.updateGiftButton();
     }
 
+    public void hideWheel () {
+        if (GameController.instance.skinsBg.gameObject.activeSelf) GameController.instance.showScreen("MainUI");
+        else
+            //GameController.instance.showScreen("WinUI");
+        GameController.instance.restart();
+    }
 
 }

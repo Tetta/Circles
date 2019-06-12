@@ -23,6 +23,7 @@ public class GameoverUI : MonoBehaviour
     }
 
     private void OnEnable() {
+        GameController.levelPaused = true;
         gemsCountText.text = "+" + GemsController.gemsOnLevel;
 
         Debug.Log("shown: " + shown);
