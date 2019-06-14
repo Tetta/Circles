@@ -43,9 +43,9 @@ public class WheelUI : MonoBehaviour
     public void hideWheel () {
         if (GameController.instance.skinsBg.gameObject.activeSelf) GameController.instance.showScreen("MainUI");
         else
-            //GameController.instance.showScreen("WinUI");
+            GameController.instance.showScreen("WinUI");
         //GameController.instance.restart();
-        WinUI.instance.continueClick();
+        //WinUI.instance.continueClick();
     }
 
 }

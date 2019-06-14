@@ -162,8 +162,8 @@ public class Player : MonoBehaviour
 
                     onStopPlayer();
                 }
-
-                Taptic.Medium();
+                //point
+                Taptic.Light();
                 state = State.Stay;
 
             } else
@@ -326,15 +326,15 @@ public class Player : MonoBehaviour
     public void showChar () {
         psEnable.Play();
         images.GetChild(0).GetComponent<SpriteRenderer>().color = new Color32(255, 255, 255, 0);
-        images.GetChild(0).GetComponent<SpriteRenderer>().DOColor(new Color32(255, 255, 255, 0), 0.15f).OnComplete(() => {
-            images.GetChild(0).GetComponent<SpriteRenderer>().DOColor(new Color32(255, 255, 255, 255), 0.15f); });
+        images.GetChild(0).GetComponent<SpriteRenderer>().DOColor(new Color32(255, 255, 255, 0), 0.2f).OnComplete(() => {
+            images.GetChild(0).GetComponent<SpriteRenderer>().DOColor(new Color32(255, 255, 255, 255), 0.2f); });
         
     }
     public void hideChar() {
         psEnable.Play();
         //images.GetChild(0).GetComponent<SpriteRenderer>().color = new Color32(255, 255, 255, 0);
-        images.GetChild(0).GetComponent<SpriteRenderer>().DOColor(new Color32(255, 255, 255, 255), 0.15f).OnComplete(() => {
-            images.GetChild(0).GetComponent<SpriteRenderer>().DOColor(new Color32(255, 255, 255, 0), 0.15f).OnComplete(() => {
+        images.GetChild(0).GetComponent<SpriteRenderer>().DOColor(new Color32(255, 255, 255, 255), 0.2f).OnComplete(() => {
+            images.GetChild(0).GetComponent<SpriteRenderer>().DOColor(new Color32(255, 255, 255, 0), 0.2f).OnComplete(() => {
                 GameController.instance.complete();
             });
         });

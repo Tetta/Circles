@@ -9,31 +9,34 @@ public class BirdManager : MonoBehaviour
     float speed = 4f; 
     Vector2 pos;
     Vector2 direction;
-    // Start is called before the first frame update
-    void Start()
-    {
 
-
-
-
-    }
-
+    bool isMove = true;
 
     void Update()
     {
-        Vector2 nextPos = (Vector2)GetComponent<IsoTransform>().Position + Time.deltaTime * direction * speed;
-        Vector2 diffV = (pos - nextPos) * direction;
+        if (isMove) {
+            Vector2 nextPos = (Vector2)GetComponent<IsoTransform>().Position + Time.deltaTime * direction * speed;
+            Vector2 diffV = (pos - nextPos) * direction;
 
-        if (diffV.x < 0 || diffV.y < 0) {
-            GetComponent<IsoTransform>().Position = (Vector3)pos + new Vector3(0, 0, 1);
-            direction = -direction;
-            if (pos == pos2) pos = pos1;
-            else pos = pos2;
-            //Debug.Log(direction.normalized);
-            changeSprite(direction);
+            if (diffV.x < 0 || diffV.y < 0) {
+                GetComponent<IsoTransform>().Position = (Vector3)pos + new Vector3(0, 0, 1);
+                direction = -direction;
+                if (pos == pos2) pos = pos1;
+                else pos = pos2;
+                StartCoroutine(wait());
+                //Debug.Log(direction.normalized);
+                
+            }
+            else
+                GetComponent<IsoTransform>().Position = (Vector3)nextPos + new Vector3(0, 0, 1);
         }
-        else
-            GetComponent<IsoTransform>().Position = (Vector3)nextPos + new Vector3(0, 0, 1);
+    }
+    IEnumerator wait () {
+        isMove = false;
+        yield return new WaitForSeconds(0.15f);
+        changeSprite(direction);
+        yield return new WaitForSeconds(0.15f);
+        isMove = true;
     }
 
     public void create (Vector2 p1, Vector2 p2) {

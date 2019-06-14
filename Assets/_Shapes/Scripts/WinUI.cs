@@ -17,7 +17,7 @@ public class WinUI : MonoBehaviour
     //public Image circle1;
     //public Image circle2;
 
-    bool opened = false;
+    //bool opened = false;
     //bool shown;
     private void Awake() {
         //shown = false;
@@ -27,16 +27,21 @@ public class WinUI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        Debug.Log("Win start");
+        completeLevel();
     }
 
     private void OnEnable() {
+        
+    }
+
+    public void completeLevel () {
         GameController.levelPaused = true;
         levelText.text = "LEVEL " + LevelController.level;
         gemsCountText.text = "+" + GemsController.gemsOnLevel;
 
         //bool freeGift = LevelController.level == 1 && PlayerPrefs.GetInt("FREE_GIFT_1", 0) == 1 || LevelController.level == 2 && PlayerPrefs.GetInt("FREE_GIFT_1", 0) == 2;
-        bool freeGift = LevelController.level == 1  || LevelController.level == 2 ;
+        bool freeGift = LevelController.level == 1 || LevelController.level == 2;
         int buttonId = 0;
         if (freeGift) buttonId = 1;
         GameController.enableObg(giftButtons, buttonId);
@@ -49,27 +54,7 @@ public class WinUI : MonoBehaviour
         });
 
         hand.SetActive(LevelController.level == 1);
-        /*
 
-        //if (AdController.IsVideoReady) {
-        continueGO.SetActive(true);
-            tapText.SetActive(false);
-            circle1.fillAmount = 1;
-            circle2.fillAmount = 1;
-     
-
-            circle1.DOFillAmount(0, 5);
-            circle2.DOFillAmount(0, 5).OnComplete(() => {
-                continueGO.SetActive(false);
-                tapText.SetActive(true);
-            });
-            */
-        //}
-        //else {
-        //    continueGO.SetActive(false);
-        //    tapText.SetActive(true);
-        //}
-        //StartCoroutine(enable());
         //fix save
         LevelController.addLevel();
     }
@@ -97,9 +82,11 @@ public class WinUI : MonoBehaviour
 
 
     public void continueClick() {
-        if (LevelController.level == 5) AdController.ShowInterstitial();
+        //after 3 and  20
+        if (LevelController.level == 4 || LevelController.level == 21) iOSReviewRequest.Request();
+        else if (LevelController.level >= 5) AdController.ShowInterstitial();
         GameController.instance.restart();
-
+       
     }
 
 

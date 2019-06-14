@@ -89,6 +89,11 @@
     <Compile Include="Assets\Energy Node\scripts\Localization\Editor\LocalizationInpector.cs" />
     <Compile Include="Assets\GB_SpinWheel\Scripts\Editor\SpinWheelEditor.cs" />
     <Compile Include="Assets\JMO Assets\Cartoon FX Easy Editor\Editor\CFXEasyEditor.cs" />
+    <Compile Include="Assets\Particlecollection_Free samples\Plugins\Effect\Editor\EffectControllerInspector.cs" />
+    <Compile Include="Assets\Particlecollection_Free samples\Plugins\Effect\Editor\EffectToolBar.cs" />
+    <Compile Include="Assets\Particlecollection_Free samples\Plugins\Effect\Editor\RenderEffectInspector.cs" />
+    <Compile Include="Assets\Particlecollection_Free samples\Plugins\Effect\Editor\ShaderCustomEditor\ShaderMaterialsEditor.cs" />
+    <Compile Include="Assets\Particlecollection_Free samples\Plugins\Effect\Editor\XUIUtils.cs" />
     <Compile Include="Assets\UltimateIsometricToolkit\Editor\ExposeProperties.cs" />
     <Compile Include="Assets\UltimateIsometricToolkit\Editor\IsoSnapping.cs" />
     <Compile Include="Assets\UltimateIsometricToolkit\Editor\IsoSortingEditor.cs" />

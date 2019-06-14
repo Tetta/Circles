@@ -61,7 +61,7 @@ public class AdController : MonoBehaviour, IInterstitialAdListener, IRewardedVid
 
     public static void ShowInterstitial() {
         Debug.Log("ShowInterstitial");
-        if (IsInterstitialReady) {
+        if (IsInterstitialReady && !IAPManager.vip) {
             Pause(true);
             Appodeal.show(Appodeal.INTERSTITIAL);
         }
