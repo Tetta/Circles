@@ -170,6 +170,7 @@ namespace GameBench
                 //StartCoroutine(SpinTheWheel(5 * randomTime, maxAngle));
 
                 //float randomTime = Random.Range(0.55f, 1.5f);
+
                 float randomTime = Random.Range(2.5f,3.5f);
                 SpinWheelSetup.Instance.speed = 2;
                 float maxAngle = (SpinWheelSetup.Instance.speed * 360) * randomTime + (Random.Range(0, 8) * anglePerItem);
@@ -183,21 +184,63 @@ namespace GameBench
             float timer = 0.0f;
             float startAngle = transform.eulerAngles.z;
             maxAngle = maxAngle - startAngle;
-            while (timer < time)
+            bool adding = false;
+            float delta;
+            int selectedSave = -1;
+            while (timer < time - 0.5f)
             {
                 //Debug.Log("--------");
                 //Debug.Log(time);
                 //Debug.Log(timer);
-
+                
                 //to calculate rotation
                 float angle = maxAngle * animationCurve.Evaluate(timer / time);
                 transform.eulerAngles = new Vector3(0.0f, 0.0f, angle + startAngle);
+                //Debug.Log(angle);
+                //Debug.Log(startAngle);
                 timer += Time.deltaTime;
+                //fix
+                //if (time - timer < 1) timer -= 1;
+                //if (adding && selectedSave != SelectedReward) { }
+               // else 
+                if (time - timer < 0.5f) {
+                    selectedSave = SelectedReward;
+                    adding = true;
+                    //    selectedSave = SelectedReward;
+                    //    adding = true;
+                    //    Debug.Log(SelectedReward);
+                    //adding = true;
+                    //   timer -= 0.2f;
+                    timer = time;
+                    //time += 1.4f;
+
+                }
                 yield return 0;
             }
-            //transform.eulerAngles = new Vector3(0.0f, 0.0f, maxAngle + startAngle);
-            //WheelAnimation(true);
-             StartCoroutine(chunkSlices[SelectedReward].animateActiveChunck());
+            //if (SelectedReward)
+            selectedSave = SelectedReward;
+            Debug.Log(SelectedReward);
+            int r = 0;
+            if (SelectedReward == 1 || SelectedReward == 5 || SelectedReward == 7) {
+                r = Random.Range(0, 4);
+                if (r < 3) r = 100; 
+            }
+
+            int i = 0;
+            if (adding && r == 100) {
+                while (selectedSave == SelectedReward && i < 10000) {
+                    //float angle = maxAngle * animationCurve.Evaluate(timer / time);
+                    transform.eulerAngles = new Vector3(0.0f, 0.0f, transform.eulerAngles.z + 0.6f);
+                    //Debug.Log(angle);
+                    //Debug.Log(transform.eulerAngles);
+                    //time += 0.2f;
+                    i++;
+                    yield return 0;
+                }
+            }
+                //transform.eulerAngles = new Vector3(0.0f, 0.0f, maxAngle + startAngle);
+                //WheelAnimation(true);
+                StartCoroutine(chunkSlices[SelectedReward].animateActiveChunck());
             RewardPlayer();
             spinning = false;
         }
@@ -205,7 +248,7 @@ namespace GameBench
         {
             print("You have won " + SelectedReward);
             UIManager.Instance.SpinCompleted();
-            WheelUI.instance.onStopWheel();
+            WheelUI.instance.onStopWheel(SelectedReward);
             if (SpinWheelSetup.Instance.rewarItem[SelectedReward].rewardType == RewardType.Coin)
             {
                 UIManager.Instance.ManipulateCoins(SpinWheelSetup.Instance.rewarItem[SelectedReward].rewardQuantity);

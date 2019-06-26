@@ -22,7 +22,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>Temp\bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_4_OR_NEWER;UNITY_2018_1_OR_NEWER;UNITY_2018_2_OR_NEWER;UNITY_2018_3_OR_NEWER;UNITY_2018_3_3;UNITY_2018_3;UNITY_2018;UNITY_INCLUDE_TESTS;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_SPRITES;ENABLE_GRID;ENABLE_TILEMAP;ENABLE_TERRAIN;ENABLE_TEXTURE_STREAMING;ENABLE_DIRECTOR;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_COLLAB_SOFTLOCKS;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_TIMELINE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;ENABLE_MANAGED_JOBS;ENABLE_MANAGED_TRANSFORM_JOBS;ENABLE_MANAGED_ANIMATION_JOBS;INCLUDE_DYNAMIC_GI;INCLUDE_GI;ENABLE_MONO_BDWGC;PLATFORM_SUPPORTS_MONO;INCLUDE_PUBNUB;ENABLE_VIDEO;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_LOCALIZATION;PLATFORM_ANDROID;UNITY_ANDROID;UNITY_ANDROID_API;ENABLE_SUBSTANCE;ENABLE_EGL;ENABLE_NETWORK;ENABLE_RUNTIME_GI;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITYWEBREQUEST;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_EVENT_QUEUE;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_NATIVE_CRASH_REPORTING;PLATFORM_SUPPORTS_ADS_ID;UNITY_CAN_SHOW_SPLASH_SCREEN;ENABLE_VR;ENABLE_AR;UNITY_HAS_GOOGLEVR;UNITY_HAS_TANGO;ENABLE_SPATIALTRACKING;ENABLE_RUNTIME_PERMISSIONS;UNITY_ASTC_ONLY_DECOMPRESS;ENABLE_UNITYADS_RUNTIME;UNITY_UNITYADS_API;ENABLE_MONO;NET_STANDARD_2_0;ENABLE_PROFILER;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_UNITY_COLLECTIONS_CHECKS;ENABLE_BURST_AOT;UNITY_TEAM_LICENSE;ENABLE_VSTU;UNITY_PRO_LICENSE;CROSS_PLATFORM_INPUT;MOBILE_INPUT;CSHARP_7_OR_LATER;CSHARP_7_3_OR_NEWER</DefineConstants>
+    <DefineConstants>DEBUG;TRACE;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_4_OR_NEWER;UNITY_2018_1_OR_NEWER;UNITY_2018_2_OR_NEWER;UNITY_2018_3_OR_NEWER;UNITY_2018_3_3;UNITY_2018_3;UNITY_2018;UNITY_INCLUDE_TESTS;UNITY_ANALYTICS;UNITY_PURCHASING;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_SPRITES;ENABLE_GRID;ENABLE_TILEMAP;ENABLE_TERRAIN;ENABLE_TEXTURE_STREAMING;ENABLE_DIRECTOR;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_COLLAB_SOFTLOCKS;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_TIMELINE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;ENABLE_MANAGED_JOBS;ENABLE_MANAGED_TRANSFORM_JOBS;ENABLE_MANAGED_ANIMATION_JOBS;INCLUDE_DYNAMIC_GI;INCLUDE_GI;ENABLE_MONO_BDWGC;PLATFORM_SUPPORTS_MONO;INCLUDE_PUBNUB;ENABLE_VIDEO;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_LOCALIZATION;PLATFORM_ANDROID;UNITY_ANDROID;UNITY_ANDROID_API;ENABLE_SUBSTANCE;ENABLE_EGL;ENABLE_NETWORK;ENABLE_RUNTIME_GI;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITYWEBREQUEST;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_EVENT_QUEUE;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_NATIVE_CRASH_REPORTING;PLATFORM_SUPPORTS_ADS_ID;UNITY_CAN_SHOW_SPLASH_SCREEN;ENABLE_VR;ENABLE_AR;UNITY_HAS_GOOGLEVR;UNITY_HAS_TANGO;ENABLE_SPATIALTRACKING;ENABLE_RUNTIME_PERMISSIONS;UNITY_ASTC_ONLY_DECOMPRESS;ENABLE_UNITYADS_RUNTIME;UNITY_UNITYADS_API;ENABLE_MONO;NET_STANDARD_2_0;ENABLE_PROFILER;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_UNITY_COLLECTIONS_CHECKS;ENABLE_BURST_AOT;UNITY_TEAM_LICENSE;ENABLE_VSTU;UNITY_PRO_LICENSE;CROSS_PLATFORM_INPUT;MOBILE_INPUT;CSHARP_7_OR_LATER;CSHARP_7_3_OR_NEWER</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <NoWarn>0169</NoWarn>
@@ -60,40 +60,45 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\_Shapes\Scripts\AdController.cs" />
-    <Compile Include="Assets\_Shapes\Scripts\BirdManager.cs" />
-    <Compile Include="Assets\_Shapes\Scripts\CharsUI.cs" />
-    <Compile Include="Assets\_Shapes\Scripts\Coin.cs" />
-    <Compile Include="Assets\_Shapes\Scripts\dcLevelController.cs" />
-    <Compile Include="Assets\_Shapes\Scripts\dcPlayer.cs" />
-    <Compile Include="Assets\_Shapes\Scripts\Decor.cs" />
-    <Compile Include="Assets\_Shapes\Scripts\GameController.cs" />
-    <Compile Include="Assets\_Shapes\Scripts\GameoverUI.cs" />
-    <Compile Include="Assets\_Shapes\Scripts\GemsController.cs" />
-    <Compile Include="Assets\_Shapes\Scripts\GemsIndicator.cs" />
-    <Compile Include="Assets\_Shapes\Scripts\Gradient2.cs" />
-    <Compile Include="Assets\_Shapes\Scripts\IAPManager.cs" />
-    <Compile Include="Assets\_Shapes\Scripts\LevelConstructor.cs" />
-    <Compile Include="Assets\_Shapes\Scripts\LevelController.cs" />
-    <Compile Include="Assets\_Shapes\Scripts\Old\gCircle.cs" />
-    <Compile Include="Assets\_Shapes\Scripts\Old\gDotShape.cs" />
-    <Compile Include="Assets\_Shapes\Scripts\Old\gGame.cs" />
-    <Compile Include="Assets\_Shapes\Scripts\Old\gGenerator.cs" />
-    <Compile Include="Assets\_Shapes\Scripts\Old\gHint.cs" />
-    <Compile Include="Assets\_Shapes\Scripts\Old\gLevel.cs" />
-    <Compile Include="Assets\_Shapes\Scripts\Old\gShape.cs" />
-    <Compile Include="Assets\_Shapes\Scripts\Peak.cs" />
-    <Compile Include="Assets\_Shapes\Scripts\Player.cs" />
-    <Compile Include="Assets\_Shapes\Scripts\Shooter.cs" />
-    <Compile Include="Assets\_Shapes\Scripts\Singleton.cs" />
-    <Compile Include="Assets\_Shapes\Scripts\Teleport.cs" />
-    <Compile Include="Assets\_Shapes\Scripts\TeleportAnother.cs" />
-    <Compile Include="Assets\_Shapes\Scripts\TileConstructor.cs" />
-    <Compile Include="Assets\_Shapes\Scripts\TimerManager.cs" />
-    <Compile Include="Assets\_Shapes\Scripts\Tools.cs" />
-    <Compile Include="Assets\_Shapes\Scripts\TutorialManager.cs" />
-    <Compile Include="Assets\_Shapes\Scripts\WheelUI.cs" />
-    <Compile Include="Assets\_Shapes\Scripts\WinUI.cs" />
+    <Compile Include="Assets\_LabirintEscape\Scripts\AdController.cs" />
+    <Compile Include="Assets\_LabirintEscape\Scripts\AudioManager.cs" />
+    <Compile Include="Assets\_LabirintEscape\Scripts\BirdManager.cs" />
+    <Compile Include="Assets\_LabirintEscape\Scripts\ButtonView.cs" />
+    <Compile Include="Assets\_LabirintEscape\Scripts\CharsUI.cs" />
+    <Compile Include="Assets\_LabirintEscape\Scripts\Coin.cs" />
+    <Compile Include="Assets\_LabirintEscape\Scripts\dcLevelController.cs" />
+    <Compile Include="Assets\_LabirintEscape\Scripts\dcPlayer.cs" />
+    <Compile Include="Assets\_LabirintEscape\Scripts\Decor.cs" />
+    <Compile Include="Assets\_LabirintEscape\Scripts\Fat.cs" />
+    <Compile Include="Assets\_LabirintEscape\Scripts\GameController.cs" />
+    <Compile Include="Assets\_LabirintEscape\Scripts\GameoverUI.cs" />
+    <Compile Include="Assets\_LabirintEscape\Scripts\GemsController.cs" />
+    <Compile Include="Assets\_LabirintEscape\Scripts\GemsIndicator.cs" />
+    <Compile Include="Assets\_LabirintEscape\Scripts\Gradient2.cs" />
+    <Compile Include="Assets\_LabirintEscape\Scripts\IAPManager.cs" />
+    <Compile Include="Assets\_LabirintEscape\Scripts\LevelConstructor.cs" />
+    <Compile Include="Assets\_LabirintEscape\Scripts\LevelController.cs" />
+    <Compile Include="Assets\_LabirintEscape\Scripts\Old\gCircle.cs" />
+    <Compile Include="Assets\_LabirintEscape\Scripts\Old\gDotShape.cs" />
+    <Compile Include="Assets\_LabirintEscape\Scripts\Old\gGame.cs" />
+    <Compile Include="Assets\_LabirintEscape\Scripts\Old\gGenerator.cs" />
+    <Compile Include="Assets\_LabirintEscape\Scripts\Old\gHint.cs" />
+    <Compile Include="Assets\_LabirintEscape\Scripts\Old\gLevel.cs" />
+    <Compile Include="Assets\_LabirintEscape\Scripts\Old\gShape.cs" />
+    <Compile Include="Assets\_LabirintEscape\Scripts\Peak.cs" />
+    <Compile Include="Assets\_LabirintEscape\Scripts\Player.cs" />
+    <Compile Include="Assets\_LabirintEscape\Scripts\Purchaser.cs" />
+    <Compile Include="Assets\_LabirintEscape\Scripts\Shooter.cs" />
+    <Compile Include="Assets\_LabirintEscape\Scripts\Singleton.cs" />
+    <Compile Include="Assets\_LabirintEscape\Scripts\Teleport.cs" />
+    <Compile Include="Assets\_LabirintEscape\Scripts\TeleportAnother.cs" />
+    <Compile Include="Assets\_LabirintEscape\Scripts\TileConstructor.cs" />
+    <Compile Include="Assets\_LabirintEscape\Scripts\TimerManager.cs" />
+    <Compile Include="Assets\_LabirintEscape\Scripts\Tools.cs" />
+    <Compile Include="Assets\_LabirintEscape\Scripts\TutorialManager.cs" />
+    <Compile Include="Assets\_LabirintEscape\Scripts\WheelUI.cs" />
+    <Compile Include="Assets\_LabirintEscape\Scripts\WinUI.cs" />
+    <Compile Include="Assets\AnalyticsController.cs" />
     <Compile Include="Assets\Appodeal\Api\Appodeal.cs" />
     <Compile Include="Assets\Appodeal\AppodealDemo\AppodealDemo.cs" />
     <Compile Include="Assets\Appodeal\AppodealDemo\GDPR.cs" />
@@ -124,7 +129,6 @@
     <Compile Include="Assets\AxeyWorks\PolyWorks\Poly Water\Scripts\Tools\MeshSubdivider.cs" />
     <Compile Include="Assets\AxeyWorks\PolyWorks\Poly Water\Scripts\Tools\NoSharedVertices.cs" />
     <Compile Include="Assets\AxeyWorks\PolyWorks\Poly Water\Scripts\WaveModel.cs" />
-    <Compile Include="Assets\ButtonView.cs" />
     <Compile Include="Assets\DungeonVoxels\Scripts\Knight.cs" />
     <Compile Include="Assets\DungeonVoxels\Scripts\LightFlicker.cs" />
     <Compile Include="Assets\DungeonVoxels\Scripts\SpikeTrap.cs" />
@@ -172,7 +176,17 @@
     <Compile Include="Assets\Energy Node\scripts\TipPanel.cs" />
     <Compile Include="Assets\Energy Node\scripts\WinPanel.cs" />
     <Compile Include="Assets\ExampleScript.cs" />
-    <Compile Include="Assets\Fat.cs" />
+    <Compile Include="Assets\FacebookSDK\Examples\Scripts\ConsoleBase.cs" />
+    <Compile Include="Assets\FacebookSDK\Examples\Scripts\LogView.cs" />
+    <Compile Include="Assets\FacebookSDK\Examples\Scripts\MenuBase.cs" />
+    <Compile Include="Assets\FacebookSDK\Examples\Scripts\SubMenus\AccessTokenMenu.cs" />
+    <Compile Include="Assets\FacebookSDK\Examples\Scripts\SubMenus\AppEvents.cs" />
+    <Compile Include="Assets\FacebookSDK\Examples\Scripts\SubMenus\AppLinks.cs" />
+    <Compile Include="Assets\FacebookSDK\Examples\Scripts\SubMenus\AppRequests.cs" />
+    <Compile Include="Assets\FacebookSDK\Examples\Scripts\SubMenus\DialogShare.cs" />
+    <Compile Include="Assets\FacebookSDK\Examples\Scripts\SubMenus\GraphRequest.cs" />
+    <Compile Include="Assets\FacebookSDK\Examples\Scripts\SubMenus\MainMenu.cs" />
+    <Compile Include="Assets\FacebookSDK\Examples\Scripts\SubMenus\Pay.cs" />
     <Compile Include="Assets\FatMachines\TapticFeedback\AndroidTaptic.cs" />
     <Compile Include="Assets\FatMachines\TapticFeedback\Example.cs" />
     <Compile Include="Assets\FatMachines\TapticFeedback\Taptic.cs" />
@@ -242,12 +256,13 @@
     <Compile Include="Assets\UltimateIsometricToolkit\Scripts\Utils\Singleton.cs" />
     <Compile Include="Assets\UltraMare\Minimalist Cartoon UI Pack\Scripts\MyCursor.cs" />
     <Compile Include="Assets\UltraMare\Minimalist Cartoon UI Pack\Scripts\StatsExample.cs" />
+    <Compile Include="Assets\Zero Rare\Retro Sound Effects\Demo\Demo.cs" />
     <None Include="Assets\UltimateIsometricToolkit\Graphics\Misc\moreenemiesanimations\Spritesheets\alienGreen.xml" />
     <None Include="Assets\AxeyWorks\PolyWorks\Full Pack\Shaders\ToonShader\Shaders\AxeyWorksToonBasic.shader" />
     <None Include="Assets\JMO Assets\Cartoon FX\Shaders\CFX3 Multiply Color.shader" />
     <None Include="Assets\Resources\Levels\Level16.txt" />
     <None Include="Assets\2 Fire.shader" />
-    <None Include="Assets\_Shapes\FX\2 Fire.shader" />
+    <None Include="Assets\_LabirintEscape\FX\2 Fire.shader" />
     <None Include="Assets\AxeyWorks\PolyWorks\Full Pack\Shaders\MobileDistortionShader\AxeyWorksMobDist.shader" />
     <None Include="Assets\Resources\Levels\Level1.txt" />
     <None Include="Assets\JMO Assets\Cartoon FX\CartoonFX Free.txt" />
@@ -278,7 +293,7 @@
     <None Include="Assets\FatMachines\TapticFeedback\Plugins\Android\AndroidManifest.xml" />
     <None Include="Assets\UltimateIsometricToolkit\License.txt" />
     <None Include="Assets\JMO Assets\Cartoon FX Easy Editor\CartoonFX Easy Editor Readme.txt" />
-    <None Include="Assets\_Shapes\Fonts\OFL.txt" />
+    <None Include="Assets\_LabirintEscape\Fonts\OFL.txt" />
     <None Include="Assets\Particlecollection_Free samples\Plugins\Effect\Shader\ParticleAddSoftEffect.shader" />
     <None Include="Assets\Resources\Levels\Level9.txt" />
     <None Include="Assets\Resources\Levels\Level11.txt" />
@@ -302,6 +317,7 @@
     <None Include="Assets\DOTween\DOTween43.xml" />
     <None Include="Assets\AxeyWorks\PolyWorks\Full Pack\Shaders\AxeyWorksFacetedShader.shader" />
     <None Include="Assets\AxeyWorks\PolyWorks\Full Pack\Shaders\VertexShader\AxeyWorksBatchVertexColorShader.shader" />
+    <None Include="Assets\FacebookSDK\link.xml" />
     <None Include="Assets\Resources\Levels\Level25.txt" />
     <None Include="Assets\DOTween\DOTween46.xml" />
     <None Include="Assets\Resources\Levels\Level14.txt" />
@@ -546,6 +562,18 @@
     <Reference Include="DOTween50">
       <HintPath>D:/Projects/Circles/Assets/DOTween/DOTween50.dll</HintPath>
     </Reference>
+    <Reference Include="Facebook.Unity">
+      <HintPath>D:/Projects/Circles/Assets/FacebookSDK/Plugins/Facebook.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Facebook.Unity.Gameroom">
+      <HintPath>D:/Projects/Circles/Assets/FacebookSDK/Plugins/Gameroom/Facebook.Unity.Gameroom.dll</HintPath>
+    </Reference>
+    <Reference Include="FacebookNamedPipeClient">
+      <HintPath>D:/Projects/Circles/Assets/FacebookSDK/Plugins/Gameroom/FacebookNamedPipeClient.dll</HintPath>
+    </Reference>
+    <Reference Include="Facebook.Unity.Settings">
+      <HintPath>D:/Projects/Circles/Assets/FacebookSDK/Plugins/Settings/Facebook.Unity.Settings.dll</HintPath>
+    </Reference>
     <Reference Include="Ionic.Zip.Unity">
       <HintPath>D:/Projects/Circles/Assets/Plugins/Ionic.Zip.Unity.dll</HintPath>
     </Reference>
@@ -557,6 +585,42 @@
     </Reference>
     <Reference Include="Unity.Analytics.Tracker">
       <HintPath>D:/Projects/Circles/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Tracker.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.Purchasing">
+      <HintPath>D:/Projects/Circles/Library/PackageCache/com.unity.purchasing@2.0.3/UnityEngine.Purchasing.dll</HintPath>
+    </Reference>
+    <Reference Include="ChannelPurchase">
+      <HintPath>D:/Projects/Circles/Assets/Plugins/UnityChannel/ChannelPurchase.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityStore">
+      <HintPath>D:/Projects/Circles/Assets/Plugins/UnityChannel/UnityStore.dll</HintPath>
+    </Reference>
+    <Reference Include="UDP">
+      <HintPath>D:/Projects/Circles/Assets/Plugins/UDP/UDP.dll</HintPath>
+    </Reference>
+    <Reference Include="Security">
+      <HintPath>D:/Projects/Circles/Assets/Plugins/UnityPurchasing/Bin/Security/live/Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Stores">
+      <HintPath>D:/Projects/Circles/Assets/Plugins/UnityPurchasing/Bin/Stores.dll</HintPath>
+    </Reference>
+    <Reference Include="Editor">
+      <HintPath>D:/Projects/Circles/Assets/Plugins/UnityPurchasing/Bin/Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Purchasing.Common">
+      <HintPath>D:/Projects/Circles/Assets/Plugins/UnityPurchasing/Bin/Purchasing.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="winrt">
+      <HintPath>D:/Projects/Circles/Assets/Plugins/UnityPurchasing/winrt/winrt.dll</HintPath>
+    </Reference>
+    <Reference Include="FacebookStore">
+      <HintPath>D:/Projects/Circles/Assets/Plugins/UnityPurchasing/Bin/Facebook/FacebookStore.dll</HintPath>
+    </Reference>
+    <Reference Include="Apple">
+      <HintPath>D:/Projects/Circles/Assets/Plugins/UnityPurchasing/Bin/Apple/Apple.dll</HintPath>
+    </Reference>
+    <Reference Include="Tizen">
+      <HintPath>D:/Projects/Circles/Assets/Plugins/UnityPurchasing/Bin/Tizen/Tizen.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>C:/Program Files/Unity2018.3/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll</HintPath>

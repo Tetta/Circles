@@ -14,31 +14,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rewarItem:
   - rewardSprite: {fileID: 21300000, guid: 61d4626d10ee6aa4ea3789451710a020, type: 3}
-    rewardQuantity: 25
+    rewardQuantity: 500
     rewardType: 0
   - rewardSprite: {fileID: 21300000, guid: 61d4626d10ee6aa4ea3789451710a020, type: 3}
-    rewardQuantity: 200
+    rewardQuantity: 2000
     rewardType: 0
   - rewardSprite: {fileID: 21300000, guid: 61d4626d10ee6aa4ea3789451710a020, type: 3}
-    rewardQuantity: 25
+    rewardQuantity: 500
     rewardType: 0
   - rewardSprite: {fileID: 21300000, guid: 17e2bd1bda92df44a9f34ae1db07b5c2, type: 3}
     rewardQuantity: 1
     rewardType: 4
   - rewardSprite: {fileID: 21300000, guid: 61d4626d10ee6aa4ea3789451710a020, type: 3}
-    rewardQuantity: 25
+    rewardQuantity: 500
     rewardType: 0
   - rewardSprite: {fileID: 21300000, guid: 61d4626d10ee6aa4ea3789451710a020, type: 3}
-    rewardQuantity: 250
+    rewardQuantity: 2500
     rewardType: 0
   - rewardSprite: {fileID: 21300000, guid: 61d4626d10ee6aa4ea3789451710a020, type: 3}
-    rewardQuantity: 25
+    rewardQuantity: 500
     rewardType: 0
-  - rewardSprite: {fileID: 21300000, guid: 3d259b5d3cb1b2447b56b0a7ffa20739, type: 3}
+  - rewardSprite: {fileID: 21300000, guid: bc9cc6ad2292dff43b37e2032b4116ae, type: 3}
     rewardQuantity: 1
     rewardType: 3
   theme: 0
-  speed: 5
+  speed: 2
   spinDurationMin: 1
   spinDurationMax: 2
   spinTurnCost: 500
