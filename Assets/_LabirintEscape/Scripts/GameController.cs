@@ -8,6 +8,8 @@ public class GameController : MonoBehaviour {
     public static int charId;
     public static bool levelPaused;
 
+
+
     public List<GameObject> screensList;
     public Dictionary<string, GameObject> screens = new Dictionary<string, GameObject>();
     bool levelStarted;
@@ -85,15 +87,17 @@ public class GameController : MonoBehaviour {
         //fix 4 * 60 * 60
         TimerManager.timers["gift"] = new Timer("gift", 20, updateGiftButton);
         //first launch
-        if (PlayerPrefs.GetInt("USER_GROUP", 0) == 0) {
-            PlayerPrefs.SetInt("USER_GROUP", UnityEngine.Random.Range(1, 10));
+        if (AnalyticsController.awake) {
+            //PlayerPrefs.SetInt("USER_GROUP", UnityEngine.Random.Range(1, 10));
             //gift
             TimerManager.timers["gift"].init(true);
             updateGiftButton();
         }
         //on 2 session
-        if (!IAPManager.vip && PlayerPrefs.GetInt("SESSIONS_COUNT", 0) >= 2) showScreen("VipUI");
-        //char badge
+        //fix uncomment
+        //if (AnalyticsController.awake && !IAPManager.vip && PlayerPrefs.GetInt("SESSIONS_COUNT", 0) >= 2) showScreen("VipUI");
+        
+        //char badge ?
         //CharButtonBadge.SetActive(GemsController.availableBuyChar());
     }
 

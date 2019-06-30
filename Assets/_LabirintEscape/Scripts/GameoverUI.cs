@@ -44,7 +44,8 @@ public class GameoverUI : MonoBehaviour
         else {
             continueGO.SetActive(false);
             tapText.SetActive(true);
-            AnalyticsController.sendEvent("LevelFail");
+            AnalyticsController.sendEvent("LevelFail", new Dictionary<string, object> { { "GemsPercent", Player.instance.gemsCollected * 100 / LevelController.levelData.coins.Count } , { "GemsPercent", Player.instance.dotsCollected * 100 / LevelController.levelData.dots.Count } });
+            
         }
         //StartCoroutine(enable());
     }
@@ -77,7 +78,7 @@ public class GameoverUI : MonoBehaviour
     }
 
     public void noThanksClick() {
-        if (LevelController.level == 5) AdController.ShowInterstitial();
+        if (LevelController.level >= 5) AdController.ShowInterstitial();
         GameController.instance.restart();
     }
 

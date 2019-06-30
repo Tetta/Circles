@@ -5,6 +5,9 @@ using Facebook.Unity;
 using System.Linq;
 public class AnalyticsController : MonoBehaviour {
 
+    public static bool firstLaunch;
+    public static bool awake;
+
     void Awake() {
         if (FB.IsInitialized) {
             FB.ActivateApp();
@@ -15,15 +18,20 @@ public class AnalyticsController : MonoBehaviour {
         }
         //fix delete
         if (AdController.instance == null) {
-            PlayerPrefs.DeleteAll();
+            //PlayerPrefs.DeleteAll();
             PlayerPrefs.SetInt("SESSIONS_COUNT", PlayerPrefs.GetInt("SESSIONS_COUNT", 0) + 1);
+            awake = true;
         }
         if (PlayerPrefs.GetInt("USER_GROUP", 0) == 0) {
             int r = UnityEngine.Random.Range(1, 9);
             PlayerPrefs.SetInt("USER_GROUP", r);
             sendEvent("UserGroup", new Dictionary<string, object>{{ "Group", r }});
+            firstLaunch = true;
         }
 
+    }
+    private void Start() {
+        awake = false;
     }
 
     public static void sendEvent(string eventName, Dictionary<string, object> params1 = null, Dictionary<string, object> params2 = null) {

@@ -16,7 +16,10 @@ public class Player : MonoBehaviour
     public ParticleSystem psDeath;
     public Transform psTrail;
     public Transform cameraMain;
-    
+    public List<Color32> charColors;
+
+    public int gemsCollected;
+    public int dotsCollected;
 
     Vector2 pos;
     Vector2 direction;
@@ -187,10 +190,13 @@ public class Player : MonoBehaviour
 
         images.GetChild(s).gameObject.SetActive(true);
         //ps trail
+        //fix test
         foreach (Transform child in psTrail) {
-            child.gameObject.SetActive(false);
+            //child.gameObject.SetActive(false);
+            //child.GetComponent<ParticleSystem>().Stop();
         }
-        psTrail.GetChild(s).gameObject.SetActive(true);
+        //psTrail.GetChild(s).gameObject.SetActive(true);
+        psTrail.GetChild(s).GetComponent<ParticleSystem>().Play();
 
         //GetComponent<Animator>().Play("Empty");
         GetComponent<Animator>().enabled = false;
@@ -213,7 +219,8 @@ public class Player : MonoBehaviour
     void onStopPlayer () {
         //ps trail
         foreach (Transform child in psTrail) {
-            child.gameObject.SetActive(false);
+            //child.gameObject.SetActive(false);
+            //child.GetComponent<ParticleSystem>().Stop();
         }
         images.DOKill();
         //resize images
@@ -241,10 +248,12 @@ public class Player : MonoBehaviour
             if (collision.gameObject.name == "CoinPrefab(Clone)") {
                 GemsController.AddGems(10, "Level");
                 AudioManager.instance.gemSound.Play();
+                 gemsCollected++;
             }
             else {
                 GemsController.AddGems(1, "Level");
                 AudioManager.instance.dotSound.Play();
+                dotsCollected++;
 
             }
 

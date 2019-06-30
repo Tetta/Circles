@@ -57,6 +57,7 @@ public class BirdManager : MonoBehaviour
 
         //Debug.Log("changeSprite");
         foreach (Transform child in transform) {
+            if (child.GetSiblingIndex() == 4) continue;
             child.gameObject.SetActive(false);
         }
         transform.GetChild(s).gameObject.SetActive(true);

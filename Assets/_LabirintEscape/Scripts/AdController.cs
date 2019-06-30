@@ -9,7 +9,7 @@ public class AdController : MonoBehaviour, IInterstitialAdListener, IRewardedVid
     public static AdController instance = null;
 
     public readonly string IOS_APP_KEY = "8d22053f89e68de99c27e9adeaa38c0fa42aa0374a944de6";
-    public readonly string ANDROID_APP_KEY = "772b5273436a4488f6ad99ae9612bc4aa9602258a9f8aa36";
+    public readonly string ANDROID_APP_KEY = "51960c416717ce5e3d99a3404aabbf5b7a1beb8bdd42ddcd";
 
     //public readonly float interstitialInterval = 30f;    
     //float timer;
@@ -41,7 +41,7 @@ public class AdController : MonoBehaviour, IInterstitialAdListener, IRewardedVid
     public void onInterstitialShown() { }
     public void onInterstitialLoaded(bool isPrecache) { }
     public void onInterstitialClosed() {
-        StartCoroutine(InterstitialClosedCoroutine());
+        //StartCoroutine(InterstitialClosedCoroutine());
     }
 
     #endregion
@@ -54,7 +54,8 @@ public class AdController : MonoBehaviour, IInterstitialAdListener, IRewardedVid
     public void onRewardedVideoShown() { }
     public void onRewardedVideoLoaded(bool precache) { }
     public void onRewardedVideoClosed(bool finished) {
-        StartCoroutine(RewardedVideoClosedCoroutine(finished));
+        //StartCoroutine(RewardedVideoClosedCoroutine(finished));
+        RewardedVideoClosed(finished);
     }
 
     #endregion
@@ -107,6 +108,16 @@ public class AdController : MonoBehaviour, IInterstitialAdListener, IRewardedVid
         Pause(false);
         OnInterstitialWatched?.Invoke();
     }
+    private void RewardedVideoClosed(bool finished) {
+        Pause(false);
+        if (finished) {
+            Debug.Log("OnRewardedVideoClosed and finished=true");
+            giveReward?.Invoke();
+        }
+        else {
+            Debug.Log("OnRewardedVideoClosed and finished=false");
+        }
+    }
 
     private IEnumerator RewardedVideoClosedCoroutine(bool finished) {
         yield return new WaitForSecondsRealtime(0.1f);
@@ -121,9 +132,11 @@ public class AdController : MonoBehaviour, IInterstitialAdListener, IRewardedVid
     }
 
     private static void Pause(bool isOn) {
+        AudioListener.pause = isOn;
         if (isOn) {
             //Time.timeScale = 0f;
             //audioManager.Mute();
+            
         }
         else {
             //Time.timeScale = 1f;

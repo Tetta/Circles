@@ -2,10 +2,6 @@
 <LevelData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <tiles>
     <Vector2>
-      <x>-1</x>
-      <y>-23</y>
-    </Vector2>
-    <Vector2>
       <x>0</x>
       <y>-23</y>
     </Vector2>
@@ -36,14 +32,6 @@
     <Vector2>
       <x>0</x>
       <y>-22</y>
-    </Vector2>
-    <Vector2>
-      <x>-1</x>
-      <y>-22</y>
-    </Vector2>
-    <Vector2>
-      <x>-1</x>
-      <y>-21</y>
     </Vector2>
     <Vector2>
       <x>0</x>
@@ -2440,15 +2428,15 @@
       <y>-21</y>
     </Vector2>
     <Vector2>
-      <x>-2</x>
+      <x>-1</x>
       <y>-21</y>
     </Vector2>
     <Vector2>
-      <x>-2</x>
+      <x>-1</x>
       <y>-22</y>
     </Vector2>
     <Vector2>
-      <x>-2</x>
+      <x>-1</x>
       <y>-23</y>
     </Vector2>
   </dangers>

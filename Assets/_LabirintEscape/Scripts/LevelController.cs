@@ -8,7 +8,7 @@ public class LevelController : MonoBehaviour
 {
     public static LevelController instance;
     //---------------------------------
-    public static int level = 1; //18
+    public static int level = 14; //18
     public static int skin = 0;
     //---------------------------------
 
@@ -25,6 +25,7 @@ public class LevelController : MonoBehaviour
 
     public Transform bg;
     public Transform psBg;
+
 
 
     private void Awake() {

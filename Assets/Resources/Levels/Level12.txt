@@ -243,10 +243,6 @@
     </Vector2>
     <Vector2>
       <x>11</x>
-      <y>-14</y>
-    </Vector2>
-    <Vector2>
-      <x>11</x>
       <y>-15</y>
     </Vector2>
     <Vector2>
@@ -948,6 +944,10 @@
     <Vector2>
       <x>5</x>
       <y>-3</y>
+    </Vector2>
+    <Vector2>
+      <x>11</x>
+      <y>-14</y>
     </Vector2>
   </tiles>
   <coins>
@@ -1114,10 +1114,6 @@
       <y>-14</y>
     </Vector2>
     <Vector2>
-      <x>11</x>
-      <y>-14</y>
-    </Vector2>
-    <Vector2>
       <x>10</x>
       <y>-14</y>
     </Vector2>
@@ -1617,6 +1613,10 @@
       <x>3</x>
       <y>-7</y>
     </Vector2>
+    <Vector2>
+      <x>11</x>
+      <y>-14</y>
+    </Vector2>
   </dots>
   <dangers />
   <birds>
@@ -1716,7 +1716,12 @@
     </Vector2>
   </peaks>
   <fats />
-  <start />
+  <start>
+    <Vector2>
+      <x>16</x>
+      <y>-23</y>
+    </Vector2>
+  </start>
   <exit>
     <Vector2>
       <x>5</x>

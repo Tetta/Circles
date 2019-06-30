@@ -63,7 +63,7 @@ public class WinUI : MonoBehaviour
         //StartCoroutine(playCompleteSounds());
         AudioManager.instance.levelCompleteSound.pitch = 1f;
         AudioManager.instance.levelCompleteSound.Play();
-        AnalyticsController.sendEvent("LevelComplete");
+        AnalyticsController.sendEvent("LevelComplete", new Dictionary<string, object> { { "GemsPercent", Player.instance.gemsCollected * 100 / LevelController.levelData.coins.Count }, { "DotsPercent", Player.instance.dotsCollected * 100 / LevelController.levelData.dots.Count } });
         LevelController.addLevel();
     }
     IEnumerator playCompleteSounds() {
@@ -103,7 +103,8 @@ public class WinUI : MonoBehaviour
     public void continueClick() {
         //after 3 and  20
         if (LevelController.level == 4 || LevelController.level == 21) iOSReviewRequest.Request();
-        else if (LevelController.level >= 5) AdController.ShowInterstitial();
+        //after 5
+        else if (LevelController.level >= 6) AdController.ShowInterstitial();
         GameController.instance.restart();
        
     }
