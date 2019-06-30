@@ -42,6 +42,7 @@ public class AdController : MonoBehaviour, IInterstitialAdListener, IRewardedVid
     public void onInterstitialLoaded(bool isPrecache) { }
     public void onInterstitialClosed() {
         //StartCoroutine(InterstitialClosedCoroutine());
+        Pause(false);
     }
 
     #endregion
