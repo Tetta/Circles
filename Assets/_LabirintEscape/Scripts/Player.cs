@@ -206,6 +206,7 @@ public class Player : MonoBehaviour
         float scale = 0.1f * (magnitude) / 2;
         if (scale > 0.2) scale = 0.2f;
         
+        //fix uncomment
         images.DOScaleY(1 - scale, 0.05f);  
 
         float moveY = -0.086f * (magnitude) / 2;
@@ -213,6 +214,7 @@ public class Player : MonoBehaviour
         //Debug.Log(1- scale);
         //Debug.Log(moveY);
 
+        //fix uncomment
         images.gameObject.transform.DOLocalMoveY(moveY, 0.05f);
     }
 
