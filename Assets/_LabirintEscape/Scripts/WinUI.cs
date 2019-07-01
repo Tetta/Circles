@@ -61,7 +61,7 @@ public class WinUI : MonoBehaviour
         hand.SetActive(LevelController.level == 1);
 
         //StartCoroutine(playCompleteSounds());
-        AudioManager.instance.levelCompleteSound.pitch = 1f;
+        //AudioManager.instance.levelCompleteSound.pitch = 1f;
         AudioManager.instance.levelCompleteSound.Play();
         AnalyticsController.sendEvent("LevelComplete", new Dictionary<string, object> { { "GemsPercent", Player.instance.gemsCollected * 100 / LevelController.levelData.coins.Count }, { "DotsPercent", Player.instance.dotsCollected * 100 / LevelController.levelData.dots.Count } });
         LevelController.addLevel();

@@ -13,11 +13,11 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: Gears of Fun Game Studio
-  productName: Amaze Escape
+  productName: Amaze Escape!
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
-  m_SplashScreenBackgroundColor: {r: 0.5283019, g: 0.23175506, b: 0.23175506, a: 0.5372549}
-  m_ShowUnitySplashScreen: 0
+  m_SplashScreenBackgroundColor: {r: 1, g: 1, b: 1, a: 1}
+  m_ShowUnitySplashScreen: 1
   m_ShowUnitySplashLogo: 0
   m_SplashScreenOverlayOpacity: 0.17
   m_SplashScreenAnimation: 1
@@ -31,7 +31,7 @@ PlayerSettings:
     serializedVersion: 2
     x: 0.01171875
     y: 0.13671875
-    width: 0.66015625
+    width: 0.9765625
     height: 0.421875
   m_SplashScreenBackgroundPortraitUvs:
     serializedVersion: 2
@@ -42,8 +42,7 @@ PlayerSettings:
   m_SplashScreenLogos:
   - logo: {fileID: 21300000, guid: d81199e73c723dc48b345350930e155e, type: 3}
     duration: 2
-  m_VirtualRealitySplashScreen: {fileID: 2800000, guid: d81199e73c723dc48b345350930e155e,
-    type: 3}
+  m_VirtualRealitySplashScreen: {fileID: 0}
   m_HolographicTrackingLossScreen: {fileID: 0}
   defaultScreenWidth: 1024
   defaultScreenHeight: 768
@@ -109,11 +108,6 @@ PlayerSettings:
   xboxOneDisableEsram: 0
   xboxOnePresentImmediateThreshold: 0
   switchQueueCommandMemory: 0
-  switchQueueControlMemory: 16384
-  switchQueueComputeMemory: 262144
-  switchNVNShaderPoolsGranularity: 33554432
-  switchNVNDefaultPoolsGranularity: 16777216
-  switchNVNOtherPoolsGranularity: 16777216
   vulkanEnableSetSRGBWrite: 0
   m_SupportedAspectRatios:
     4:3: 1
@@ -241,7 +235,6 @@ PlayerSettings:
   tvOSManualSigningProvisioningProfileType: 0
   appleEnableAutomaticSigning: 0
   iOSRequireARKit: 0
-  iOSAutomaticallyDetectAndAddCapabilities: 1
   appleEnableProMotion: 0
   clonedFromGUID: 00000000000000000000000000000000
   templatePackageId: 
@@ -267,7 +260,7 @@ PlayerSettings:
   - m_BuildTarget: 
     m_Icons:
     - serializedVersion: 2
-      m_Icon: {fileID: 2800000, guid: e32dc4eeaec08e540af3bb685ca15c29, type: 3}
+      m_Icon: {fileID: 2800000, guid: c2bd508b609a6fa49bdb62375b3a65e7, type: 3}
       m_Width: 128
       m_Height: 128
       m_Kind: 0
@@ -499,7 +492,6 @@ PlayerSettings:
   switchAllowsRuntimeAddOnContentInstall: 0
   switchDataLossConfirmation: 0
   switchUserAccountLockEnabled: 0
-  switchSystemResourceMemory: 16777216
   switchSupportedNpadStyles: 6
   switchNativeFsCacheSize: 32
   switchIsHoldTypeHorizontal: 0
@@ -584,8 +576,7 @@ PlayerSettings:
   ps4attribEyeToEyeDistanceSettingVR: 0
   ps4IncludedModules: []
   monoEnv: 
-  splashScreenBackgroundSourceLandscape: {fileID: 21300000, guid: d81199e73c723dc48b345350930e155e,
-    type: 3}
+  splashScreenBackgroundSourceLandscape: {fileID: 0}
   splashScreenBackgroundSourcePortrait: {fileID: 0}
   spritePackerPolicy: TightPackerPolicy
   webGLMemorySize: 256

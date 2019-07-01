@@ -34,9 +34,11 @@ namespace GameBench
         {
 
             int index = (int)SpinWheelSetup.Instance.theme;
-            //Debug.Log(UIManager.Instance.chunkSp.Length);
+            Debug.Log(UIManager.Instance.chunkSp.Length);
+			Debug.Log(index);
+			Debug.Log(1111);
 
-            chunkSp[0] = UIManager.Instance.chunkSp[index];
+			chunkSp[0] = UIManager.Instance.chunkSp[index];
             pointSp[0] = UIManager.Instance.dotSp[index];
             circleBorderSp = UIManager.Instance.circleBorderSp[index];
             arrowBgSp = UIManager.Instance.arrowSp[index];
