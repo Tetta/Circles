@@ -77,14 +77,14 @@ public class WheelUI : MonoBehaviour
     }
 
     IEnumerator playCompleteSounds () {
-        AudioManager.instance.levelCompleteSound.pitch = 0.8f;
-        AudioManager.instance.levelCompleteSound.Play();
+        AudioManager.instance.wheelRewardSound.pitch = 0.8f;
+        AudioManager.instance.wheelRewardSound.Play();
         yield return new WaitForSecondsRealtime(0.3f);
-        AudioManager.instance.levelCompleteSound.pitch = 1f;
-        AudioManager.instance.levelCompleteSound.Play();
+        AudioManager.instance.wheelRewardSound.pitch = 1f;
+        AudioManager.instance.wheelRewardSound.Play();
         yield return new WaitForSecondsRealtime(0.3f);
-        AudioManager.instance.levelCompleteSound.pitch = 1.2f;
-        AudioManager.instance.levelCompleteSound.Play();
+        AudioManager.instance.wheelRewardSound.pitch = 1.2f;
+        AudioManager.instance.wheelRewardSound.Play();
         
     }
 

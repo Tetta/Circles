@@ -13,7 +13,7 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: Gears of Fun Game Studio
-  productName: AMAZE Escape!
+  productName: Amaze Escape
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.5283019, g: 0.23175506, b: 0.23175506, a: 0.5372549}
@@ -157,7 +157,9 @@ PlayerSettings:
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
     Android: com.gearsoffun.labirintescape
-  buildNumber: {}
+    iOS: com.gearsoffun.labirintescape
+  buildNumber:
+    iOS: 1
   AndroidBundleVersionCode: 1
   AndroidMinSdkVersion: 16
   AndroidTargetSdkVersion: 0
@@ -232,7 +234,7 @@ PlayerSettings:
   metalEditorSupport: 1
   metalAPIValidation: 1
   iOSRenderExtraFrameOnPause: 0
-  appleDeveloperTeamID: 
+  appleDeveloperTeamID: V4N2CK7GK7
   iOSManualSigningProvisioningProfileID: 
   tvOSManualSigningProvisioningProfileID: 
   iOSManualSigningProvisioningProfileType: 0
@@ -265,7 +267,7 @@ PlayerSettings:
   - m_BuildTarget: 
     m_Icons:
     - serializedVersion: 2
-      m_Icon: {fileID: 2800000, guid: 02058ed0e65f4824e8098a75902c5be8, type: 3}
+      m_Icon: {fileID: 2800000, guid: e32dc4eeaec08e540af3bb685ca15c29, type: 3}
       m_Width: 128
       m_Height: 128
       m_Kind: 0

@@ -66,6 +66,7 @@ public class WinUI : MonoBehaviour
         AnalyticsController.sendEvent("LevelComplete", new Dictionary<string, object> { { "GemsPercent", Player.instance.gemsCollected * 100 / LevelController.levelData.coins.Count }, { "DotsPercent", Player.instance.dotsCollected * 100 / LevelController.levelData.dots.Count } });
         LevelController.addLevel();
     }
+    /*
     IEnumerator playCompleteSounds() {
         AudioManager.instance.levelCompleteSound.pitch = 0.8f;
         AudioManager.instance.levelCompleteSound.Play();
@@ -77,6 +78,7 @@ public class WinUI : MonoBehaviour
         AudioManager.instance.levelCompleteSound.Play();
 
     }
+    */
     public void giftAdClick() {
         AdController.giveReward = () => {
 

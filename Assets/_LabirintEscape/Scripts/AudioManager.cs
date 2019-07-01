@@ -22,6 +22,7 @@ public class AudioManager : MonoBehaviour
     public AudioSource enemySound;
     public AudioSource fatSound;
     public AudioSource levelCompleteSound;
+    public AudioSource wheelRewardSound;
 
 
     void Awake()

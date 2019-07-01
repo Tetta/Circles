@@ -270,7 +270,7 @@ public class GameController : MonoBehaviour {
     }
     public void changeLevel() {
         LevelController.level++;
-        if (LevelController.level > 26) LevelController.level = 1;
+        if (LevelController.level > 31) LevelController.level = 1;
         restart();
     }
     public void disableDecor() {
