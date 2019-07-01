@@ -40,8 +40,10 @@ namespace GameBench
 
 			chunkSp[0] = UIManager.Instance.chunkSp[index];
             pointSp[0] = UIManager.Instance.dotSp[index];
-            circleBorderSp = UIManager.Instance.circleBorderSp[index];
-            arrowBgSp = UIManager.Instance.arrowSp[index];
+            //circleBorderSp = UIManager.Instance.circleBorderSp[index];
+            circleBorderSp = UIManager.Instance.dotSp[index];
+            //arrowBgSp = UIManager.Instance.arrowSp[index];
+            arrowBgSp = UIManager.Instance.dotSp[index];
             SetupWheel();
             StartSpin();
             //dropDown.onValueChanged.AddListener(OnThemeChanged);
