@@ -72,7 +72,7 @@ public class Player : MonoBehaviour
         }
     }
     // Update is called once per frame
-    void Update() {
+    void FixedUpdate() {
         bool f = false;
         if (state == State.Stay) {
             if (Input.GetKeyDown(KeyCode.UpArrow) || directionName == Direction.Up) {

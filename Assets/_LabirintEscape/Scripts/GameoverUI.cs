@@ -58,11 +58,7 @@ public class GameoverUI : MonoBehaviour
 
     }
     */
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
     public void continueClick() {
         AdController.giveReward = () => {
             //TimerManager.timers["daily"].init(true);

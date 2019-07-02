@@ -12,7 +12,7 @@ public class BirdManager : MonoBehaviour
 
     bool isMove = true;
 
-    void Update()
+    void FixedUpdate()
     {
         if (isMove) {
             Vector2 nextPos = (Vector2)GetComponent<IsoTransform>().Position + Time.deltaTime * direction * speed;

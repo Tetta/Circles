@@ -26,14 +26,14 @@ public class Fat : MonoBehaviour
             collider.enabled = false;
         }
         anim.Play("FatIdle");
-        AudioManager.instance.fatSound.Play();
+        if (!GameController.levelPaused) AudioManager.instance.fatSound.Play();
         yield return new WaitForSeconds(1);
         foreach (CircleCollider2D collider in colliders) {
             collider.enabled = true;
         }
         anim.Rebind();
         anim.Play("Fat2");
-        AudioManager.instance.fatSound.Play();
+        if (!GameController.levelPaused) AudioManager.instance.fatSound.Play();
         StartCoroutine(setBig());
     }
 

@@ -19,7 +19,7 @@ public class Shooter : MonoBehaviour
         //timeShoot = 0;
     }
 
-    void Update() {
+    void FixedUpdate() {
         //Debug.Log(state);
         timeShoot += Time.deltaTime;
         if (state) {

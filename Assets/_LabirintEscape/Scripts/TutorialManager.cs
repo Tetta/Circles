@@ -60,9 +60,5 @@ public class TutorialManager : MonoBehaviour
         hand.transform.DOKill();
         hand.SetActive(false);
     }
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
 }

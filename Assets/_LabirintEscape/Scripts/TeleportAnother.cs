@@ -19,11 +19,6 @@ public class TeleportAnother : MonoBehaviour
     }
 
 
-
-    void Update()
-    {
-
-    }
     public static Vector3  checkTeleport(Vector2 pos, Player.Direction dirTemp) {
         //Debug.Log("checkTeleport Another");
         //Debug.Log(pos);

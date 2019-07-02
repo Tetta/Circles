@@ -46,10 +46,7 @@ public class Teleport : MonoBehaviour
 
     }
 
-    void Update()
-    {
 
-    }
     public static bool checkTeleport(string title) {
         Debug.Log("checkTeleport: " + title);
 

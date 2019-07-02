@@ -12,11 +12,7 @@ public class IAPManager : MonoBehaviour
         
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
 
     public void buySubscription( Product product) {
         PlayerPrefs.SetInt("CHAR_5", 1);

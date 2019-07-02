@@ -3,7 +3,7 @@ guid: d1eea50b489c512468e67c965dd061e8
 TextureImporter:
   fileIDToRecycleName: {}
   externalObjects: {}
-  serializedVersion: 7
+  serializedVersion: 9
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -113,7 +113,7 @@ TextureImporter:
     indices: 
     edges: []
     weights: []
-  spritePackingTag: chars
+  spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
   userData: 

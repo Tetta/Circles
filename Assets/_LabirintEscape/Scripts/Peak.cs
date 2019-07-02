@@ -51,10 +51,6 @@ public class Peak : MonoBehaviour
     }
 
 
-    void Update()
-    {
-
-    }
 
     private void OnTriggerEnter2D(Collider2D collision) {
        //Debug.Log("Peak OnTriggerEnter2D: " + collision.name);
