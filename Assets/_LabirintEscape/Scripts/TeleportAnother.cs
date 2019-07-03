@@ -5,6 +5,7 @@ using Assets.UltimateIsometricToolkit.Scripts.Core;
 using DG.Tweening;
 public class TeleportAnother : MonoBehaviour
 {
+    public static bool enter;
     Color32 color1;
     Color32 color2;
 
@@ -12,6 +13,7 @@ public class TeleportAnother : MonoBehaviour
     void Start()
     {
 
+        enter = false;
         foreach (Transform c in transform) {
             c.gameObject.SetActive(false);
         }
@@ -46,4 +48,5 @@ public class TeleportAnother : MonoBehaviour
 
 
     }
+
 }

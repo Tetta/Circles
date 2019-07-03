@@ -36,6 +36,7 @@ public class Player : MonoBehaviour
     int imageSide = 0;
     void Start()
     {
+        //point
         //Time.timeScale = 0.1f;
 
         instance = this;
@@ -190,7 +191,7 @@ public class Player : MonoBehaviour
 
         images.GetChild(s).gameObject.SetActive(true);
         //ps trail
-        //fix test
+        
         foreach (Transform child in psTrail) {
             //child.gameObject.SetActive(false);
             //child.GetComponent<ParticleSystem>().Stop();
@@ -240,7 +241,7 @@ public class Player : MonoBehaviour
 
 
     private void OnTriggerEnter2D(Collider2D collision) {
-        //Debug.Log("collision.name: " + collision.gameObject.name);
+        Debug.Log("collision.name: " + collision.gameObject.name);
         //star
         if (collision.gameObject.name == "TouchPanel") return;
         else if (collision.gameObject.name == "CoinPrefab(Clone)" || collision.gameObject.name == "DotPrefab(Clone)") {
@@ -250,7 +251,7 @@ public class Player : MonoBehaviour
             if (collision.gameObject.name == "CoinPrefab(Clone)") {
                 GemsController.AddGems(10, "Level");
                 AudioManager.instance.gemSound.Play();
-                 gemsCollected++;
+                gemsCollected++;
             }
             else {
                 GemsController.AddGems(1, "Level");
@@ -275,13 +276,35 @@ public class Player : MonoBehaviour
         else if (collision.transform.gameObject.name == "ExitPrefab(Clone)") {
             Debug.Log("------- Exit!!! -------------");
             hideChar();
-           
+
 
         }
         else if (collision.transform.parent.parent.gameObject.name == "FatPrefab(Clone)") {
             Debug.Log("------- Failed!!! Fat -------------");
 
             StartCoroutine(death("Fat"));
+        }
+        //Debug.Log("TeleportAnother OnTriggerEnter2D: " + collision.name);
+        //Debug.Log("TeleportAnother OnTriggerEnter2D: " + GetComponent<IsoTransform>().Position);
+
+        else if (collision.name == "TeleportAnother1(Clone)" || collision.name == "TeleportAnother2(Clone)") {
+            //Debug.Log(collision.GetComponent<IsoTransform>().Position);
+            //Debug.Log(GetComponent<IsoTransform>().Position);
+            //Debug.Log(TeleportAnother.enter);
+            //Debug.Log(TeleportAnother.checkTeleport(collision.GetComponent<IsoTransform>().Position, Player.dirTemp));
+            if (TeleportAnother.checkTeleport(collision.GetComponent<IsoTransform>().Position, Player.dirTemp).z != 100 && !TeleportAnother.enter) {
+                Debug.Log("Jump");
+                //point
+                Taptic.Light();
+                onStopPlayer();
+                state = State.Stay;
+                TeleportAnother.enter = true;
+                Player.instance.pos = TeleportAnother.checkTeleport(collision.GetComponent<IsoTransform>().Position, Player.dirTemp);
+                Player.instance.move((Vector3)Player.instance.pos + new Vector3(0, 0, 1));
+                //Time.timeScale = 0;
+
+            }
+            else TeleportAnother.enter = false;
         }
         //else Teleport.checkTeleport(collision.transform.gameObject.name);
 

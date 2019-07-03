@@ -30,7 +30,9 @@ public class AdController : MonoBehaviour, IInterstitialAdListener, IRewardedVid
         }
     }
     public static bool IsInterstitialReady { get { return Appodeal.isLoaded(Appodeal.INTERSTITIAL); } }
-
+    private float timer;
+    private bool timerTicked;
+    public readonly float interstitialInterval = 20f;
     //private AudioManager audioManager;
 
     #region Interstitial event handlers
@@ -43,6 +45,8 @@ public class AdController : MonoBehaviour, IInterstitialAdListener, IRewardedVid
     public void onInterstitialClosed() {
         //StartCoroutine(InterstitialClosedCoroutine());
         Pause(false);
+        //point
+        StartCoroutine(UpdateTimer());
     }
 
     #endregion
@@ -143,5 +147,15 @@ public class AdController : MonoBehaviour, IInterstitialAdListener, IRewardedVid
             //Time.timeScale = 1f;
             //audioManager.Unmute();
         }
+    }
+
+    private IEnumerator UpdateTimer() {
+        timerTicked = false;
+        timer = 0f;
+        while (timer < interstitialInterval) {
+            timer += Time.deltaTime;
+            yield return null;
+        }
+        timerTicked = true;
     }
 }

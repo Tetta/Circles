@@ -18,6 +18,7 @@ public class GameController : MonoBehaviour {
 
     [Header("MainUI")]
     public Text levelText;
+    public Text newLevelsText;
     public Button giftButton;
     public Text giftTimerText;
     public GameObject CharButtonBadge;
@@ -61,7 +62,7 @@ public class GameController : MonoBehaviour {
     void awakeScene() {
         logTime("Awake");
         //fix uncomment
-        //level = PlayerPrefs.GetInt("LEVEL", 1);
+        LevelController.level = PlayerPrefs.GetInt("LEVEL", 1);
 
         setSkin();
         foreach (var p in screensList) {
@@ -82,10 +83,10 @@ public class GameController : MonoBehaviour {
 
 
         levelText.text = "LEVEL " + LevelController.level;
-
+        newLevelsText.gameObject.SetActive(LevelController.level >= 30);
         //gift wheel
         //fix 4 * 60 * 60
-        TimerManager.timers["gift"] = new Timer("gift", 20, updateGiftButton);
+        TimerManager.timers["gift"] = new Timer("gift", 4 * 60 * 60, updateGiftButton);
         //first launch
         if (AnalyticsController.awake) {
             //PlayerPrefs.SetInt("USER_GROUP", UnityEngine.Random.Range(1, 10));
@@ -95,7 +96,7 @@ public class GameController : MonoBehaviour {
         }
         //on 2 session
         //fix uncomment
-        //if (AnalyticsController.awake && !IAPManager.vip && PlayerPrefs.GetInt("SESSIONS_COUNT", 0) >= 2) showScreen("VipUI");
+        if (AnalyticsController.awake && !IAPManager.vip && PlayerPrefs.GetInt("SESSIONS_COUNT", 0) >= 2) showScreen("VipUI");
         
         //char badge ?
         //CharButtonBadge.SetActive(GemsController.availableBuyChar());
@@ -215,6 +216,10 @@ public class GameController : MonoBehaviour {
         showScreen(previousScreen);
     }
 
+    public void onBackLevel() {
+        if (LevelController.level >= 5) AdController.ShowInterstitial();
+        restart();
+    }
 
     public void restart () {
         GameController.logTime("restart click");
@@ -269,8 +274,10 @@ public class GameController : MonoBehaviour {
         restart();
     }
     public void changeLevel() {
-        LevelController.level++;
-        if (LevelController.level > 31) LevelController.level = 1;
+        //LevelController.level++;
+
+        if (LevelController.level >= 30) LevelController.level = 0;
+        LevelController.addLevel();
         restart();
     }
     public void disableDecor() {

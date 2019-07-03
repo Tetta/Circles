@@ -678,10 +678,6 @@
       <y>9</y>
     </Vector2>
     <Vector2>
-      <x>-11</x>
-      <y>9</y>
-    </Vector2>
-    <Vector2>
       <x>-10</x>
       <y>9</y>
     </Vector2>
@@ -1386,10 +1382,6 @@
       <y>-18</y>
     </Vector2>
     <Vector2>
-      <x>7</x>
-      <y>-18</y>
-    </Vector2>
-    <Vector2>
       <x>6</x>
       <y>-19</y>
     </Vector2>
@@ -1604,6 +1596,10 @@
     <Vector2>
       <x>-12</x>
       <y>-14</y>
+    </Vector2>
+    <Vector2>
+      <x>-11</x>
+      <y>9</y>
     </Vector2>
   </tiles>
   <coins>

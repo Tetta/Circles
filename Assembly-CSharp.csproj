@@ -276,6 +276,7 @@
     <None Include="Assets\UltimateIsometricToolkit\Graphics\Misc\moreenemiesanimations\Spritesheets\alienGreen.xml" />
     <None Include="Assets\AxeyWorks\PolyWorks\Full Pack\Shaders\ToonShader\Shaders\AxeyWorksToonBasic.shader" />
     <None Include="Assets\JMO Assets\Cartoon FX\Shaders\CFX3 Multiply Color.shader" />
+    <None Include="Assets\Resources\Levels\Level101.txt" />
     <None Include="Assets\Resources\Levels\Level16.txt" />
     <None Include="Assets\2 Fire.shader" />
     <None Include="Assets\_LabirintEscape\FX\2 Fire.shader" />

@@ -8,7 +8,8 @@ public class LevelController : MonoBehaviour
 {
     public static LevelController instance;
     //---------------------------------
-    public static int level = 101; //18
+    //fix
+    public static int level = 1; //18
     public static int skin = 0;
     //---------------------------------
 
@@ -153,7 +154,7 @@ public class LevelController : MonoBehaviour
 
             //decors
             //create(levelData.decor0, decorPrefabs[0], tileField, levelData.decor0Size);
-            //fix    
+              
             Decor.create();
             GameController.logTime("create prefabs finish");
 
@@ -162,6 +163,7 @@ public class LevelController : MonoBehaviour
 
     public static void addLevel () {
         level ++;
+        if (level > 30) level = 30;
         PlayerPrefs.SetInt("LEVEL", level);
     }
 

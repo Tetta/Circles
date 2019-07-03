@@ -27,7 +27,7 @@ public class Coin : MonoBehaviour
     public IEnumerator effectCoroutine() {
         transform.GetChild(0).gameObject.SetActive(false);
         transform.GetChild(1).gameObject.SetActive(false);
-        Debug.Log("effectCoroutine: " + psDestroy.name);
+        //Debug.Log("effectCoroutine: " + psDestroy.name);
         psDestroy.Play();
         yield return new WaitForSecondsRealtime(1);
         gameObject.SetActive(false);

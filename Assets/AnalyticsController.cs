@@ -23,7 +23,8 @@ public class AnalyticsController : MonoBehaviour {
             awake = true;
         }
         if (PlayerPrefs.GetInt("USER_GROUP", 0) == 0) {
-            int r = UnityEngine.Random.Range(1, 9);
+            //fix
+            int r = UnityEngine.Random.Range(4, 10);
             PlayerPrefs.SetInt("USER_GROUP", r);
             sendEvent("UserGroup", new Dictionary<string, object>{{ "Group", r }});
             firstLaunch = true;
@@ -61,7 +62,7 @@ public class AnalyticsController : MonoBehaviour {
         params3["Skin"] = LevelController.skin;
 
         //FB
-        if (FB.IsInitialized)
+        //if (FB.IsInitialized)
             FB.LogAppEvent(
                 eventName,
                 parameters: params3

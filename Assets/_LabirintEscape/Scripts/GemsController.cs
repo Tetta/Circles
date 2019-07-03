@@ -27,7 +27,7 @@ public class GemsController : Singleton<GemsController> {
         //if (SubscribeController.LocalState) amount = amount * 2;
         float multiplicator = 1 + GameController.instance.chars[GameController.charId].addGems;
         multiplicator *= 1 + Convert.ToInt32(IAPManager.vip);
-        //fix
+        
         float amountMulti = amount *multiplicator;
         
         LastAdd = amountMulti;

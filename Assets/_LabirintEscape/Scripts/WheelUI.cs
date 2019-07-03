@@ -36,7 +36,7 @@ public class WheelUI : MonoBehaviour
         bgButton.enabled = true;
         ps.SetActive(true);
         StartCoroutine(playCompleteSounds());
-        //fix set reward
+        //point set reward
         switch (rewardId) {
             case 0:
                 GemsController.AddGems(500, "Wheel");

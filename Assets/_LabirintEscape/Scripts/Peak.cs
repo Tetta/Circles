@@ -22,7 +22,7 @@ public class Peak : MonoBehaviour
 
     IEnumerator showHide () {
         //collider.enabled = false;
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.4f);
         exist = true;
         //Debug.Log()
         if (Player.instance.transform.GetComponent<IsoTransform>().Position == GetComponent<IsoTransform>().Position + new Vector3(0, 0, 1)) StartCoroutine(Player.instance.death("Peak"));
@@ -68,7 +68,7 @@ public class Peak : MonoBehaviour
         //Debug.Log("Peak OnTriggerEnter2D: " + collision.name);
 
         if (collision.name == "Player") {
-            Debug.Log("Peak Trigger Stay Player " + exist);
+            //Debug.Log("Peak Trigger Stay Player " + exist);
 
             if (exist) {
                 Debug.Log("Peak Enable Trigger Player");

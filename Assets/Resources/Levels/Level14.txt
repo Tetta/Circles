@@ -2,10 +2,6 @@
 <LevelData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <tiles>
     <Vector2>
-      <x>-1</x>
-      <y>-23</y>
-    </Vector2>
-    <Vector2>
       <x>0</x>
       <y>-23</y>
     </Vector2>
@@ -244,10 +240,6 @@
     <Vector2>
       <x>-11</x>
       <y>-19</y>
-    </Vector2>
-    <Vector2>
-      <x>-11</x>
-      <y>-20</y>
     </Vector2>
     <Vector2>
       <x>-10</x>
@@ -315,10 +307,6 @@
     </Vector2>
     <Vector2>
       <x>-14</x>
-      <y>-20</y>
-    </Vector2>
-    <Vector2>
-      <x>-15</x>
       <y>-20</y>
     </Vector2>
     <Vector2>
@@ -1236,6 +1224,18 @@
     <Vector2>
       <x>-7</x>
       <y>-10</y>
+    </Vector2>
+    <Vector2>
+      <x>-1</x>
+      <y>-23</y>
+    </Vector2>
+    <Vector2>
+      <x>-11</x>
+      <y>-20</y>
+    </Vector2>
+    <Vector2>
+      <x>-15</x>
+      <y>-20</y>
     </Vector2>
   </tiles>
   <coins>
@@ -2077,10 +2077,6 @@
       <y>-18</y>
     </Vector2>
     <Vector2>
-      <x>-11</x>
-      <y>-20</y>
-    </Vector2>
-    <Vector2>
       <x>-19</x>
       <y>-9</y>
     </Vector2>
@@ -2109,10 +2105,6 @@
     <Vector2>
       <x>-7</x>
       <y>-18</y>
-    </Vector2>
-    <Vector2>
-      <x>-15</x>
-      <y>-20</y>
     </Vector2>
     <Vector2>
       <x>-16</x>

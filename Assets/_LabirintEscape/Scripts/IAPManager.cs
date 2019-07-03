@@ -39,6 +39,11 @@ public class IAPManager : MonoBehaviour
         //if (vip == 0 && PlayerPrefs.GetString("selectedBarName") == "vip")
         //    BarGUI.instance.updateBarPricesButtons();
     }
-
+    public void onPrivacyClick() {
+        Application.OpenURL("https://docs.google.com/document/d/1FkOeftcs8gF9gZYcTyEXGgihmkdCb60x7Z1Q1o8ixbo/edit?usp=sharing");
+    }
+    public void onTermsClick() {
+        Application.OpenURL("https://docs.google.com/document/d/16AMooYyxeEODGMWGF48IScPSj2w3dPtJ7qgowRByYb8/edit?usp=sharing");
+    }
     //public void purchase
 }

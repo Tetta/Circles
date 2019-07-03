@@ -1010,7 +1010,12 @@
     </Vector2>
   </peaks>
   <fats />
-  <start />
+  <start>
+    <Vector2>
+      <x>-14</x>
+      <y>-20</y>
+    </Vector2>
+  </start>
   <exit>
     <Vector2>
       <x>-13</x>
