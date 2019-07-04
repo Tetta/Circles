@@ -11,7 +11,7 @@ public class GemsController : Singleton<GemsController> {
         get { if (_gems == -1) return PlayerPrefs.GetFloat("GEMS", 0); else return _gems; }
         private set
         {
-            PlayerPrefs.GetFloat("GEMS", value);
+            PlayerPrefs.SetFloat("GEMS", value);
             if (UpdateGems != null) UpdateGems(value);
             _gems = value;
         }

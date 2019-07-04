@@ -88,7 +88,8 @@ public class GameController : MonoBehaviour {
         //fix 4 * 60 * 60
         TimerManager.timers["gift"] = new Timer("gift", 4 * 60 * 60, updateGiftButton);
         //first launch
-        if (AnalyticsController.awake) {
+        
+        if (AnalyticsController.awake && PlayerPrefs.GetInt("SESSIONS_COUNT", 0) == 1) {
             //PlayerPrefs.SetInt("USER_GROUP", UnityEngine.Random.Range(1, 10));
             //gift
             TimerManager.timers["gift"].init(true);
@@ -286,6 +287,9 @@ public class GameController : MonoBehaviour {
         restart();
     }
 
+    public void changeSound () {
+        AudioManager.instance.audioOnOff();
+    }
 
 }
 

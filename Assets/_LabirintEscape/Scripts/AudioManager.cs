@@ -39,7 +39,10 @@ public class AudioManager : MonoBehaviour
 
         DontDestroyOnLoad(gameObject);
 
-
+        if (GameObject.Find("CanvasUI/MainUI/AudioButton/") != null) {
+            GameObject.Find("CanvasUI/MainUI/AudioButton/").transform.GetChild(0).gameObject.SetActive(audioFlag);
+            GameObject.Find("CanvasUI/MainUI/AudioButton/").transform.GetChild(1).gameObject.SetActive(!audioFlag);
+        }
 
     }
 

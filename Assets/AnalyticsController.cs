@@ -4,6 +4,7 @@ using UnityEngine;
 using Facebook.Unity;
 using System.Linq;
 public class AnalyticsController : MonoBehaviour {
+    public static AnalyticsController instance;
 
     public static bool firstLaunch;
     public static bool awake;
@@ -16,14 +17,15 @@ public class AnalyticsController : MonoBehaviour {
             //Handle FB.Init
             FB.Init(FB.ActivateApp);
         }
-        //fix delete
-        if (AdController.instance == null) {
-            //PlayerPrefs.DeleteAll();
+        
+        if (instance == null)  {
+            instance = this;
+            
             PlayerPrefs.SetInt("SESSIONS_COUNT", PlayerPrefs.GetInt("SESSIONS_COUNT", 0) + 1);
             awake = true;
         }
         if (PlayerPrefs.GetInt("USER_GROUP", 0) == 0) {
-            //fix
+            //fix start 0
             int r = UnityEngine.Random.Range(4, 10);
             PlayerPrefs.SetInt("USER_GROUP", r);
             sendEvent("UserGroup", new Dictionary<string, object>{{ "Group", r }});
@@ -62,18 +64,28 @@ public class AnalyticsController : MonoBehaviour {
         params3["Skin"] = LevelController.skin;
 
         //FB
-        //if (FB.IsInitialized)
+        if (FB.IsInitialized) {
             FB.LogAppEvent(
                 eventName,
                 parameters: params3
             );
+            //for Debug.Log
+            string keys = eventName;
+            foreach (KeyValuePair<string, object> param in params3) {
+                keys += ":" + param.Key + "_" + param.Value;
+            }
+            Debug.Log("____________" + keys);
 
-        //for Debug.Log
-        string keys = eventName;
-        foreach (KeyValuePair<string, object> param in params3) {
-            keys += ":" + param.Key + "_" + param.Value;
+        } else {
+            instance.StartCoroutine(sendEventCoroutine(eventName, params3));
         }
-        Debug.Log("____________" + keys);
+
+    }
+    public static IEnumerator sendEventCoroutine(string eventName, Dictionary<string, object> params3 = null) {
+        while (!FB.IsInitialized) {
+            yield return null;
+        }
+        sendEvent(eventName, params3);
     }
 
     public static void LogPurchase(string contentData, string contentId, string contentType, string currency, float price) {

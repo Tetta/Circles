@@ -208,7 +208,7 @@ public class Player : MonoBehaviour
         if (scale > 0.2) scale = 0.2f;
         
         //fix uncomment
-        //images.DOScaleY(1 - scale, 0.05f);  
+        images.DOScaleY(1 - scale, 0.05f);  
 
         float moveY = -0.086f * (magnitude) / 2;
         if (moveY < -0.172f) moveY = -0.172f;
@@ -216,7 +216,7 @@ public class Player : MonoBehaviour
         //Debug.Log(moveY);
 
         //fix uncomment
-        //images.gameObject.transform.DOLocalMoveY(moveY, 0.05f);
+        images.gameObject.transform.DOLocalMoveY(moveY, 0.05f);
     }
 
     void onStopPlayer () {

@@ -31,7 +31,7 @@ public class AdController : MonoBehaviour, IInterstitialAdListener, IRewardedVid
     }
     public static bool IsInterstitialReady { get { return Appodeal.isLoaded(Appodeal.INTERSTITIAL); } }
     private float timer;
-    private bool timerTicked;
+    public static bool timerTicked = true;
     public readonly float interstitialInterval = 20f;
     //private AudioManager audioManager;
 
@@ -46,7 +46,9 @@ public class AdController : MonoBehaviour, IInterstitialAdListener, IRewardedVid
         //StartCoroutine(InterstitialClosedCoroutine());
         Pause(false);
         //point
-        StartCoroutine(UpdateTimer());
+        //StartCoroutine(UpdateTimer());
+        timer = 0f;
+        timerTicked = false;
     }
 
     #endregion
@@ -67,7 +69,9 @@ public class AdController : MonoBehaviour, IInterstitialAdListener, IRewardedVid
 
     public static void ShowInterstitial() {
         Debug.Log("ShowInterstitial");
-        if (IsInterstitialReady && !IAPManager.vip) {
+        Debug.Log("timerTicked: " + timerTicked);
+        if (IsInterstitialReady && !IAPManager.vip && timerTicked) {
+            Debug.Log("ShowInterstitial 2");
             Pause(true);
             Appodeal.show(Appodeal.INTERSTITIAL);
         }
@@ -148,14 +152,15 @@ public class AdController : MonoBehaviour, IInterstitialAdListener, IRewardedVid
             //audioManager.Unmute();
         }
     }
-
-    private IEnumerator UpdateTimer() {
-        timerTicked = false;
-        timer = 0f;
-        while (timer < interstitialInterval) {
-            timer += Time.deltaTime;
-            yield return null;
+    private void Update() {
+        if (!timerTicked) {
+            if (timer < interstitialInterval) {
+                timer += Time.deltaTime;
+            }
+            else
+                timerTicked = true;
         }
-        timerTicked = true;
     }
+
+
 }
