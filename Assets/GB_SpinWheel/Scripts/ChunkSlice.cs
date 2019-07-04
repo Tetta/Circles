@@ -20,7 +20,7 @@ namespace GameBench
 
         void OnTriggerEnter2D(Collider2D other)
         {
-            //fix
+            
             //spRend.sprite = SpinWheel.Instance.chunkSp[1];
 
             //Debug.Log(name);

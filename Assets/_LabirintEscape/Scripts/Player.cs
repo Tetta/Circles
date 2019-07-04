@@ -175,7 +175,7 @@ public class Player : MonoBehaviour
                 move((Vector3)nextPos + new Vector3(0, 0, 1));
         }
 
-        //fix bad code
+        //point bad code
         if (TeleportAnother.enter) {
             if (TeleportAnother.enterTime < 0.2f) {
                 TeleportAnother.enterTime += Time.deltaTime;

@@ -32,7 +32,7 @@ namespace Assets.UltimateIsometricToolkit.Scripts.Core {
 		/// </summary>
 		[ExposeProperty]
 		public Vector3 Position {
-            //fix
+            
 			get {
                 //Debug.Log(new Vector3(_position.x, _position.z, _position.y));
                 //return _position;

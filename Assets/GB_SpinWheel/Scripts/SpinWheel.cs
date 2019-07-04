@@ -167,7 +167,7 @@ namespace GameBench
 
             if (!spinning)
             {
-                //fix
+                
                 //randomTime = Random.Range(1, 3);
                 //float maxAngle = (SpinWheelSetup.Instance.speed * 360) * randomTime + (Random.Range(0, 8) * anglePerItem);
                 //WheelAnimation(false);
@@ -203,7 +203,7 @@ namespace GameBench
                 //Debug.Log(angle);
                 //Debug.Log(startAngle);
                 timer += Time.deltaTime;
-                //fix
+                //point
                 //if (time - timer < 1) timer -= 1;
                 //if (adding && selectedSave != SelectedReward) { }
                // else 

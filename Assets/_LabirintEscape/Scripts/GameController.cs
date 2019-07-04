@@ -62,7 +62,7 @@ public class GameController : MonoBehaviour {
     void awakeScene() {
         logTime("Awake");
         //fix uncomment
-        //LevelController.level = PlayerPrefs.GetInt("LEVEL", 1);
+        LevelController.level = PlayerPrefs.GetInt("LEVEL", 1);
 
         setSkin();
         foreach (var p in screensList) {
@@ -173,8 +173,7 @@ public class GameController : MonoBehaviour {
         showLives();
         levelPaused = false;
         skinsBg.gameObject.SetActive(false);
-        //fix - for test complete level
-        //StartCoroutine(complete());
+
 
         //tutorial
         TutorialManager.step = -1;

@@ -85,7 +85,7 @@ namespace Assets.UltimateIsometricToolkit.Editor {
 		/// Applies deltaMovement to each selected Object
 		/// </summary>
 		/// <param name="delta"></param>
-        /// //fix
+        /// 
 		private void ApplyZAxisChanges(float delta) {
             Debug.Log("ApplyZAxisChanges");
             if (_selectedObjects == null)

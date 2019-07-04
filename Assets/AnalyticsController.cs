@@ -26,7 +26,7 @@ public class AnalyticsController : MonoBehaviour {
         }
         if (PlayerPrefs.GetInt("USER_GROUP", 0) == 0) {
             //fix start 0
-            int r = UnityEngine.Random.Range(4, 10);
+            int r = UnityEngine.Random.Range(0, 10);
             PlayerPrefs.SetInt("USER_GROUP", r);
             sendEvent("UserGroup", new Dictionary<string, object>{{ "Group", r }});
             firstLaunch = true;
