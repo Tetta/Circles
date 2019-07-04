@@ -115,6 +115,7 @@
     <Compile Include="Assets\Editor\AppodealAssetsPostProcess.cs" />
     <Compile Include="Assets\Editor\AppodealPostProcess.cs" />
     <Compile Include="Assets\Editor\AppodealPreProcess.cs" />
+    <Compile Include="Assets\Editor\ChangePlist.cs" />
     <Compile Include="Assets\Editor\LabirintMenu.cs" />
     <Compile Include="Assets\Energy Node\scripts\Localization\Editor\LocalizationInpector.cs" />
     <Compile Include="Assets\GB_SpinWheel\Scripts\Editor\SpinWheelEditor.cs" />
