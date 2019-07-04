@@ -62,7 +62,7 @@ public class GameController : MonoBehaviour {
     void awakeScene() {
         logTime("Awake");
         //fix uncomment
-        LevelController.level = PlayerPrefs.GetInt("LEVEL", 1);
+        //LevelController.level = PlayerPrefs.GetInt("LEVEL", 1);
 
         setSkin();
         foreach (var p in screensList) {
@@ -183,6 +183,7 @@ public class GameController : MonoBehaviour {
         Player.instance.showChar();
         AnalyticsController.sendEvent("LevelStart");
 
+        TeleportAnother.enter = false;
     }
 
     //public IEnumerator complete () {

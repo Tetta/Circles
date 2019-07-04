@@ -175,7 +175,14 @@ public class Player : MonoBehaviour
                 move((Vector3)nextPos + new Vector3(0, 0, 1));
         }
 
-
+        //fix bad code
+        if (TeleportAnother.enter) {
+            if (TeleportAnother.enterTime < 0.2f) {
+                TeleportAnother.enterTime += Time.deltaTime;
+            }
+            else
+                TeleportAnother.enter = false;
+        }
     }
     private void move(Vector3 v) {
 
@@ -298,6 +305,7 @@ public class Player : MonoBehaviour
                 Taptic.Light();
                 onStopPlayer();
                 state = State.Stay;
+                TeleportAnother.enterTime = 0;
                 TeleportAnother.enter = true;
                 Player.instance.pos = TeleportAnother.checkTeleport(collision.GetComponent<IsoTransform>().Position, Player.dirTemp);
                 Player.instance.move((Vector3)Player.instance.pos + new Vector3(0, 0, 1));

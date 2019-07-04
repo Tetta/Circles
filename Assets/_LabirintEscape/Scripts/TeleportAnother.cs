@@ -6,6 +6,7 @@ using DG.Tweening;
 public class TeleportAnother : MonoBehaviour
 {
     public static bool enter;
+    public static float enterTime;
     Color32 color1;
     Color32 color2;
 
@@ -13,7 +14,7 @@ public class TeleportAnother : MonoBehaviour
     void Start()
     {
 
-        enter = false;
+        
         foreach (Transform c in transform) {
             c.gameObject.SetActive(false);
         }
@@ -49,4 +50,8 @@ public class TeleportAnother : MonoBehaviour
 
     }
 
-}
+    private void OnTriggerEnter2D(Collider2D collision) {
+        Debug.Log("1name: " + name);
+        Debug.Log("1collision.name: " + collision.gameObject.name);
+    }
+    }
