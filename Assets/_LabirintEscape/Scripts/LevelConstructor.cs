@@ -199,7 +199,7 @@ public class LevelConstructor : MonoBehaviour
         //from resources -----------------
 #if !UNITY_EDITOR
         string levelsTxt = Tools.LoadAsText("Levels/Level" + level, "txt");
-        Debug.Log(levelsTxt);
+        //Debug.Log(levelsTxt);
         XmlSerializer bf = new XmlSerializer(typeof(LevelData));
         using (TextReader reader = new StringReader(levelsTxt)) {
             levelData = (LevelData)bf.Deserialize(reader);
