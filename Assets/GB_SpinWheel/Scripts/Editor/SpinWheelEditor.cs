@@ -35,8 +35,8 @@ namespace GameBench
             instance.theme = (WheelTheme)EditorGUILayout.EnumPopup("Select Theme", instance.theme);
             GUILayout.BeginHorizontal();
             GUILayout.FlexibleSpace();
-            GUILayout.Button(previewTextures[(int)instance.theme], EditorStyles.label,
-                GUILayout.MaxWidth(100), GUILayout.MaxHeight(100));
+            //GUILayout.Button(previewTextures[(int)instance.theme], EditorStyles.label,
+            //    GUILayout.MaxWidth(100), GUILayout.MaxHeight(100));
             GUILayout.FlexibleSpace();
             GUILayout.EndHorizontal();
             DrawLine();

@@ -63,6 +63,7 @@ public class GameController : MonoBehaviour {
         logTime("Awake");
         //fix uncomment
         LevelController.level = PlayerPrefs.GetInt("LEVEL", 1);
+        //LevelController.level = 31;
 
         setSkin();
         foreach (var p in screensList) {
@@ -85,7 +86,7 @@ public class GameController : MonoBehaviour {
         levelText.text = "LEVEL " + LevelController.level;
         newLevelsText.gameObject.SetActive(LevelController.level >= 30);
         //gift wheel
-        //fix 4 * 60 * 60
+        //point 4 * 60 * 60
         TimerManager.timers["gift"] = new Timer("gift", 4 * 60 * 60, updateGiftButton);
         //first launch
         

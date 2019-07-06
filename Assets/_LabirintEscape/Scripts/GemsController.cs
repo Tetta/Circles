@@ -22,10 +22,11 @@ public class GemsController : Singleton<GemsController> {
     public static float LastAdd { get; private set; }
     public static float gemsOnLevel;
 
-    public static void AddGems(int amount, string src) {
+    public static void AddGems(float amount, string src, bool multi = false) {
         if (amount < 0) return;
         //if (SubscribeController.LocalState) amount = amount * 2;
-        float multiplicator = 1 + GameController.instance.chars[GameController.charId].addGems;
+        float multiplicator = 1;
+        if (multi) multiplicator += GameController.instance.chars[GameController.charId].addGems;
         multiplicator *= 1 + Convert.ToInt32(IAPManager.vip);
         
         float amountMulti = amount *multiplicator;

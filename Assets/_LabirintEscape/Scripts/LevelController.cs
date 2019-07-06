@@ -18,6 +18,9 @@ public class LevelController : MonoBehaviour
 
     public static int levelLoaded;
 
+    public static int allGems;
+
+
     public Transform tileField;
 
 
@@ -52,7 +55,7 @@ public class LevelController : MonoBehaviour
         }
         psBg.transform.GetChild(skin).gameObject.SetActive(true);
 
-        
+        allGems = levelData.coins.Count + levelData.dots.Count;
     }
     
     public void create (List<Vector2> list, GameObject prefab, Transform parent,List<Vector2> listSize = null) {

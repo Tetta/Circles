@@ -256,12 +256,12 @@ public class Player : MonoBehaviour
             StartCoroutine(collision.gameObject.GetComponent<Coin>().effectCoroutine());
 
             if (collision.gameObject.name == "CoinPrefab(Clone)") {
-                GemsController.AddGems(10, "Level");
+                GemsController.AddGems(1, "Level", true);
                 AudioManager.instance.gemSound.Play();
                 gemsCollected++;
             }
             else {
-                GemsController.AddGems(1, "Level");
+                GemsController.AddGems(0.1f, "Level", true);
                 AudioManager.instance.dotSound.Play();
                 dotsCollected++;
 

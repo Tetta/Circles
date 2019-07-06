@@ -9,7 +9,7 @@ using UnityEngine.UI;
 
 public class GemsIndicator : MonoBehaviour {
     [SerializeField] private string _shopPopUpName;
-    [SerializeField] private Text _gemsCount;
+    [SerializeField] public Text _gemsCount;
     [SerializeField] private int _addTime = 5;
 
     [SerializeField] private Text _addText;
@@ -35,10 +35,12 @@ public class GemsIndicator : MonoBehaviour {
     public void UpdateGems(float amount) {
         if (!gameObject.activeInHierarchy) return;
         if (!gameObject.activeSelf) return;
+        if (Convert.ToInt32(_gemsCount.text) == Mathf.RoundToInt(amount)) return;
         ShowAnimation(Mathf.RoundToInt( GemsController.LastAdd));
         if (_gemsCoroutine != null) StopCoroutine(_gemsCoroutine);
         //Debug.Log("amount: " + Mathf.RoundToInt(amount));
         //Debug.Log("UpdateCoinsCoroutine(Mathf.RoundToInt(amount)): " + UpdateCoinsCoroutine(Mathf.RoundToInt(amount)));
+
         _gemsCoroutine = StartCoroutine(UpdateCoinsCoroutine(Mathf.RoundToInt(amount)));
 
 
@@ -64,9 +66,12 @@ public class GemsIndicator : MonoBehaviour {
     }
 
     private IEnumerator UpdateCoinsCoroutine(int amount) {
+
         var currentAmount = Convert.ToInt32(_gemsCount.text);
         var addamount = Math.Abs(amount - currentAmount);
         var addatsecond = 0;
+
+
         if (addamount <= _addTime)
             addatsecond = 1 * (amount > currentAmount ? 1 : -1);
         else {

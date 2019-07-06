@@ -39,26 +39,26 @@ public class WheelUI : MonoBehaviour
         //point set reward
         switch (rewardId) {
             case 0:
-                GemsController.AddGems(500, "Wheel");
+                GemsController.AddGems(150, "Wheel");
                 break;
             case 1:
-                GemsController.AddGems(2000, "Wheel");
+                GemsController.AddGems(600, "Wheel");
                 break;
             case 2:
-                GemsController.AddGems(500, "Wheel");
+                GemsController.AddGems(150, "Wheel");
                 break;
             case 3:
                 PlayerPrefs.SetInt("SHIELD_WHEEL", PlayerPrefs.GetInt("SHIELD_WHEEL", 0) + 1);
                 AnalyticsController.sendEvent("ShieldAdd", new Dictionary<string, object> { { "For", "Wheel" } });
                 break;
             case 4:
-                GemsController.AddGems(500, "Wheel");
+                GemsController.AddGems(150, "Wheel");
                 break;
             case 5:
-                GemsController.AddGems(2500, "Wheel");
+                GemsController.AddGems(750, "Wheel");
                 break;
             case 6:
-                GemsController.AddGems(500, "Wheel");
+                GemsController.AddGems(150, "Wheel");
                 break;
             case 7:
                 
