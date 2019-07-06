@@ -292,6 +292,12 @@ public class GameController : MonoBehaviour {
         AudioManager.instance.audioOnOff();
     }
 
+public void onPrivacyClick() {
+    Application.OpenURL("https://docs.google.com/document/d/1FkOeftcs8gF9gZYcTyEXGgihmkdCb60x7Z1Q1o8ixbo/edit?usp=sharing");
+}
+public void onTermsClick() {
+    Application.OpenURL("https://docs.google.com/document/d/16AMooYyxeEODGMWGF48IScPSj2w3dPtJ7qgowRByYb8/edit?usp=sharing");
+}
 }
 
 [Serializable]
