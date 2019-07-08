@@ -33,7 +33,7 @@ public class GemsController : Singleton<GemsController> {
         
         LastAdd = amountMulti;
         gems += amountMulti;
-        gemsOnLevel += amountMulti;
+        if (src == "Level") gemsOnLevel += amountMulti;
         //AnalyticsController.sendEvent("CoinsGet", new Dictionary<string, object> { { "Car", SkinsController.unlocked + 1 }, { "Level", GameController.instance.nextLevel }, { "Src", src }, { "Num", amount } });
 
     }

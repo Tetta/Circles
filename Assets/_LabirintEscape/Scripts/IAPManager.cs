@@ -24,7 +24,7 @@ public class IAPManager : MonoBehaviour
 
 
 
-        AnalyticsController.sendEvent("SubscriptionBought");
+        AnalyticsController.sendEvent("SubscriptionBought", new Dictionary<string, object> { { "from", AnalyticsController.subscriptionFrom } });
         AnalyticsController.LogAddedToCartEvent(product.definition.storeSpecificId, product.definition.storeSpecificId, "Subscribe", product.metadata.isoCurrencyCode, (float)product.metadata.localizedPrice);
 
     }

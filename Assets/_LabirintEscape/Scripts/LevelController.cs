@@ -54,10 +54,12 @@ public class LevelController : MonoBehaviour
             c.gameObject.SetActive(false);
         }
         psBg.transform.GetChild(skin).gameObject.SetActive(true);
-
         allGems = levelData.coins.Count + levelData.dots.Count;
+        //Debug.Log("------------" + level);
+        //Debug.Log("------------" + allGems);
+
     }
-    
+
     public void create (List<Vector2> list, GameObject prefab, Transform parent,List<Vector2> listSize = null) {
         GameController.logTime("create " + prefab.name);
         //for skins
@@ -166,7 +168,7 @@ public class LevelController : MonoBehaviour
 
     public static void addLevel () {
         level ++;
-        if (level > 30) level = 30;
+        if (level > 32) level = 32;
         PlayerPrefs.SetInt("LEVEL", level);
     }
 

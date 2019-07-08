@@ -8,6 +8,7 @@ public class AnalyticsController : MonoBehaviour {
 
     public static bool firstLaunch;
     public static bool awake;
+    public static string subscriptionFrom;
 
     void Awake() {
         if (FB.IsInitialized) {
@@ -34,23 +35,27 @@ public class AnalyticsController : MonoBehaviour {
 
     }
     private void Start() {
-        awake = false;
-        /* Mandatory - set your AppsFlyer’s Developer key. */
-        AppsFlyer.setAppsFlyerKey("Ura5UVbFB3YXvaig2PnvPA");
-        /* For detailed logging */
-        /* AppsFlyer.setIsDebug (true); */
+        if (awake) {
+            /* Mandatory - set your AppsFlyer’s Developer key. */
+            AppsFlyer.setAppsFlyerKey("Ura5UVbFB3YXvaig2PnvPA");
+            /* For detailed logging */
+            /* AppsFlyer.setIsDebug (true); */
 #if UNITY_IOS
            /* Mandatory - set your apple app ID
               NOTE: You should enter the number only and not the "ID" prefix */
            AppsFlyer.setAppID ("1468496375");
            AppsFlyer.trackAppLaunch ();
 #elif UNITY_ANDROID
-        /* Mandatory - set your Android package name */
-        AppsFlyer.setAppID("com.gearsoffun.labirintescape");
-                /* For getting the conversion data in Android, you need to add the "AppsFlyerTrackerCallbacks" listener.*/
-                AppsFlyer.init("Ura5UVbFB3YXvaig2PnvPA", "AppsFlyerTrackerCallbacks");
-        #endif
+            /* Mandatory - set your Android package name */
+            AppsFlyer.setAppID("com.gearsoffun.labirintescape");
+            /* For getting the conversion data in Android, you need to add the "AppsFlyerTrackerCallbacks" listener.*/
+            AppsFlyer.init("Ura5UVbFB3YXvaig2PnvPA", "AppsFlyerTrackerCallbacks");
+#endif
+        }
+        awake = false;
     }
+
+
 
     public static void sendEvent(string eventName, Dictionary<string, object> params1 = null, Dictionary<string, object> params2 = null) {
 

@@ -62,8 +62,8 @@ public class GameController : MonoBehaviour {
     void awakeScene() {
         logTime("Awake");
         //fix uncomment
-        LevelController.level = PlayerPrefs.GetInt("LEVEL", 1);
-        //LevelController.level = 31;
+        //LevelController.level = PlayerPrefs.GetInt("LEVEL", 1);
+        LevelController.level = 26;
 
         setSkin();
         foreach (var p in screensList) {
@@ -88,18 +88,21 @@ public class GameController : MonoBehaviour {
         //gift wheel
         //point 4 * 60 * 60
         TimerManager.timers["gift"] = new Timer("gift", 4 * 60 * 60, updateGiftButton);
+
         //first launch
-        
         if (AnalyticsController.awake && PlayerPrefs.GetInt("SESSIONS_COUNT", 0) == 1) {
             //PlayerPrefs.SetInt("USER_GROUP", UnityEngine.Random.Range(1, 10));
             //gift
             TimerManager.timers["gift"].init(true);
             updateGiftButton();
         }
+
         //on 2 session
-        //fix uncomment
-        if (AnalyticsController.awake && !IAPManager.vip && PlayerPrefs.GetInt("SESSIONS_COUNT", 0) >= 2) showScreen("VipUI");
-        
+        if (AnalyticsController.awake && !IAPManager.vip && PlayerPrefs.GetInt("SESSIONS_COUNT", 0) >= 2) {
+            //fix uncomment
+            //showScreen("VipUI");
+            logSubscriptionShown("Start");
+        }
         //char badge ?
         //CharButtonBadge.SetActive(GemsController.availableBuyChar());
     }
@@ -208,9 +211,6 @@ public class GameController : MonoBehaviour {
         screens[title].SetActive(true);
         //char badge
         if (title == "MainUI") CharButtonBadge.SetActive(GemsController.availableBuyChar());
-        //vip analytics - from???
-        //else if (title == "VipUI") AnalyticsController.sendEvent("SubscriptionShown", new Dictionary<string, object> { { "For", "Wheel" } });
-
     }
 
     public void showPreviousScreen() {
@@ -298,6 +298,12 @@ public void onPrivacyClick() {
 public void onTermsClick() {
     Application.OpenURL("https://docs.google.com/document/d/16AMooYyxeEODGMWGF48IScPSj2w3dPtJ7qgowRByYb8/edit?usp=sharing");
 }
+
+    public void logSubscriptionShown(string from) {
+        AnalyticsController.subscriptionFrom = from;
+        AnalyticsController.sendEvent("SubscriptionShown", new Dictionary<string, object> { { "from", AnalyticsController.subscriptionFrom } });
+
+    }
 }
 
 [Serializable]
