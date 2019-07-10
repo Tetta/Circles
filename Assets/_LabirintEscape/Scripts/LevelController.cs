@@ -168,7 +168,7 @@ public class LevelController : MonoBehaviour
 
     public static void addLevel () {
         level ++;
-        if (level > 32) level = 32;
+        if (level > GameController. maxLevels) level = GameController.maxLevels;
         PlayerPrefs.SetInt("LEVEL", level);
     }
 

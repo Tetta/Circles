@@ -42,7 +42,7 @@ Shader "Effect/Effect Blended Premultiply"
 			sampler2D _CutTex;
 			float4 _MainTex_ST;
 			float4 _CutTex_ST;
-			//fixed4 _TintColor;
+			// fixed4 _TintColor;
 			float _Cutoff;
 			struct appdata
 			{

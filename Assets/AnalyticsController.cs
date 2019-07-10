@@ -8,7 +8,7 @@ public class AnalyticsController : MonoBehaviour {
 
     public static bool firstLaunch;
     public static bool awake;
-    public static string subscriptionFrom;
+    public static string subscriptionFrom = "";
 
     void Awake() {
         if (FB.IsInitialized) {
@@ -25,14 +25,21 @@ public class AnalyticsController : MonoBehaviour {
             PlayerPrefs.SetInt("SESSIONS_COUNT", PlayerPrefs.GetInt("SESSIONS_COUNT", 0) + 1);
             awake = true;
         }
-        if (PlayerPrefs.GetInt("USER_GROUP", 0) == 0) {
+        if (PlayerPrefs.GetInt("USER_GROUP", -1) == -1) {
             //fix start 0
             int r = UnityEngine.Random.Range(0, 10);
             PlayerPrefs.SetInt("USER_GROUP", r);
             sendEvent("UserGroup", new Dictionary<string, object>{{ "Group", r }});
             firstLaunch = true;
         }
+        if (PlayerPrefs.GetInt("USER_GROUP_VIP", -1) == -1) {
+            
 
+            int r = UnityEngine.Random.Range(0, 2);
+            PlayerPrefs.SetInt("USER_GROUP_VIP", r);
+            sendEvent("UserGroupVip", new Dictionary<string, object> { { "GroupVip", r } });
+
+        }
     }
     private void Start() {
         if (awake) {

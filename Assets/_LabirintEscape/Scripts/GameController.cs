@@ -7,7 +7,7 @@ public class GameController : MonoBehaviour {
     public static GameController instance;
     public static int charId;
     public static bool levelPaused;
-
+    public static int maxLevels = 35;
 
 
     public List<GameObject> screensList;
@@ -15,6 +15,7 @@ public class GameController : MonoBehaviour {
     bool levelStarted;
     string currentScreen;
     string previousScreen;
+    
 
     [Header("MainUI")]
     public Text levelText;
@@ -62,8 +63,8 @@ public class GameController : MonoBehaviour {
     void awakeScene() {
         logTime("Awake");
         //fix uncomment
-        //LevelController.level = PlayerPrefs.GetInt("LEVEL", 1);
-        LevelController.level = 26;
+        LevelController.level = PlayerPrefs.GetInt("LEVEL", 1);
+        //LevelController.level = 26;
 
         setSkin();
         foreach (var p in screensList) {
@@ -84,7 +85,7 @@ public class GameController : MonoBehaviour {
 
 
         levelText.text = "LEVEL " + LevelController.level;
-        newLevelsText.gameObject.SetActive(LevelController.level >= 30);
+        newLevelsText.gameObject.SetActive(LevelController.level >= maxLevels);
         //gift wheel
         //point 4 * 60 * 60
         TimerManager.timers["gift"] = new Timer("gift", 4 * 60 * 60, updateGiftButton);
@@ -94,13 +95,13 @@ public class GameController : MonoBehaviour {
             //PlayerPrefs.SetInt("USER_GROUP", UnityEngine.Random.Range(1, 10));
             //gift
             TimerManager.timers["gift"].init(true);
-            updateGiftButton();
+            
         }
-
+        updateGiftButton();
         //on 2 session
         if (AnalyticsController.awake && !IAPManager.vip && PlayerPrefs.GetInt("SESSIONS_COUNT", 0) >= 2) {
             //fix uncomment
-            //showScreen("VipUI");
+            showScreen("VipUI");
             logSubscriptionShown("Start");
         }
         //char badge ?
@@ -201,6 +202,8 @@ public class GameController : MonoBehaviour {
 
     public void showScreen (string title) {
         Debug.Log("showScreen: " + title);
+        if (title == "VipUI" && PlayerPrefs.GetInt("USER_GROUP_VIP", -1) == 1) title = "Vip2UI";
+
         previousScreen = currentScreen;
         currentScreen = title;
         if (title == "GameUI" && !levelStarted) startLevel();
@@ -215,7 +218,7 @@ public class GameController : MonoBehaviour {
 
     public void showPreviousScreen() {
         Debug.Log("showPreviousScreen: " + previousScreen);
-        showScreen(previousScreen);
+        if (previousScreen != "" && previousScreen != null) showScreen(previousScreen);
     }
 
     public void onBackLevel() {
@@ -278,7 +281,7 @@ public class GameController : MonoBehaviour {
     public void changeLevel() {
         //LevelController.level++;
 
-        if (LevelController.level >= 30) LevelController.level = 0;
+        if (LevelController.level >= maxLevels) LevelController.level = 0;
         LevelController.addLevel();
         restart();
     }

@@ -6,6 +6,7 @@ using DG.Tweening;
 public class WinUI : MonoBehaviour {
     public static WinUI instance;
     public Text levelText;
+    public GameObject ps;
     public Text gemsCountText;
     public Text tapText;
     public Transform giftButtons;
@@ -43,6 +44,7 @@ public class WinUI : MonoBehaviour {
     }
 
     public IEnumerator completeLevel() {
+        ps.SetActive(true);
         level = LevelController.level;
         AudioManager.instance.levelCompleteSound.Play();
         AnalyticsController.sendEvent("LevelComplete", new Dictionary<string, object> { { "GemsPercent", Player.instance.gemsCollected * 100 / LevelController.levelData.coins.Count }, { "DotsPercent", Player.instance.dotsCollected * 100 / LevelController.levelData.dots.Count } });
@@ -54,7 +56,7 @@ public class WinUI : MonoBehaviour {
         //gemsCollectedCount always >= LevelController.allGems. Why? Physics 2d?
         if (level >= 2 && gemsCollectedCount >= LevelController.allGems) GemsController.AddGems((int)GemsController.gemsOnLevel * 2, "AllGems");
 
-
+        
         //default
         gemsPS.SetActive(false);
         tapText.color = new Color32(255, 255, 255, 0);
@@ -136,7 +138,7 @@ public class WinUI : MonoBehaviour {
 
         button1Animator.enabled = true;
         button2Animator.enabled = true;
-        if (slider.maxValue == slider.value) gemsCountText.text = "+" + (int)GemsController.gemsOnLevel * 3;
+        if (slider.maxValue == slider.value && level >= 2) gemsCountText.text = "+" + (int)GemsController.gemsOnLevel * 3;
 
     
         //bool freeGift = level == 1 || level == 2;
@@ -146,7 +148,7 @@ public class WinUI : MonoBehaviour {
             tapButton.interactable = true;
 
         //}
-
+        ps.SetActive(false);
 
     }
 

@@ -407,6 +407,8 @@ public class Player : MonoBehaviour
         
     }
     public void hideChar() {
+        GetComponent<Collider2D>().enabled = false;
+        //GameController.levelPaused = true; ???
         psEnable.Play();
         //images.GetChild(0).GetComponent<SpriteRenderer>().color = new Color32(255, 255, 255, 0);
         images.GetChild(0).GetComponent<SpriteRenderer>().DOColor(new Color32(255, 255, 255, 255), 0.2f).OnComplete(() => {

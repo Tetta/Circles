@@ -105,7 +105,7 @@ public class AdController : MonoBehaviour, IInterstitialAdListener, IRewardedVid
         appKey = ANDROID_APP_KEY;
 #endif
         Appodeal.initialize(appKey, Appodeal.REWARDED_VIDEO | Appodeal.INTERSTITIAL);
-        Appodeal.setLogLevel(Appodeal.LogLevel.Debug);
+        //Appodeal.setLogLevel(Appodeal.LogLevel.Debug);
         Appodeal.setInterstitialCallbacks(this);
         Appodeal.setRewardedVideoCallbacks(this);
 

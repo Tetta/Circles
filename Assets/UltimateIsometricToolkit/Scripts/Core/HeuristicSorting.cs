@@ -12,7 +12,7 @@ namespace Assets.UltimateIsometricToolkit.Scripts.Core {
 		private HashSet<IsoTransform> _entities = new HashSet<IsoTransform>(); 
 		
 		public override void Resolve(IsoTransform isoTransform) {
-            //fix
+            
             Vector3 v = Isometric.IsoToUnitySpace(isoTransform.Position);
             isoTransform.transform.position = Isometric.IsoToUnitySpace(new Vector3 (isoTransform.Position.x, isoTransform.Position.z, isoTransform.Position.y));
             _entities.Add(isoTransform);

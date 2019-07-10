@@ -7,9 +7,10 @@ public class IAPManager : MonoBehaviour
 {
     public static bool vip = false;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        
+        vip = Convert.ToBoolean(PlayerPrefs.GetInt("VIP", 0));
+
     }
 
 
@@ -23,10 +24,10 @@ public class IAPManager : MonoBehaviour
         setVip(1);
 
 
-
-        AnalyticsController.sendEvent("SubscriptionBought", new Dictionary<string, object> { { "from", AnalyticsController.subscriptionFrom } });
-        AnalyticsController.LogAddedToCartEvent(product.definition.storeSpecificId, product.definition.storeSpecificId, "Subscribe", product.metadata.isoCurrencyCode, (float)product.metadata.localizedPrice);
-
+        if (AnalyticsController.subscriptionFrom != "") {
+            AnalyticsController.sendEvent("SubscriptionBought", new Dictionary<string, object> { { "from", AnalyticsController.subscriptionFrom } });
+            AnalyticsController.LogAddedToCartEvent(product.definition.storeSpecificId, product.definition.storeSpecificId, "Subscribe", product.metadata.isoCurrencyCode, (float)product.metadata.localizedPrice);
+        }
     }
 
     public static void setVip(int i) {
