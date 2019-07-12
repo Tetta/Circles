@@ -3,12 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using Facebook.Unity;
 using System.Linq;
+using System;
 public class AnalyticsController : MonoBehaviour {
     public static AnalyticsController instance;
 
     public static bool firstLaunch;
     public static bool awake;
     public static string subscriptionFrom = "";
+    //point
+    //for review AppStore vipUI off (on after "07/17/2019")
+    string vip1AfterDate = "07/17/2019";
 
     void Awake() {
         if (FB.IsInitialized) {
@@ -33,9 +37,11 @@ public class AnalyticsController : MonoBehaviour {
             firstLaunch = true;
         }
         if (PlayerPrefs.GetInt("USER_GROUP_VIP", -1) == -1) {
-            
-
-            int r = UnityEngine.Random.Range(0, 2);
+            int r;
+            if (DateTime.Now < DateTime.ParseExact(vip1AfterDate, "MM/dd/yyyy", null))
+                r = 1;
+            else
+                r = UnityEngine.Random.Range(0, 2);
             PlayerPrefs.SetInt("USER_GROUP_VIP", r);
             sendEvent("UserGroupVip", new Dictionary<string, object> { { "GroupVip", r } });
 
