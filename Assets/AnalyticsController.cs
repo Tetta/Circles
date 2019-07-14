@@ -11,8 +11,8 @@ public class AnalyticsController : MonoBehaviour {
     public static bool awake;
     public static string subscriptionFrom = "";
     //point
-    //for review AppStore vipUI off (on after "07/17/2019")
-    string vip1AfterDate = "07/17/2019";
+    //for review AppStore vipUI and vip2UI off (on after "07/17/2019")
+    string vip1AfterDate = "07/19/2019";
 
     void Awake() {
         if (FB.IsInitialized) {
@@ -30,8 +30,9 @@ public class AnalyticsController : MonoBehaviour {
             awake = true;
         }
         if (PlayerPrefs.GetInt("USER_GROUP", -1) == -1) {
-            //fix start 0
-            int r = UnityEngine.Random.Range(0, 10);
+            //fix start 1
+            int r = UnityEngine.Random.Range(1, 10);
+            //r = 0;
             PlayerPrefs.SetInt("USER_GROUP", r);
             sendEvent("UserGroup", new Dictionary<string, object>{{ "Group", r }});
             firstLaunch = true;
@@ -39,7 +40,7 @@ public class AnalyticsController : MonoBehaviour {
         if (PlayerPrefs.GetInt("USER_GROUP_VIP", -1) == -1) {
             int r;
             if (DateTime.Now < DateTime.ParseExact(vip1AfterDate, "MM/dd/yyyy", null))
-                r = 1;
+                r = 2;
             else
                 r = UnityEngine.Random.Range(0, 2);
             PlayerPrefs.SetInt("USER_GROUP_VIP", r);

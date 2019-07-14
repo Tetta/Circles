@@ -124,7 +124,7 @@ public class GameController : MonoBehaviour {
         //Debug.Log("location: " + location);
         //Debug.Log("category: " + category);
         //Debug.Log("level: " + LevelController.level);
-
+        //0;    1;  2;  0,1,2;  0,2,1;  1,0,2;  1,2,0;  2,0,1;  2,1,0
         switch (group) {
             case 1:
             case 2:
@@ -203,6 +203,7 @@ public class GameController : MonoBehaviour {
     public void showScreen (string title) {
         Debug.Log("showScreen: " + title);
         if (title == "VipUI" && PlayerPrefs.GetInt("USER_GROUP_VIP", -1) == 1) title = "Vip2UI";
+        if (title == "VipUI" && PlayerPrefs.GetInt("USER_GROUP_VIP", -1) == 2) title = "Vip3UI";
 
         previousScreen = currentScreen;
         currentScreen = title;

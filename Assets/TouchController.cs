@@ -37,11 +37,14 @@ public class TouchController : MonoBehaviour
             else if (v.x > 0 && v.y > 0 && (TutorialManager.step == -1 || TutorialManager.step == 2)) Player.directionName = Player.Direction.Left;
             else if (v.x < 0 && v.y < 0 && (TutorialManager.step == -1 || TutorialManager.step == 0)) Player.directionName = Player.Direction.Right;
             mouseDrag = false;
-            Debug.Log("OnMouseUp");
-            Debug.Log(TutorialManager.step);
-            Debug.Log(Player.directionName);
+            //Debug.Log("OnMouseUp");
+            //Debug.Log(TutorialManager.step);
+            //Debug.Log(Player.directionName);
 
-            if (Player.directionName != Player.Direction.None && TutorialManager.instance != null && TutorialManager.step != -1) TutorialManager.instance.addStep();
+            if (Player.directionName != Player.Direction.None && TutorialManager.instance != null && TutorialManager.step != -1) {
+                AnalyticsController.sendEvent("Move" + TutorialManager.step);
+                TutorialManager.instance.addStep();
+            }
         }
 
 
