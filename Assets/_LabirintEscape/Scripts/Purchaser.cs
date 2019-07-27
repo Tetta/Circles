@@ -111,7 +111,7 @@ public class Purchaser : MonoBehaviour//, IStoreListener
             }
 
         }
-        //fix - comment for test Editor
+        //point - comment for test Editor
         if (vip == 0) IAPManager.setVip(vip);
 
 

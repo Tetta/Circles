@@ -8,14 +8,17 @@ public class GameController : MonoBehaviour {
     public static int charId;
     public static bool levelPaused;
     public static int maxLevels = 35;
-
+    public static bool isPrevGameOver;
+    public static bool vibro;
+    //for Lion Studios
+    public static bool lion = true;
 
     public List<GameObject> screensList;
     public Dictionary<string, GameObject> screens = new Dictionary<string, GameObject>();
     bool levelStarted;
     string currentScreen;
     string previousScreen;
-    
+
 
     [Header("MainUI")]
     public Text levelText;
@@ -23,6 +26,7 @@ public class GameController : MonoBehaviour {
     public Button giftButton;
     public Text giftTimerText;
     public GameObject CharButtonBadge;
+
 
     [Header("UI Skins")]
     //UI Skins
@@ -56,7 +60,7 @@ public class GameController : MonoBehaviour {
         //GameController.logTime("update");
         if (TimerManager.timers["gift"].enable)
             giftTimerText.text = TimerManager.timers["gift"].timer.Hours.ToString("00") + ":" + TimerManager.timers["gift"].timer.Minutes.ToString("00") + ":" + TimerManager.timers["gift"].timer.Seconds.ToString("00");
-
+        //Debug.Log(TimerManager.timers["gameoverOffer"].enable);
     }
 
 
@@ -64,7 +68,7 @@ public class GameController : MonoBehaviour {
         logTime("Awake");
         //fix uncomment
         LevelController.level = PlayerPrefs.GetInt("LEVEL", 1);
-        //LevelController.level = 26;
+        //LevelController.level = 8;
 
         setSkin();
         foreach (var p in screensList) {
@@ -89,6 +93,8 @@ public class GameController : MonoBehaviour {
         //gift wheel
         //point 4 * 60 * 60
         TimerManager.timers["gift"] = new Timer("gift", 4 * 60 * 60, updateGiftButton);
+        //point 45
+        if (!TimerManager.timers.ContainsKey("gameoverOffer")) TimerManager.timers["gameoverOffer"] = new Timer("gameoverOffer", 45, null);
 
         //first launch
         if (AnalyticsController.awake && PlayerPrefs.GetInt("SESSIONS_COUNT", 0) == 1) {
@@ -98,14 +104,21 @@ public class GameController : MonoBehaviour {
             
         }
         updateGiftButton();
+        Debug.Log("----" + !TimerManager.timers["gameoverOffer"].enable);
+        //Debug.Log(isPrevGameOver);
         //on 2 session
-        if (AnalyticsController.awake && !IAPManager.vip && PlayerPrefs.GetInt("SESSIONS_COUNT", 0) >= 2) {
+        if ((AnalyticsController.awake && PlayerPrefs.GetInt("SESSIONS_COUNT", 0) >= 2 || 
+            PlayerPrefs.GetInt("USER_GROUP_GAMEOVER_OFFER", 1) == 3 && isPrevGameOver && !TimerManager.timers["gameoverOffer"].enable) 
+            && !IAPManager.vip) {
             //fix uncomment
-            showScreen("VipUI");
+            if (!GameController.lion) showScreen("VipUI");
             logSubscriptionShown("Start");
+            TimerManager.timers["gameoverOffer"].init(true);
         }
         //char badge ?
         //CharButtonBadge.SetActive(GemsController.availableBuyChar());
+        isPrevGameOver = false;
+        vibro = Convert.ToBoolean(PlayerPrefs.GetInt("VIBRO", 1));
     }
 
     void setSkin() {
@@ -223,23 +236,41 @@ public class GameController : MonoBehaviour {
     }
 
     public void onBackLevel() {
-        if (LevelController.level >= 5) AdController.ShowInterstitial();
-        restart();
+        if (!GameController.lion)  if (LevelController.level >= 5) AdController.ShowInterstitial();
+         restart();
     }
 
     public void restart () {
         GameController.logTime("restart click");
         UnityEngine.SceneManagement.SceneManager.LoadScene(0);
     }
+    public IEnumerator shieldAdCoroutine() {
+        GameController.logTime("restartCoroutine click");
+        Debug.Log("restartCoroutine1");
 
+        AsyncOperation asyncLoad = UnityEngine.SceneManagement.SceneManager.LoadSceneAsync(0);
+        Debug.Log("restartCoroutine2");
+
+        // Wait until the asynchronous scene fully loads
+        while (!asyncLoad.isDone) {
+            yield return null;
+        }
+        Debug.Log("restartCoroutine3");
+        GameController.instance.lives++;
+        GameController.instance.showScreen("GameUI");
+
+        AnalyticsController.sendEvent("RewardedAd", new Dictionary<string, object> { { "For", "ShieldGameover" } });
+        AnalyticsController.sendEvent("ShieldAdd", new Dictionary<string, object> { { "For", "AdGameover" } });
+
+    }
     public void plusLiveClick() {
         AdController.giveReward = () => {
             Debug.Log("giveReward plusLive");
             lives ++;
             showScreen("GameUI");
 
-            AnalyticsController.sendEvent("ShieldAdd", new Dictionary<string, object> { { "For", "Ad" } });
             AnalyticsController.sendEvent("RewardedAd", new Dictionary<string, object> { { "For", "Shield" } });
+            AnalyticsController.sendEvent("ShieldAdd", new Dictionary<string, object> { { "For", "Ad" } });
 
         };
         AdController.ShowRewarded();
@@ -295,8 +326,29 @@ public class GameController : MonoBehaviour {
     public void changeSound () {
         AudioManager.instance.audioOnOff();
     }
+    public void deletePrefs() {
+        PlayerPrefs.DeleteAll();
+        restart();
+    }
+    public void changeVibro() {
+        vibro = !vibro;
+        PlayerPrefs.SetInt("VIBRO", Convert.ToInt32(vibro));
+        GameObject.Find("CanvasUI/MainUI/VibroButton/").transform.GetChild(0).gameObject.SetActive(vibro);
+        GameObject.Find("CanvasUI/MainUI/VibroButton/").transform.GetChild(1).gameObject.SetActive(!vibro);
+        //AudioListener.volume = PlayerPrefs.GetInt("AUDIO", 1);
+    }
+    public void settings() {
+        GameObject.Find("CanvasUI/MainUI/AudioButton/").SetActive(!GameObject.Find("CanvasUI/MainUI/AudioButton/").activeSelf);
+        GameObject.Find("CanvasUI/MainUI/VibroButton/").SetActive(!GameObject.Find("CanvasUI/MainUI/VibroButton/").activeSelf);
 
-public void onPrivacyClick() {
+        GameObject.Find("CanvasUI/MainUI/AudioButton/").transform.GetChild(0).gameObject.SetActive(AudioManager. audioFlag);
+        GameObject.Find("CanvasUI/MainUI/AudioButton/").transform.GetChild(1).gameObject.SetActive(!AudioManager.audioFlag);
+
+        GameObject.Find("CanvasUI/MainUI/VibroButton/").transform.GetChild(0).gameObject.SetActive(vibro);
+        GameObject.Find("CanvasUI/MainUI/VibroButton/").transform.GetChild(1).gameObject.SetActive(!vibro);
+
+    }
+    public void onPrivacyClick() {
     Application.OpenURL("https://docs.google.com/document/d/1FkOeftcs8gF9gZYcTyEXGgihmkdCb60x7Z1Q1o8ixbo/edit?usp=sharing");
 }
 public void onTermsClick() {

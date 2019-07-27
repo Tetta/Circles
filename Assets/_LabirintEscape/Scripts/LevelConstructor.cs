@@ -186,19 +186,26 @@ public class LevelConstructor : MonoBehaviour
     public static void save(int level) {
         Debug.Log("save");
         Debug.Log(Application.persistentDataPath);
+        int group = PlayerPrefs.GetInt("USER_GROUP_LEVELS", 1);
+        string adding = "";
+        if (level <= 7) adding = "_" + group;
+
         //BinaryFormatter bf = new BinaryFormatter();
         XmlSerializer bf = new XmlSerializer(typeof(LevelData));
         //Application.persistentDataPath это строка; выведите ее в логах и вы увидите расположение файла сохранений
-        FileStream file = File.Create(Application.persistentDataPath + "/Level" + level + ".txt");
+        FileStream file = File.Create(Application.persistentDataPath + "/Level" + level + "_" + group + ".txt");
         bf.Serialize(file, levelData);
         file.Close();
     }
 
     public static void load(int level) {
-
+        int group = PlayerPrefs.GetInt("USER_GROUP_LEVELS", 1);
+        Debug.Log("USER_GROUP_LEVELS: " + group);
+        string adding = "";
+        if (level <= 7) adding = "_" + group;
         //from resources -----------------
-#if !UNITY_EDITOR
-        string levelsTxt = Tools.LoadAsText("Levels/Level" + level, "txt");
+#if !UNITY_EDITOR || UNITY_IOS
+        string levelsTxt = Tools.LoadAsText("Levels/Level" + level + adding, "txt");
         //Debug.Log(levelsTxt);
         XmlSerializer bf = new XmlSerializer(typeof(LevelData));
         using (TextReader reader = new StringReader(levelsTxt)) {
@@ -227,10 +234,10 @@ public class LevelConstructor : MonoBehaviour
         //LevelController.levelLoaded = LevelController.level;
 
         Debug.Log(Application.persistentDataPath);
-        if (File.Exists(Application.persistentDataPath + "/Level" + level + ".txt")) {
+        if (File.Exists(Application.persistentDataPath + "/Level" + level + adding + ".txt")) {
             //BinaryFormatter bf = new BinaryFormatter();
             XmlSerializer bf = new XmlSerializer(typeof(LevelData));
-            FileStream file = File.Open(Application.persistentDataPath + "/Level" + level + ".txt", FileMode.Open);
+            FileStream file = File.Open(Application.persistentDataPath + "/Level" + level + adding + ".txt", FileMode.Open);
             levelData = (LevelData)bf.Deserialize(file);
             LevelController. levelData = levelData;
             file.Close();

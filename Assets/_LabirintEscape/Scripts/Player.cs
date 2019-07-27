@@ -151,7 +151,7 @@ public class Player : MonoBehaviour
                 //if danger
                 if (isDangerDeath && GetComponent<Collider2D>().enabled) {
                     Debug.Log("------- Failed!!! -------------");
-                    StartCoroutine(death("Danger"));
+                    StartCoroutine(death("Danger", pos));
                 }
 
                 //if teleport => change direction
@@ -170,7 +170,7 @@ public class Player : MonoBehaviour
                     onStopPlayer();
                 }
                 //point
-                Taptic.Light();
+                if (GameController.vibro) Taptic.Light();
                 state = State.Stay;
 
             } else
@@ -193,7 +193,7 @@ public class Player : MonoBehaviour
     }
 
     private void changeSprite(int s, float magnitude) {
-        Debug.Log("changeSprite magnitude: " + magnitude);
+        //Debug.Log("changeSprite magnitude: " + magnitude);
         foreach (Transform child in images) {
             child.gameObject.SetActive(false);
         }
@@ -216,7 +216,7 @@ public class Player : MonoBehaviour
         float scale = 0.1f * (magnitude) / 2;
         if (scale > 0.2) scale = 0.2f;
         
-        //fix uncomment
+        //point uncomment
         images.DOScaleY(1 - scale, 0.05f);  
 
         float moveY = -0.086f * (magnitude) / 2;
@@ -224,7 +224,7 @@ public class Player : MonoBehaviour
         //Debug.Log(1- scale);
         //Debug.Log(moveY);
 
-        //fix uncomment
+        //point uncomment
         images.gameObject.transform.DOLocalMoveY(moveY, 0.05f);
     }
 
@@ -250,7 +250,7 @@ public class Player : MonoBehaviour
 
 
     private void OnTriggerEnter2D(Collider2D collision) {
-        Debug.Log("collision.name: " + collision.gameObject.name);
+        //Debug.Log("collision.name: " + collision.gameObject.name);
         //star
         if (collision.gameObject.name == "TouchPanel") return;
         else if (collision.gameObject.name == "CoinPrefab(Clone)" || collision.gameObject.name == "DotPrefab(Clone)") {
@@ -275,12 +275,12 @@ public class Player : MonoBehaviour
             Debug.Log("------- Failed!!! Bird -------------");
 
             //collision.gameObject.SetActive(false);
-            StartCoroutine(death("Enemy"));
+            StartCoroutine(death("Enemy", collision.GetComponent<IsoTransform>().Position));
         }
         else if (collision.gameObject.name == "Shoot") {
             Debug.Log("------- Failed!!! Shoot -------------");
 
-            StartCoroutine(death("Shooter"));
+            StartCoroutine(death("Shooter", collision.GetComponent<IsoTransform>().Position));
         }
         else if (collision.transform.gameObject.name == "ExitPrefab(Clone)") {
             Debug.Log("------- Exit!!! -------------");
@@ -291,7 +291,7 @@ public class Player : MonoBehaviour
         else if (collision.transform.parent.parent.gameObject.name == "FatPrefab(Clone)") {
             Debug.Log("------- Failed!!! Fat -------------");
 
-            StartCoroutine(death("Fat"));
+            StartCoroutine(death("Fat", collision.GetComponent<IsoTransform>().Position));
         }
         //Debug.Log("TeleportAnother OnTriggerEnter2D: " + collision.name);
         //Debug.Log("TeleportAnother OnTriggerEnter2D: " + GetComponent<IsoTransform>().Position);
@@ -320,9 +320,9 @@ public class Player : MonoBehaviour
 
     }
 
-    public IEnumerator death(string reason) {
+    public IEnumerator death(string reason, Vector2 point) {
         onStopPlayer();
-        AnalyticsController.sendEvent("PlayerDeath", new Dictionary<string, object> { { "Reason", reason } });
+        AnalyticsController.sendEvent("PlayerDeath", new Dictionary<string, object> { { "Reason", reason }, {  "Point", point } });
 
         //bug transform player
         GetComponent<Collider2D>().enabled = false;

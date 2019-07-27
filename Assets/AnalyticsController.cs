@@ -12,7 +12,7 @@ public class AnalyticsController : MonoBehaviour {
     public static string subscriptionFrom = "";
     //point
     //for review AppStore vipUI and vip2UI off (on after "07/17/2019")
-    string vip1AfterDate = "07/19/2019";
+    string vip1AfterDate = "08/03/2019";
 
     void Awake() {
         if (FB.IsInitialized) {
@@ -30,11 +30,25 @@ public class AnalyticsController : MonoBehaviour {
             awake = true;
         }
         if (PlayerPrefs.GetInt("USER_GROUP", -1) == -1) {
-            //fix start 1
-            int r = UnityEngine.Random.Range(1, 10);
+            //point start 1
+            //group = 30%, other random 2-9
+            int r;
+            List<int> l = new List<int> { 1, 2, 4, 5, 6, 7 };
+            //if (UnityEngine.Random.Range(0, 1f) < 0.3f) r = 1;
+            //else r = UnityEngine.Random.Range(2, 10);
+            r = l[UnityEngine.Random.Range(0, 6)];
+            Debug.Log("-----------------------");
+            Debug.Log(r);
+            Debug.Log((float)UnityEngine.Random.Range(0, 1));
+
             //r = 0;
             PlayerPrefs.SetInt("USER_GROUP", r);
             sendEvent("UserGroup", new Dictionary<string, object>{{ "Group", r }});
+
+            long totalSeconds = DateTime.UtcNow.TotalSeconds();
+            PlayerPrefs.SetInt("USER_ID", (int)totalSeconds);
+            sendEvent("UserId", new Dictionary<string, object> { { "Id", totalSeconds } });
+
             firstLaunch = true;
         }
         if (PlayerPrefs.GetInt("USER_GROUP_VIP", -1) == -1) {
@@ -45,8 +59,29 @@ public class AnalyticsController : MonoBehaviour {
                 r = UnityEngine.Random.Range(0, 2);
             PlayerPrefs.SetInt("USER_GROUP_VIP", r);
             sendEvent("UserGroupVip", new Dictionary<string, object> { { "GroupVip", r } });
-
         }
+        //1 = default, 2 = easy
+        if (PlayerPrefs.GetInt("USER_GROUP_LEVELS", 0) == 0) {
+            //int r = UnityEngine.Random.Range(1, 3);
+            int r = 2;
+            PlayerPrefs.SetInt("USER_GROUP_LEVELS", r);
+            sendEvent("UserGroupLevels", new Dictionary<string, object> { { "Group", r } });
+        }
+        //1 shield for ads, 2 shield -> VipUI, 3 VipUI, 4 disable offer
+        if (PlayerPrefs.GetInt("USER_GROUP_GAMEOVER_OFFER", 0) == 0) {
+            //int r = UnityEngine.Random.Range(1, 4);
+            int r = 4;
+            PlayerPrefs.SetInt("USER_GROUP_GAMEOVER_OFFER", r);
+            sendEvent("UserGroupGameoverOffer", new Dictionary<string, object> { { "Group", r } });
+        }
+        //1 free wheel after complete level, 2 - remove wheel
+        if (PlayerPrefs.GetInt("USER_GROUP_GAMEOVER_WHEEL", 0) == 0) {
+            int r = UnityEngine.Random.Range(1, 3);
+            //int r = 2;
+            PlayerPrefs.SetInt("USER_GROUP_GAMEOVER_WHEEL", r);
+            sendEvent("UserGroupGameoverWheel", new Dictionary<string, object> { { "Group", r } });
+        }
+
     }
     private void Start() {
         if (awake) {

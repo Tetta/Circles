@@ -3,7 +3,7 @@ using System.Collections;
 using AppodealAds.Unity.Api;
 using AppodealAds.Unity.Common;
 using UnityEngine;
-
+using System.Collections.Generic;
 [DisallowMultipleComponent]
 public class AdController : MonoBehaviour, IInterstitialAdListener, IRewardedVideoAdListener {
     public static AdController instance = null;
@@ -11,9 +11,7 @@ public class AdController : MonoBehaviour, IInterstitialAdListener, IRewardedVid
     public readonly string IOS_APP_KEY = "8d22053f89e68de99c27e9adeaa38c0fa42aa0374a944de6";
     public readonly string ANDROID_APP_KEY = "51960c416717ce5e3d99a3404aabbf5b7a1beb8bdd42ddcd";
 
-    //public readonly float interstitialInterval = 30f;    
-    //float timer;
-    //bool timerTicked;
+
 
     public static Action giveReward;
     public event Action OnInterstitialWatched;
@@ -40,7 +38,9 @@ public class AdController : MonoBehaviour, IInterstitialAdListener, IRewardedVid
     public void onInterstitialFailedToLoad() { }
     public void onInterstitialClicked() { }
     public void onInterstitialExpired() { }
-    public void onInterstitialShown() { }
+    public void onInterstitialShown() {
+        AnalyticsController.sendEvent("InterstitialShown");
+    }
     public void onInterstitialLoaded(bool isPrecache) { }
     public void onInterstitialClosed() {
         //StartCoroutine(InterstitialClosedCoroutine());
@@ -49,6 +49,8 @@ public class AdController : MonoBehaviour, IInterstitialAdListener, IRewardedVid
         //StartCoroutine(UpdateTimer());
         timer = 0f;
         timerTicked = false;
+        AnalyticsController.sendEvent("InterstitialClosed");
+
     }
 
     #endregion
@@ -73,7 +75,10 @@ public class AdController : MonoBehaviour, IInterstitialAdListener, IRewardedVid
         if (IsInterstitialReady && !IAPManager.vip && timerTicked) {
             Debug.Log("ShowInterstitial 2");
             Pause(true);
+            AnalyticsController.sendEvent("InterstitialShow");
+
             Appodeal.show(Appodeal.INTERSTITIAL);
+
         }
     }
 
@@ -91,25 +96,26 @@ public class AdController : MonoBehaviour, IInterstitialAdListener, IRewardedVid
     private void Start() {
         if (instance == null) {
             instance = this;
+
+            DontDestroyOnLoad(gameObject);
+
+            var appKey = "";
+#if UNITY_IOS
+        appKey = IOS_APP_KEY;
+#elif UNITY_ANDROID
+            appKey = ANDROID_APP_KEY;
+#endif
+            Appodeal.initialize(appKey, Appodeal.REWARDED_VIDEO | Appodeal.INTERSTITIAL);
+            //Appodeal.setLogLevel(Appodeal.LogLevel.Debug);
+            Appodeal.setInterstitialCallbacks(this);
+            Appodeal.setRewardedVideoCallbacks(this);
+
+            //audioManager = AudioManager.instance;
         }
         else  {
             Destroy(gameObject);
         }
 
-        DontDestroyOnLoad(gameObject);
-
-        var appKey = "";
-#if UNITY_IOS
-        appKey = IOS_APP_KEY;
-#elif UNITY_ANDROID
-        appKey = ANDROID_APP_KEY;
-#endif
-        Appodeal.initialize(appKey, Appodeal.REWARDED_VIDEO | Appodeal.INTERSTITIAL);
-        //Appodeal.setLogLevel(Appodeal.LogLevel.Debug);
-        Appodeal.setInterstitialCallbacks(this);
-        Appodeal.setRewardedVideoCallbacks(this);
-
-        //audioManager = AudioManager.instance;
     }
 
     private IEnumerator InterstitialClosedCoroutine() {
@@ -162,5 +168,10 @@ public class AdController : MonoBehaviour, IInterstitialAdListener, IRewardedVid
         }
     }
 
+    //this because AdController dont destroy
+    public IEnumerator shieldAdCoroutine() {
+        Debug.Log("giveReward shieldAdClick");
+        yield return StartCoroutine(GameController.instance.shieldAdCoroutine());
 
+    }
 }

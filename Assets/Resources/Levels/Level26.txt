@@ -1522,10 +1522,6 @@
       <y>-19</y>
     </Vector2>
     <Vector2>
-      <x>-9</x>
-      <y>-17</y>
-    </Vector2>
-    <Vector2>
       <x>-8</x>
       <y>-17</y>
     </Vector2>
@@ -1543,10 +1539,6 @@
     </Vector2>
     <Vector2>
       <x>-8</x>
-      <y>-13</y>
-    </Vector2>
-    <Vector2>
-      <x>-9</x>
       <y>-13</y>
     </Vector2>
     <Vector2>
@@ -1600,6 +1592,14 @@
     <Vector2>
       <x>-11</x>
       <y>9</y>
+    </Vector2>
+    <Vector2>
+      <x>-9</x>
+      <y>-13</y>
+    </Vector2>
+    <Vector2>
+      <x>-9</x>
+      <y>-17</y>
     </Vector2>
   </tiles>
   <coins>
@@ -1710,10 +1710,6 @@
     <Vector2>
       <x>-3</x>
       <y>-21</y>
-    </Vector2>
-    <Vector2>
-      <x>-9</x>
-      <y>-13</y>
     </Vector2>
     <Vector2>
       <x>-8</x>
@@ -2890,10 +2886,6 @@
       <y>-19</y>
     </Vector2>
     <Vector2>
-      <x>-9</x>
-      <y>-17</y>
-    </Vector2>
-    <Vector2>
       <x>-8</x>
       <y>-17</y>
     </Vector2>
@@ -2940,6 +2932,14 @@
     <Vector2>
       <x>-11</x>
       <y>-14</y>
+    </Vector2>
+    <Vector2>
+      <x>-9</x>
+      <y>-13</y>
+    </Vector2>
+    <Vector2>
+      <x>-9</x>
+      <y>-17</y>
     </Vector2>
   </dots>
   <dangers />

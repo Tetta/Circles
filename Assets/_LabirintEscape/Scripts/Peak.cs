@@ -25,7 +25,7 @@ public class Peak : MonoBehaviour
         yield return new WaitForSeconds(0.4f);
         exist = true;
         //Debug.Log()
-        if (Player.instance.transform.GetComponent<IsoTransform>().Position == GetComponent<IsoTransform>().Position + new Vector3(0, 0, 1)) StartCoroutine(Player.instance.death("Peak"));
+        if (Player.instance.transform.GetComponent<IsoTransform>().Position == GetComponent<IsoTransform>().Position + new Vector3(0, 0, 1)) StartCoroutine(Player.instance.death("Peak", GetComponent<IsoTransform>().Position));
         //collider.enabled = true;
         //GetComponent<Collider2D>().enabled = true;
         foreach (Transform peak in transform) {
@@ -56,10 +56,10 @@ public class Peak : MonoBehaviour
        //Debug.Log("Peak OnTriggerEnter2D: " + collision.name);
 
         if (collision.name == "Player") {
-            Debug.Log("Peak Trigger Enter Player " + exist);
+            //Debug.Log("Peak Trigger Enter Player " + exist);
             if (exist) {
                 Debug.Log("Peak Enable Trigger Player");
-                StartCoroutine(Player.instance.death("Peak")); 
+                StartCoroutine(Player.instance.death("Peak", GetComponent<IsoTransform>().Position)); 
             }
             else StartCoroutine(showHide());
         }
@@ -72,7 +72,7 @@ public class Peak : MonoBehaviour
 
             if (exist) {
                 Debug.Log("Peak Enable Trigger Player");
-                StartCoroutine(Player.instance.death("Peak"));
+                StartCoroutine(Player.instance.death("Peak", GetComponent<IsoTransform>().Position));
             }
 
         }

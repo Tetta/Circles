@@ -35,8 +35,9 @@ public class WinUI : MonoBehaviour {
     // Start is called before the first frame update
     void Start() {
         Debug.Log("Win start");
-        StartCoroutine(completeLevel());
         tapButton.interactable = false;
+        StartCoroutine(completeLevel());
+
     }
 
     private void OnEnable() {
@@ -44,11 +45,13 @@ public class WinUI : MonoBehaviour {
     }
 
     public IEnumerator completeLevel() {
+        
         ps.SetActive(true);
         level = LevelController.level;
         AudioManager.instance.levelCompleteSound.Play();
         AnalyticsController.sendEvent("LevelComplete", new Dictionary<string, object> { { "GemsPercent", Player.instance.gemsCollected * 100 / LevelController.levelData.coins.Count }, { "DotsPercent", Player.instance.dotsCollected * 100 / LevelController.levelData.dots.Count } });
-        
+        AnalyticsController.sendEvent("Level Achieved", new Dictionary<string, object> { { "GemsPercent", Player.instance.gemsCollected * 100 / LevelController.levelData.coins.Count }, { "DotsPercent", Player.instance.dotsCollected * 100 / LevelController.levelData.dots.Count } });
+
         float gemsCollectedCount = Player.instance.gemsCollected + Player.instance.dotsCollected;
         Debug.Log(level);
         Debug.Log(LevelController.allGems);
@@ -60,20 +63,22 @@ public class WinUI : MonoBehaviour {
         //default
         gemsPS.SetActive(false);
         tapText.color = new Color32(255, 255, 255, 0);
-        //giftButtons.gameObject.SetActive(false);
-        //button2Animator.gameObject.SetActive(false);
+
+        updatePositionsElements();
+
         button1Animator.enabled = false;
         button2Animator.enabled = false;
         hand.SetActive(level == 1);
         if (level == 1) slider.transform.parent.gameObject.SetActive(false);
-        //defaultParams();
+
+
 
         GameController.levelPaused = true;
         levelText.text = "LEVEL " + level;
-        //gemsCountText.text = "+" + (int)GemsController.gemsOnLevel;
 
-        //bool freeGift = LevelController.level == 1 && PlayerPrefs.GetInt("FREE_GIFT_1", 0) == 1 || LevelController.level == 2 && PlayerPrefs.GetInt("FREE_GIFT_1", 0) == 2;
+
         bool freeGift = level == 1 || level == 2;
+        if (PlayerPrefs.GetInt("USER_GROUP_GAMEOVER_WHEEL", 0) == 1) freeGift = true;
         int buttonId = 0;
         if (freeGift) buttonId = 1;
         GameController.enableObg(giftButtons, buttonId);
@@ -106,17 +111,20 @@ public class WinUI : MonoBehaviour {
         button2Animator.enabled = true;
         //giftButtons.gameObject.SetActive(true);
         //button2Animator.gameObject.SetActive(true);
+        if (PlayerPrefs.GetInt("USER_GROUP_GAMEOVER_WHEEL", 0) == 2) {
 
-        tapText.DOColor(new Color32(255, 255, 255, 0), 2).OnComplete(() => {
+        }
+        else {
+            tapText.DOColor(new Color32(255, 255, 255, 0), 2).OnComplete(() => {
 
-            Debug.Log("tapText.DOColor OnComplete");
-            if (!freeGift) {
-                tapText.DOColor(new Color32(255, 255, 255, 255), 1);
-                tapButton.interactable = true;
-                gemsPS.SetActive(false);
-            }
-        });
-
+                Debug.Log("tapText.DOColor OnComplete");
+                if (!freeGift) {
+                    tapText.DOColor(new Color32(255, 255, 255, 255), 1);
+                    tapButton.interactable = true;
+                    gemsPS.SetActive(false);
+                }
+            });
+        }
 
 
         //StartCoroutine(playCompleteSounds());
@@ -126,6 +134,23 @@ public class WinUI : MonoBehaviour {
         Debug.Log("completeLevel UI end");
 
     }
+    void updatePositionsElements () {
+        if (PlayerPrefs.GetInt("USER_GROUP_GAMEOVER_WHEEL", 0) == 2) {
+            giftButtons.parent.gameObject.SetActive(false);
+            levelText.transform.localPosition = new Vector3(0, 721, 0);
+            transform.Find("CompleteText").transform.localPosition = new Vector3(0, 599, 0);
+            transform.Find("Gems").transform.localPosition = new Vector3(0, 308, 0);
+            transform.Find("Gems").transform.localScale = new Vector3(0.8f, 0.8f, 1);
+            transform.Find("AllGems").transform.localPosition = new Vector3(0, 105, 0);
+
+            tapText.transform.localPosition = new Vector3(0, -641, 0);
+
+
+                tapText.color = new Color32(255, 255, 255, 255);
+                tapButton.interactable = true;
+            
+        }
+    }
 
     void endingParams () {
         gemsPS.SetActive(false);
@@ -133,21 +158,17 @@ public class WinUI : MonoBehaviour {
 
         float gemsCollectedCount = Player.instance.gemsCollected + Player.instance.dotsCollected;
 
-        //slider.maxValue = LevelController.allGems;
         slider.value = gemsCollectedCount;
 
         button1Animator.enabled = true;
         button2Animator.enabled = true;
         if (slider.maxValue == slider.value && level >= 2) gemsCountText.text = "+" + (int)GemsController.gemsOnLevel * 3;
 
-    
-        //bool freeGift = level == 1 || level == 2;
 
-        //if (!freeGift) {
         tapText.color = new Color32(255, 255, 255, 255);
-            tapButton.interactable = true;
+        tapButton.interactable = true;
 
-        //}
+
         ps.SetActive(false);
 
     }
@@ -199,9 +220,13 @@ public class WinUI : MonoBehaviour {
 
     public void continueClick() {
         //after 3 and  20
-        if (LevelController.level == 3 || LevelController.level == 20) iOSReviewRequest.Request();
-        //after 5
-        else if (LevelController.level >= 5) AdController.ShowInterstitial();
+        //fix if iOS
+        if (!GameController.lion) {
+            if (LevelController.level == 3 || LevelController.level == 20) iOSReviewRequest.Request();
+            //after 5
+            //fix if !rewarded shown
+            else if (LevelController.level >= 5) AdController.ShowInterstitial();
+        }
         LevelController.addLevel();
         GameController.instance.restart();
 

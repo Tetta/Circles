@@ -120,7 +120,7 @@ PlayerSettings:
     16:10: 1
     16:9: 1
     Others: 1
-  bundleVersion: 1.0.7
+  bundleVersion: 1.0.9
   preloadedAssets: []
   metroInputSource: 0
   wsaTransparentSwapchain: 0
@@ -158,8 +158,8 @@ PlayerSettings:
     Android: com.gearsoffun.labirintescape
     iOS: com.gearsoffun.labirintescape
   buildNumber:
-    iOS: 7
-  AndroidBundleVersionCode: 5
+    iOS: 9
+  AndroidBundleVersionCode: 8
   AndroidMinSdkVersion: 16
   AndroidTargetSdkVersion: 0
   AndroidPreferredInstallLocation: 1
@@ -266,7 +266,7 @@ PlayerSettings:
   - m_BuildTarget: 
     m_Icons:
     - serializedVersion: 2
-      m_Icon: {fileID: 2800000, guid: 8b220b067b16c664b97abfaf5dcd4346, type: 3}
+      m_Icon: {fileID: 2800000, guid: 02058ed0e65f4824e8098a75902c5be8, type: 3}
       m_Width: 128
       m_Height: 128
       m_Kind: 0
@@ -674,6 +674,10 @@ PlayerSettings:
       daydreamIconForeground: {fileID: 0}
       daydreamIconBackground: {fileID: 0}
   cloudServicesEnabled:
+    Build: 0
+    Collab: 0
+    ErrorHub: 0
+    Hub: 0
     UNet: 1
   luminIcon:
     m_Name: 
