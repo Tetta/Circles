@@ -158,8 +158,8 @@ PlayerSettings:
     Android: com.gearsoffun.labirintescape
     iOS: com.gearsoffun.labirintescape
   buildNumber:
-    iOS: 9
-  AndroidBundleVersionCode: 8
+    iOS: 10
+  AndroidBundleVersionCode: 9
   AndroidMinSdkVersion: 16
   AndroidTargetSdkVersion: 0
   AndroidPreferredInstallLocation: 1

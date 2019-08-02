@@ -280,7 +280,7 @@ public class Player : MonoBehaviour
         else if (collision.gameObject.name == "Shoot") {
             Debug.Log("------- Failed!!! Shoot -------------");
 
-            StartCoroutine(death("Shooter", collision.GetComponent<IsoTransform>().Position));
+            StartCoroutine(death("Shooter", collision.transform.parent.parent.GetComponent<IsoTransform>().Position));
         }
         else if (collision.transform.gameObject.name == "ExitPrefab(Clone)") {
             Debug.Log("------- Exit!!! -------------");
@@ -291,7 +291,7 @@ public class Player : MonoBehaviour
         else if (collision.transform.parent.parent.gameObject.name == "FatPrefab(Clone)") {
             Debug.Log("------- Failed!!! Fat -------------");
 
-            StartCoroutine(death("Fat", collision.GetComponent<IsoTransform>().Position));
+            StartCoroutine(death("Fat", collision.transform.parent.parent.GetComponent<IsoTransform>().Position));
         }
         //Debug.Log("TeleportAnother OnTriggerEnter2D: " + collision.name);
         //Debug.Log("TeleportAnother OnTriggerEnter2D: " + GetComponent<IsoTransform>().Position);
