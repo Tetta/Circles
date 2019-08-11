@@ -99,6 +99,8 @@
     <Compile Include="Assets\_LabirintEscape\Scripts\WheelUI.cs" />
     <Compile Include="Assets\_LabirintEscape\Scripts\WinUI.cs" />
     <Compile Include="Assets\AnalyticsController.cs" />
+    <Compile Include="Assets\AppLovinSdk\Scripts\AppLovin.cs" />
+    <Compile Include="Assets\AppLovinSdk\Scripts\AppLovinEvents.cs" />
     <Compile Include="Assets\Appodeal\Api\Appodeal.cs" />
     <Compile Include="Assets\Appodeal\AppodealDemo\AppodealDemo.cs" />
     <Compile Include="Assets\Appodeal\AppodealDemo\GDPR.cs" />
@@ -338,6 +340,7 @@
     <None Include="Assets\BuildReport\Scripts\FuzzyString\License.txt" />
     <None Include="Assets\AxeyWorks\PolyWorks\Full Pack\Shaders\AxeyWorksPBRShader.shader" />
     <None Include="Assets\Particlecollection_Free samples\Plugins\Effect\Shader\Toon Blended Premmultiply.shader" />
+    <None Include="Assets\AppLovinSdk\Plugins\Android\AndroidManifest.xml" />
     <None Include="Assets\Particlecollection_Free samples\Plugins\Effect\Shader\ParticlePremultiplyBlend.shader" />
     <None Include="Assets\Appodeal\SampleAndroidManifest.xml" />
     <None Include="Assets\Resources\Levels\Level6_2.txt" />

@@ -60,6 +60,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\AppLovinSdk\Scripts\Editor\AppLovinPostProcessBuildiOS.cs" />
     <Compile Include="Assets\Appodeal\Editor\AppodealSettings.cs" />
     <Compile Include="Assets\Appodeal\Editor\AppodealUnityUtils.cs" />
     <Compile Include="Assets\Appodeal\Editor\ArchitectureFilter.cs" />

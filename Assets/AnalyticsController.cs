@@ -28,6 +28,9 @@ public class AnalyticsController : MonoBehaviour {
             
             PlayerPrefs.SetInt("SESSIONS_COUNT", PlayerPrefs.GetInt("SESSIONS_COUNT", 0) + 1);
             awake = true;
+
+            AppLovin.SetSdkKey("yQKTt0FR9zfBvFDiRTgqeydL58eGMy9nEi34E83EbQmDaUxKxbRaHpr1Ir35VO3fPsXyyrzpXXAalmualxW-id");
+            AppLovin.InitializeSdk();
         }
         if (PlayerPrefs.GetInt("USER_GROUP", -1) == -1) {
             //point start 1
