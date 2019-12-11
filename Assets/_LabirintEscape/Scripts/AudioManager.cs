@@ -39,9 +39,9 @@ public class AudioManager : MonoBehaviour
 
         DontDestroyOnLoad(gameObject);
         
-        if (GameObject.Find("CanvasUI/MainUI/AudioButton/") != null) {
-            GameObject.Find("CanvasUI/MainUI/AudioButton/").transform.GetChild(0).gameObject.SetActive(audioFlag);
-            GameObject.Find("CanvasUI/MainUI/AudioButton/").transform.GetChild(1).gameObject.SetActive(!audioFlag);
+        if (GameObject.Find("CanvasUI/GameUI/AudioButton/") != null) {
+            GameObject.Find("CanvasUI/GameUI/AudioButton/").transform.GetChild(0).gameObject.SetActive(audioFlag);
+            GameObject.Find("CanvasUI/GameUI/AudioButton/").transform.GetChild(1).gameObject.SetActive(!audioFlag);
         }
 
     }
@@ -60,8 +60,8 @@ public class AudioManager : MonoBehaviour
     public void audioOnOff () {
         audioFlag = !audioFlag;
         PlayerPrefs.SetInt("AUDIO", Convert.ToInt32(audioFlag));
-        GameObject.Find("CanvasUI/MainUI/AudioButton/").transform.GetChild(0).gameObject.SetActive(audioFlag);
-        GameObject.Find("CanvasUI/MainUI/AudioButton/").transform.GetChild(1).gameObject.SetActive(!audioFlag);
+        GameObject.Find("CanvasUI/GameUI/AudioButton/").transform.GetChild(0).gameObject.SetActive(audioFlag);
+        GameObject.Find("CanvasUI/GameUI/AudioButton/").transform.GetChild(1).gameObject.SetActive(!audioFlag);
         AudioListener.volume = PlayerPrefs.GetInt("AUDIO", 1);
 
     }

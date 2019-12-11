@@ -95,7 +95,7 @@ public class GameoverUI : MonoBehaviour
     }
 
     public void tapToRestartClick() {
-        if (!GameController.lion) if (LevelController.level >= 5) AdController.ShowInterstitial();
+        AdController.ShowInterstitial();
         GameController.instance.restart();
     }
 

@@ -9,7 +9,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: Toon Additive_(original)
   m_Shader: {fileID: 4800000, guid: dfc2f5cee12f7df47b436ce0d52d63e3, type: 3}
-  m_ShaderKeywords: Enable_Bloom
+  m_ShaderKeywords: ETC1_EXTERNAL_ALPHA Enable_Bloom
   m_LightmapFlags: 5
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0

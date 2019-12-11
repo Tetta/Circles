@@ -9,7 +9,7 @@ public class LevelController : MonoBehaviour
     public static LevelController instance;
     //---------------------------------
     //point
-    public static int level = 28; //18
+    public static int level = 1; //18
     public static int skin = 0;
     //---------------------------------
 

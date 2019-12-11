@@ -1,0 +1,103 @@
+<?xml version="1.0"?>
+<LevelData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <tiles>
+    <Vector2>
+      <x>-6</x>
+      <y>-3</y>
+    </Vector2>
+    <Vector2>
+      <x>-6</x>
+      <y>-2</y>
+    </Vector2>
+    <Vector2>
+      <x>-6</x>
+      <y>-1</y>
+    </Vector2>
+    <Vector2>
+      <x>-6</x>
+      <y>1</y>
+    </Vector2>
+    <Vector2>
+      <x>-6</x>
+      <y>0</y>
+    </Vector2>
+    <Vector2>
+      <x>-5</x>
+      <y>1</y>
+    </Vector2>
+    <Vector2>
+      <x>-4</x>
+      <y>1</y>
+    </Vector2>
+    <Vector2>
+      <x>-3</x>
+      <y>1</y>
+    </Vector2>
+    <Vector2>
+      <x>-2</x>
+      <y>1</y>
+    </Vector2>
+    <Vector2>
+      <x>-2</x>
+      <y>0</y>
+    </Vector2>
+    <Vector2>
+      <x>-2</x>
+      <y>-1</y>
+    </Vector2>
+    <Vector2>
+      <x>-2</x>
+      <y>-2</y>
+    </Vector2>
+    <Vector2>
+      <x>-2</x>
+      <y>-3</y>
+    </Vector2>
+    <Vector2>
+      <x>-4</x>
+      <y>-3</y>
+    </Vector2>
+    <Vector2>
+      <x>-3</x>
+      <y>-3</y>
+    </Vector2>
+    <Vector2>
+      <x>-4</x>
+      <y>-2</y>
+    </Vector2>
+    <Vector2>
+      <x>-4</x>
+      <y>-3</y>
+    </Vector2>
+    <Vector2>
+      <x>-4</x>
+      <y>-1</y>
+    </Vector2>
+  </tiles>
+  <coins />
+  <dots />
+  <dangers />
+  <birds />
+  <birds2 />
+  <decor0 />
+  <decor0Size />
+  <teleport1 />
+  <teleport2 />
+  <teleport3 />
+  <teleport4 />
+  <peaks />
+  <fats />
+  <start>
+    <Vector2>
+      <x>-6</x>
+      <y>-3</y>
+    </Vector2>
+  </start>
+  <exit />
+  <shooter0 />
+  <shooter1 />
+  <shooter2 />
+  <shooter3 />
+  <teleportAnother1 />
+  <teleportAnother2 />
+</LevelData>

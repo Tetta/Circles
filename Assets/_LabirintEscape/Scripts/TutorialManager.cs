@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
-
+using UnityEngine.UI;
 public class TutorialManager : MonoBehaviour
 {
     public static TutorialManager instance;
@@ -15,10 +15,13 @@ public class TutorialManager : MonoBehaviour
     void OnEnable()
     {
         instance = this;
+
         step = 0;
+
         animHand();
 
         Debug.Log("OnEnable step: " + step);
+        if(LevelController.skin == 3) hand.GetComponent<Image>().color = new Color32( 248, 0, 0, 255);
     }
 
     public void animHand () {

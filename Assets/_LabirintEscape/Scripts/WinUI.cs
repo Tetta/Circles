@@ -49,15 +49,14 @@ public class WinUI : MonoBehaviour {
         ps.SetActive(true);
         level = LevelController.level;
         AudioManager.instance.levelCompleteSound.Play();
-        AnalyticsController.sendEvent("LevelComplete", new Dictionary<string, object> { { "GemsPercent", Player.instance.gemsCollected * 100 / LevelController.levelData.coins.Count }, { "DotsPercent", Player.instance.dotsCollected * 100 / LevelController.levelData.dots.Count } });
-        AnalyticsController.sendEvent("Level Achieved", new Dictionary<string, object> { { "GemsPercent", Player.instance.gemsCollected * 100 / LevelController.levelData.coins.Count }, { "DotsPercent", Player.instance.dotsCollected * 100 / LevelController.levelData.dots.Count } });
-
+        AnalyticsController.sendEvent("LevelComplete");
+        
         float gemsCollectedCount = Player.instance.gemsCollected + Player.instance.dotsCollected;
         Debug.Log(level);
-        Debug.Log(LevelController.allGems);
         Debug.Log(gemsCollectedCount);
         //gemsCollectedCount always >= LevelController.allGems. Why? Physics 2d?
-        if (level >= 2 && gemsCollectedCount >= LevelController.allGems) GemsController.AddGems((int)GemsController.gemsOnLevel * 2, "AllGems");
+        GemsController.gemsOnLevel = 100 + LevelController.level * 20;
+        if (level >= 2 && gemsCollectedCount >= LevelController.allGems) GemsController.AddGems((int)GemsController.gemsOnLevel , "ForLevel");
 
         
         //default
@@ -66,10 +65,10 @@ public class WinUI : MonoBehaviour {
 
         updatePositionsElements();
 
-        button1Animator.enabled = false;
-        button2Animator.enabled = false;
-        hand.SetActive(level == 1);
-        if (level == 1) slider.transform.parent.gameObject.SetActive(false);
+        //button1Animator.enabled = false;
+        //button2Animator.enabled = false;
+        //hand.SetActive(level == 1);
+        //if (level == 1) slider.transform.parent.gameObject.SetActive(false);
 
 
 
@@ -96,7 +95,7 @@ public class WinUI : MonoBehaviour {
                 Debug.Log("slider OnComplete");
                 if (slider.maxValue == slider.value) {
                     gemsPS.SetActive(true);
-                    StartCoroutine(gemsCount(GemsController.gemsOnLevel, (int)GemsController.gemsOnLevel * 3, 0.4f));
+                    //StartCoroutine(gemsCount(GemsController.gemsOnLevel, (int)GemsController.gemsOnLevel * 3, 0.4f));
 
                 }
 
@@ -221,12 +220,13 @@ public class WinUI : MonoBehaviour {
     public void continueClick() {
         //after 3 and  20
         //fix if iOS
-        if (!GameController.lion) {
-            if (LevelController.level == 3 || LevelController.level == 20) iOSReviewRequest.Request();
+        //if (!GameController.lion) {
+            //if (LevelController.level == 3 || LevelController.level == 20) iOSReviewRequest.Request();
             //after 5
-            //fix if !rewarded shown
-            else if (LevelController.level >= 5) AdController.ShowInterstitial();
-        }
+
+            //else 
+                AdController.ShowInterstitial();
+        //}
         LevelController.addLevel();
         GameController.instance.restart();
 

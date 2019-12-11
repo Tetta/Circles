@@ -25,7 +25,16 @@ public class ButtonView : MonoBehaviour
             if (bg != null) bg.color = GameController.instance.colorsBg[LevelController.skin];
 
         }
+
+        if ((name == "VipButton" || name == "CharsButton") &&
+            PlayerPrefs.GetInt("USER_GROUP_BUTTONS_VIEW", -1) == 0 &&
+            LevelController.level <= 7)
+        {
+            Debug.Log(name);
+            gameObject.SetActive(false);
+        }
     }
+
 
     IEnumerator vipLineCoroutine() {
         vipLine.transform.localPosition = new Vector3(-300, 0, 0);

@@ -203,7 +203,7 @@ namespace GameBench
                 //Debug.Log(angle);
                 //Debug.Log(startAngle);
                 timer += Time.deltaTime;
-                //point
+
                 //if (time - timer < 1) timer -= 1;
                 //if (adding && selectedSave != SelectedReward) { }
                // else 

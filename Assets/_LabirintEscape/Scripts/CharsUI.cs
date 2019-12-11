@@ -124,7 +124,7 @@ public class CharsUI : MonoBehaviour, IBeginDragHandler, IEndDragHandler {
             txt = "DEFAULT CHARACTER";
         } else {
             txt += "+" + (chars[centerId].addGems * 100) + "% GEMS";
-            if (centerId > 1) txt += "\n+" + chars[centerId].lives + " FREE SHIELD ON START LEVEL";
+            //if (centerId > 1) txt += "\n+" + chars[centerId].lives + " FREE SHIELD ON START LEVEL";
         }
 
 

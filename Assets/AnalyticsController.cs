@@ -29,20 +29,19 @@ public class AnalyticsController : MonoBehaviour {
             PlayerPrefs.SetInt("SESSIONS_COUNT", PlayerPrefs.GetInt("SESSIONS_COUNT", 0) + 1);
             awake = true;
 
-            AppLovin.SetSdkKey("yQKTt0FR9zfBvFDiRTgqeydL58eGMy9nEi34E83EbQmDaUxKxbRaHpr1Ir35VO3fPsXyyrzpXXAalmualxW-id");
-            AppLovin.InitializeSdk();
+
         }
         if (PlayerPrefs.GetInt("USER_GROUP", -1) == -1) {
             //point start 1
             //group = 30%, other random 2-9
             int r;
-            List<int> l = new List<int> { 1, 2, 4, 5, 6, 7 };
+            List<int> l = new List<int> { 1, 2, 4, 5, 6, 7, 10 };
             //if (UnityEngine.Random.Range(0, 1f) < 0.3f) r = 1;
             //else r = UnityEngine.Random.Range(2, 10);
-            r = l[UnityEngine.Random.Range(0, 6)];
+            r = l[UnityEngine.Random.Range(0, 7)];
             Debug.Log("-----------------------");
             Debug.Log(r);
-            Debug.Log((float)UnityEngine.Random.Range(0, 1));
+
 
             //r = 0;
             PlayerPrefs.SetInt("USER_GROUP", r);
@@ -54,37 +53,46 @@ public class AnalyticsController : MonoBehaviour {
 
             firstLaunch = true;
         }
-        if (PlayerPrefs.GetInt("USER_GROUP_VIP", -1) == -1) {
-            int r;
-            if (DateTime.Now < DateTime.ParseExact(vip1AfterDate, "MM/dd/yyyy", null))
-                r = 2;
-            else
-                r = UnityEngine.Random.Range(0, 2);
-            PlayerPrefs.SetInt("USER_GROUP_VIP", r);
-            sendEvent("UserGroupVip", new Dictionary<string, object> { { "GroupVip", r } });
+        if (PlayerPrefs.GetInt("USER_GROUP_BUTTONS_VIEW", -1) == -1)
+        {
+            int r = UnityEngine.Random.Range(0, 2);
+            PlayerPrefs.SetInt("USER_GROUP_BUTTONS_VIEW", r);
+            sendEvent("UserGroupButtonsView", new Dictionary<string, object> { { "Group", r } });
         }
-        //1 = default, 2 = easy
-        if (PlayerPrefs.GetInt("USER_GROUP_LEVELS", 0) == 0) {
-            //int r = UnityEngine.Random.Range(1, 3);
-            int r = 2;
-            PlayerPrefs.SetInt("USER_GROUP_LEVELS", r);
-            sendEvent("UserGroupLevels", new Dictionary<string, object> { { "Group", r } });
+        // after level, 5or 7 with 40s delay
+        if (PlayerPrefs.GetInt("USER_GROUP_AD", -1) == -1)
+        {
+
+            int r;
+            List<int> l = new List<int> { 1, 2, 5, 7 };
+            r = l[UnityEngine.Random.Range(0, 4)];
+
+
+
+            //r = 0;
+            PlayerPrefs.SetInt("USER_GROUP_AD", r);
+            sendEvent("UserGroupAd", new Dictionary<string, object> { { "Group", r } });
+
         }
         //1 shield for ads, 2 shield -> VipUI, 3 VipUI, 4 disable offer
+        PlayerPrefs.SetInt("USER_GROUP_GAMEOVER_OFFER", 4);
+        //1 free wheel after complete level, 2 - remove wheel
+        PlayerPrefs.SetInt("USER_GROUP_GAMEOVER_WHEEL", 2);
+        /*
+
         if (PlayerPrefs.GetInt("USER_GROUP_GAMEOVER_OFFER", 0) == 0) {
             //int r = UnityEngine.Random.Range(1, 4);
             int r = 4;
             PlayerPrefs.SetInt("USER_GROUP_GAMEOVER_OFFER", r);
             sendEvent("UserGroupGameoverOffer", new Dictionary<string, object> { { "Group", r } });
         }
-        //1 free wheel after complete level, 2 - remove wheel
         if (PlayerPrefs.GetInt("USER_GROUP_GAMEOVER_WHEEL", 0) == 0) {
             int r = UnityEngine.Random.Range(1, 3);
             //int r = 2;
             PlayerPrefs.SetInt("USER_GROUP_GAMEOVER_WHEEL", r);
             sendEvent("UserGroupGameoverWheel", new Dictionary<string, object> { { "Group", r } });
         }
-
+        */
     }
     private void Start() {
         if (awake) {

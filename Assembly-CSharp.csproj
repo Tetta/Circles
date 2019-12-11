@@ -22,7 +22,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>Temp\bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_4_OR_NEWER;UNITY_2018_1_OR_NEWER;UNITY_2018_2_OR_NEWER;UNITY_2018_3_OR_NEWER;UNITY_2018_3_14;UNITY_2018_3;UNITY_2018;UNITY_INCLUDE_TESTS;UNITY_PURCHASING;UNITY_ANALYTICS;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_SPRITES;ENABLE_GRID;ENABLE_TILEMAP;ENABLE_TERRAIN;ENABLE_TEXTURE_STREAMING;ENABLE_DIRECTOR;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_COLLAB_SOFTLOCKS;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_TIMELINE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;ENABLE_MANAGED_JOBS;ENABLE_MANAGED_TRANSFORM_JOBS;ENABLE_MANAGED_ANIMATION_JOBS;INCLUDE_DYNAMIC_GI;INCLUDE_GI;ENABLE_MONO_BDWGC;PLATFORM_SUPPORTS_MONO;INCLUDE_PUBNUB;ENABLE_VIDEO;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_LOCALIZATION;PLATFORM_ANDROID;UNITY_ANDROID;UNITY_ANDROID_API;ENABLE_SUBSTANCE;ENABLE_EGL;ENABLE_NETWORK;ENABLE_RUNTIME_GI;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITYWEBREQUEST;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_EVENT_QUEUE;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_NATIVE_CRASH_REPORTING;PLATFORM_SUPPORTS_ADS_ID;UNITY_CAN_SHOW_SPLASH_SCREEN;ENABLE_VR;ENABLE_AR;UNITY_HAS_GOOGLEVR;UNITY_HAS_TANGO;ENABLE_SPATIALTRACKING;ENABLE_RUNTIME_PERMISSIONS;UNITY_ASTC_ONLY_DECOMPRESS;ENABLE_UNITYADS_RUNTIME;UNITY_UNITYADS_API;ENABLE_MONO;NET_STANDARD_2_0;ENABLE_PROFILER;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_UNITY_COLLECTIONS_CHECKS;ENABLE_BURST_AOT;UNITY_TEAM_LICENSE;ENABLE_VSTU;UNITY_PRO_LICENSE;CROSS_PLATFORM_INPUT;MOBILE_INPUT;CSHARP_7_OR_LATER;CSHARP_7_3_OR_NEWER</DefineConstants>
+    <DefineConstants>DEBUG;TRACE;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_4_OR_NEWER;UNITY_2018_1_OR_NEWER;UNITY_2018_2_OR_NEWER;UNITY_2018_3_OR_NEWER;UNITY_2018_3_14;UNITY_2018_3;UNITY_2018;UNITY_INCLUDE_TESTS;UNITY_PURCHASING;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_SPRITES;ENABLE_GRID;ENABLE_TILEMAP;ENABLE_TERRAIN;ENABLE_TEXTURE_STREAMING;ENABLE_DIRECTOR;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_COLLAB_SOFTLOCKS;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_TIMELINE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;ENABLE_MANAGED_JOBS;ENABLE_MANAGED_TRANSFORM_JOBS;ENABLE_MANAGED_ANIMATION_JOBS;INCLUDE_DYNAMIC_GI;INCLUDE_GI;ENABLE_MONO_BDWGC;PLATFORM_SUPPORTS_MONO;INCLUDE_PUBNUB;ENABLE_VIDEO;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_LOCALIZATION;PLATFORM_ANDROID;UNITY_ANDROID;UNITY_ANDROID_API;ENABLE_SUBSTANCE;ENABLE_EGL;ENABLE_NETWORK;ENABLE_RUNTIME_GI;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITYWEBREQUEST;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_EVENT_QUEUE;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_NATIVE_CRASH_REPORTING;PLATFORM_SUPPORTS_ADS_ID;UNITY_CAN_SHOW_SPLASH_SCREEN;ENABLE_VR;ENABLE_AR;UNITY_HAS_GOOGLEVR;UNITY_HAS_TANGO;ENABLE_SPATIALTRACKING;ENABLE_RUNTIME_PERMISSIONS;UNITY_ASTC_ONLY_DECOMPRESS;ENABLE_UNITYADS_RUNTIME;UNITY_UNITYADS_API;ENABLE_MONO;NET_STANDARD_2_0;ENABLE_PROFILER;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_UNITY_COLLECTIONS_CHECKS;ENABLE_BURST_AOT;UNITY_TEAM_LICENSE;ENABLE_VSTU;UNITY_PRO_LICENSE;CROSS_PLATFORM_INPUT;MOBILE_INPUT;CSHARP_7_OR_LATER;CSHARP_7_3_OR_NEWER</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <NoWarn>0169</NoWarn>
@@ -51,6 +51,9 @@
     <UnityBuildTarget>Android:13</UnityBuildTarget>
     <UnityVersion>2018.3.14f1</UnityVersion>
   </PropertyGroup>
+  <ItemGroup>
+    <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio Tools for Unity\16.0\Analyzers\Microsoft.Unity.Analyzers.dll" />
+  </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2018.3.14f1\Editor\Data\Managed/UnityEngine/UnityEngine.dll</HintPath>
@@ -92,6 +95,7 @@
     <Compile Include="Assets\_LabirintEscape\Scripts\Singleton.cs" />
     <Compile Include="Assets\_LabirintEscape\Scripts\Teleport.cs" />
     <Compile Include="Assets\_LabirintEscape\Scripts\TeleportAnother.cs" />
+    <Compile Include="Assets\_LabirintEscape\Scripts\Tile.cs" />
     <Compile Include="Assets\_LabirintEscape\Scripts\TileConstructor.cs" />
     <Compile Include="Assets\_LabirintEscape\Scripts\TimerManager.cs" />
     <Compile Include="Assets\_LabirintEscape\Scripts\Tools.cs" />
@@ -204,6 +208,7 @@
     <Compile Include="Assets\FacebookSDK\Examples\Scripts\SubMenus\GraphRequest.cs" />
     <Compile Include="Assets\FacebookSDK\Examples\Scripts\SubMenus\MainMenu.cs" />
     <Compile Include="Assets\FacebookSDK\Examples\Scripts\SubMenus\Pay.cs" />
+    <Compile Include="Assets\FontColor.cs" />
     <Compile Include="Assets\GB_SpinWheel\Scripts\AnimExit.cs" />
     <Compile Include="Assets\GB_SpinWheel\Scripts\ChangeSortingOrder.cs" />
     <Compile Include="Assets\GB_SpinWheel\Scripts\ChunkSlice.cs" />
@@ -274,50 +279,39 @@
     <Compile Include="Assets\UltraMare\Minimalist Cartoon UI Pack\Scripts\MyCursor.cs" />
     <Compile Include="Assets\UltraMare\Minimalist Cartoon UI Pack\Scripts\StatsExample.cs" />
     <Compile Include="Assets\Zero Rare\Retro Sound Effects\Demo\Demo.cs" />
-    <None Include="Assets\Resources\Levels\Level33.txt" />
     <None Include="Assets\Resources\Levels\Level26.txt" />
     <None Include="Assets\UltimateIsometricToolkit\Graphics\Misc\moreenemiesanimations\Spritesheets\alienGreen.xml" />
     <None Include="Assets\AxeyWorks\PolyWorks\Full Pack\Shaders\ToonShader\Shaders\AxeyWorksToonBasic.shader" />
-    <None Include="Assets\Resources\Levels\Level32.txt" />
     <None Include="Assets\JMO Assets\Cartoon FX\Shaders\CFX3 Multiply Color.shader" />
-    <None Include="Assets\Resources\Levels\Level6_1.txt" />
-    <None Include="Assets\Resources\Levels\Level4_1.txt" />
-    <None Include="Assets\Resources\Levels\Level101.txt" />
     <None Include="Assets\Resources\Levels\Level16.txt" />
     <None Include="Assets\2 Fire.shader" />
-    <None Include="Assets\Resources\Levels\Level31.txt" />
     <None Include="Assets\_LabirintEscape\FX\2 Fire.shader" />
     <None Include="Assets\AxeyWorks\PolyWorks\Full Pack\Shaders\MobileDistortionShader\AxeyWorksMobDist.shader" />
-    <None Include="Assets\Resources\Levels\Level5_1.txt" />
+    <None Include="Assets\Appodeal\InternalResources\remove_list.xml" />
     <None Include="Assets\JMO Assets\Cartoon FX\CartoonFX Free.txt" />
-    <None Include="Assets\Resources\Levels\Level3_2.txt" />
     <None Include="Assets\AxeyWorks\PolyWorks\Full Pack\Shaders\MobileDistortionShader\AxeyWorksMobDist.cginc" />
+    <None Include="Assets\Resources\Levels\Level5.txt" />
     <None Include="Assets\AxeyWorks\PolyWorks\Poly Water\Shaders\LowPolyWaterv2.shader" />
     <None Include="Assets\BuildReport\BuildReportToolOptions.xml" />
     <None Include="Assets\UltimateIsometricToolkit\Graphics\Misc\moreenemiesanimations\Spritesheets\alienBlue.xml" />
-    <None Include="Assets\Resources\Levels\Level7_1.txt" />
-    <None Include="Assets\Resources\Levels\Level3_1.txt" />
+    <None Include="Assets\Resources\Levels\Level1.txt" />
     <None Include="Assets\AxeyWorks\PolyWorks\Poly Water\Shaders\LowPolyWaterv2_NoGeo.shader" />
     <None Include="Assets\Resources\Levels\Level10.txt" />
     <None Include="Assets\Resources\Levels\Level27.txt" />
     <None Include="Assets\LiquidPhysics\Shaders\Metaballs_Multiple.shader" />
     <None Include="Assets\Resources\Levels\Level20.txt" />
-    <None Include="Assets\Resources\Levels\Level1_2.txt" />
     <None Include="Assets\Resources\Levels\Level30.txt" />
     <None Include="Assets\Resources\Levels\Level28.txt" />
     <None Include="Assets\Resources\Levels\Level21.txt" />
     <None Include="Assets\DOTween\DOTween50.xml" />
-    <None Include="Assets\Resources\Levels\Level2_2.txt" />
     <None Include="Assets\UltimateIsometricToolkit\Graphics\Misc\moreenemiesanimations\Spritesheets\enemies.xml" />
-    <None Include="Assets\Resources\Levels\Level2_1.txt" />
     <None Include="Assets\Resources\Levels\Level23.txt" />
     <None Include="Assets\Energy Node\Resources\Localizations\English.txt" />
     <None Include="Assets\AxeyWorks\PolyWorks\Poly Water\Shaders\LowPolyWaterv2_Trans.shader" />
-    <None Include="Assets\Resources\Levels\Level4_2.txt" />
+    <None Include="Assets\Resources\Levels\Level6.txt" />
     <None Include="Assets\UltimateIsometricToolkit\Graphics\Platformer\abstractTiles_sheet.xml" />
     <None Include="Assets\UltimateIsometricToolkit\Graphics\Misc\moreenemiesanimations\Spritesheets\alienBeige.xml" />
     <None Include="Assets\Resources\Levels\Level19.txt" />
-    <None Include="Assets\Resources\Levels\Level5_2.txt" />
     <None Include="Assets\Particlecollection_Free samples\Plugins\Effect\Shader\effect_distortion_mask.shader" />
     <None Include="Assets\UltimateIsometricToolkit\Graphics\Platformer\platformerTiles_sheet.xml" />
     <None Include="Assets\Resources\Levels\Level8.txt" />
@@ -342,8 +336,8 @@
     <None Include="Assets\Particlecollection_Free samples\Plugins\Effect\Shader\Toon Blended Premmultiply.shader" />
     <None Include="Assets\AppLovinSdk\Plugins\Android\AndroidManifest.xml" />
     <None Include="Assets\Particlecollection_Free samples\Plugins\Effect\Shader\ParticlePremultiplyBlend.shader" />
+    <None Include="Assets\Resources\Levels\Level4.txt" />
     <None Include="Assets\Appodeal\SampleAndroidManifest.xml" />
-    <None Include="Assets\Resources\Levels\Level6_2.txt" />
     <None Include="Assets\AxeyWorks\PolyWorks\Full Pack\Shaders\AxeyWorksUnlitShader.shader" />
     <None Include="Assets\Particlecollection_Free samples\READ ME.txt" />
     <None Include="Assets\Resources\Levels\Level13.txt" />
@@ -351,12 +345,12 @@
     <None Include="Assets\BuildReport\VERSION.txt" />
     <None Include="Assets\Resources\Levels\Level17.txt" />
     <None Include="Assets\DOTween\DOTween43.xml" />
+    <None Include="Assets\Resources\Levels\Level3.txt" />
     <None Include="Assets\AxeyWorks\PolyWorks\Full Pack\Shaders\AxeyWorksFacetedShader.shader" />
     <None Include="Assets\AxeyWorks\PolyWorks\Full Pack\Shaders\VertexShader\AxeyWorksBatchVertexColorShader.shader" />
-    <None Include="Assets\Resources\Levels\Level1_1.txt" />
     <None Include="Assets\FacebookSDK\link.xml" />
     <None Include="Assets\Resources\Levels\Level25.txt" />
-    <None Include="Assets\Resources\Levels\Level7_2.txt" />
+    <None Include="Assets\Resources\Levels\Level2.txt" />
     <None Include="Assets\DOTween\DOTween46.xml" />
     <None Include="Assets\Resources\Levels\Level14.txt" />
     <None Include="Assets\Resources\Levels\Level15.txt" />
@@ -373,9 +367,8 @@
     <None Include="Assets\Particlecollection_Free samples\Plugins\Effect\Shader\Toon Additive.shader" />
     <None Include="Assets\UltimateIsometricToolkit\README.txt" />
     <None Include="Assets\UltimateIsometricToolkit\Graphics\Platformer\allTiles_sheet.xml" />
-    <None Include="Assets\Resources\Levels\Level35.txt" />
-    <None Include="Assets\Resources\Levels\Level34.txt" />
     <None Include="Assets\Particlecollection_Free samples\Plugins\Effect\Shader\ParticleBlendEffect.shader" />
+    <None Include="Assets\Resources\Levels\Level7.txt" />
     <None Include="Assets\SampleScenes\Shaders\Skybox-Procedural.shader" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>D:/Projects/Circles/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>

@@ -188,21 +188,21 @@ public class LevelConstructor : MonoBehaviour
         Debug.Log(Application.persistentDataPath);
         int group = PlayerPrefs.GetInt("USER_GROUP_LEVELS", 1);
         string adding = "";
-        if (level <= 7) adding = "_" + group;
+        //if (level <= 7) adding = "_" + group;
 
         //BinaryFormatter bf = new BinaryFormatter();
         XmlSerializer bf = new XmlSerializer(typeof(LevelData));
         //Application.persistentDataPath это строка; выведите ее в логах и вы увидите расположение файла сохранений
-        FileStream file = File.Create(Application.persistentDataPath + "/Level" + level + "_" + group + ".txt");
+        FileStream file = File.Create(Application.persistentDataPath + "/Level" + level + ".txt");
         bf.Serialize(file, levelData);
         file.Close();
     }
 
     public static void load(int level) {
-        int group = PlayerPrefs.GetInt("USER_GROUP_LEVELS", 1);
+        int group = PlayerPrefs.GetInt("USER_GROUP_LEVELS", 2);
         Debug.Log("USER_GROUP_LEVELS: " + group);
         string adding = "";
-        if (level <= 7) adding = "_" + group;
+        //if (level <= 7) adding = "_" + group;
         //from resources -----------------
 #if !UNITY_EDITOR || UNITY_IOS
         string levelsTxt = Tools.LoadAsText("Levels/Level" + level + adding, "txt");
@@ -234,6 +234,7 @@ public class LevelConstructor : MonoBehaviour
         //LevelController.levelLoaded = LevelController.level;
 
         Debug.Log(Application.persistentDataPath);
+        Debug.Log(File.Exists(Application.persistentDataPath + "/Level" + level + adding + ".txt"));
         if (File.Exists(Application.persistentDataPath + "/Level" + level + adding + ".txt")) {
             //BinaryFormatter bf = new BinaryFormatter();
             XmlSerializer bf = new XmlSerializer(typeof(LevelData));
