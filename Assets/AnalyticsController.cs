@@ -97,7 +97,7 @@ public class AnalyticsController : MonoBehaviour {
     private void Start() {
         if (awake) {
             /* Mandatory - set your AppsFlyer’s Developer key. */
-            AppsFlyer.setAppsFlyerKey("Ura5UVbFB3YXvaig2PnvPA");
+            //AppsFlyer.setAppsFlyerKey("Ura5UVbFB3YXvaig2PnvPA");
             /* For detailed logging */
             /* AppsFlyer.setIsDebug (true); */
 #if UNITY_IOS
@@ -107,9 +107,9 @@ public class AnalyticsController : MonoBehaviour {
            AppsFlyer.trackAppLaunch ();
 #elif UNITY_ANDROID
             /* Mandatory - set your Android package name */
-            AppsFlyer.setAppID("com.gearsoffun.labirintescape");
+            //AppsFlyer.setAppID("com.gearsoffun.labirintescape");
             /* For getting the conversion data in Android, you need to add the "AppsFlyerTrackerCallbacks" listener.*/
-            AppsFlyer.init("Ura5UVbFB3YXvaig2PnvPA", "AppsFlyerTrackerCallbacks");
+            //AppsFlyer.init("Ura5UVbFB3YXvaig2PnvPA", "AppsFlyerTrackerCallbacks");
 #endif
         }
         awake = false;

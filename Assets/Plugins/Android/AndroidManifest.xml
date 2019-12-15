@@ -22,7 +22,4 @@
     <provider android:name="com.facebook.FacebookContentProvider" android:authorities="com.facebook.app.FacebookContentProvider377426302891401" android:exported="true" />
     <meta-data android:name="com.google.android.gms.ads.APPLICATION_ID" android:value="ca-app-pub-3014392707261195~1896615072" />
   </application>
-
-
-  
 </manifest>
