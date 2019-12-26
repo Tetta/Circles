@@ -95,7 +95,7 @@ public class GameoverUI : MonoBehaviour
     }
 
     public void tapToRestartClick() {
-        AdController.ShowInterstitial();
+        //AdController.ShowInterstitial();
         GameController.instance.restart();
     }
 

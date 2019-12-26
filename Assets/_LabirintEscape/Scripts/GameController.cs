@@ -41,12 +41,13 @@ public class GameController : MonoBehaviour {
     public Transform livesTransform;
     public GameObject tutorial;
     public List<Character> chars;
-
+    public GameObject SkipLevelButton;
 
     [Header("Buttons")]
     public Color32[] colorsBg;
     public Color32[] colorsBgVip;
 
+    float levelTimer;
     // Start is called before the first frame update
     private void Awake() {
         Debug.Log("GameController Awake");
@@ -59,10 +60,13 @@ public class GameController : MonoBehaviour {
         awakeScene();
     }
     private void Update() {
-        //GameController.logTime("update");
+
         if (TimerManager.timers["gift"].enable)
             giftTimerText.text = TimerManager.timers["gift"].timer.Hours.ToString("00") + ":" + TimerManager.timers["gift"].timer.Minutes.ToString("00") + ":" + TimerManager.timers["gift"].timer.Seconds.ToString("00");
-        //Debug.Log(TimerManager.timers["gameoverOffer"].enable);
+
+        levelTimer += Time.deltaTime;
+        SkipLevelButton.SetActive(levelTimer >= 7 && LevelController.level >= 6 && AdController.IsInterstitialReady);
+        
     }
 
 
@@ -113,7 +117,7 @@ public class GameController : MonoBehaviour {
         if ((AnalyticsController.awake && PlayerPrefs.GetInt("SESSIONS_COUNT", 0) >= 2 || 
             PlayerPrefs.GetInt("USER_GROUP_GAMEOVER_OFFER", 1) == 3 && isPrevGameOver && !TimerManager.timers["gameoverOffer"].enable) 
             && !IAPManager.vip) {
-            //fix uncomment
+
             if (!GameController.lion) showScreen("VipUI");
             logSubscriptionShown("Start");
             TimerManager.timers["gameoverOffer"].init(true);
@@ -123,6 +127,8 @@ public class GameController : MonoBehaviour {
         isPrevGameOver = false;
         vibro = Convert.ToBoolean(PlayerPrefs.GetInt("VIBRO", 1));
 
+
+        
         //color - show GameUI
         showScreen("GameUI");
     }
@@ -204,7 +210,7 @@ public class GameController : MonoBehaviour {
 
         //tutorial
         TutorialManager.step = -1;
-        Debug.Log("ffffffff" + LevelController.level);
+
         tutorial.SetActive(LevelController.level == 1);
 
         Player.instance.showChar();
@@ -212,6 +218,8 @@ public class GameController : MonoBehaviour {
 
         TeleportAnother.enter = false;
         Tile.tilesUncolored.Clear();
+        levelTimer = 0;
+
     }
 
     //public IEnumerator complete () {
@@ -249,7 +257,7 @@ public class GameController : MonoBehaviour {
     }
 
     public void onBackLevel() {
-        AdController.ShowInterstitial();
+        //AdController.ShowInterstitial();
          restart();
     }
 
@@ -289,6 +297,20 @@ public class GameController : MonoBehaviour {
         AdController.ShowRewarded();
     }
 
+    public void skipLevelCkick()
+    {
+        AdController.giveReward = () => {
+            LevelController.addLevel();
+            GameController.instance.restart();
+
+        };
+
+
+
+        AdController.ShowInterstitial();
+
+
+    }
     public void showLives () {
         Debug.Log("showLives");
         lives += chars[charId].lives +  PlayerPrefs.GetInt("SHIELD_WHEEL", 0) + Convert.ToInt32(IAPManager.vip);
@@ -373,6 +395,9 @@ public void onTermsClick() {
         AnalyticsController.sendEvent("SubscriptionShown", new Dictionary<string, object> { { "from", AnalyticsController.subscriptionFrom } });
 
     }
+
+
+
 }
 
 [Serializable]

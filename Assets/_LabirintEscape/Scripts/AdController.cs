@@ -28,7 +28,11 @@ public class AdController : MonoBehaviour, IInterstitialAdListener, IRewardedVid
             return Appodeal.isLoaded(Appodeal.REWARDED_VIDEO);
         }
     }
-    public static bool IsInterstitialReady { get { return Appodeal.isLoaded(Appodeal.INTERSTITIAL); } }
+    public static bool IsInterstitialReady { get {
+#if UNITY_EDITOR
+            return true;
+#endif
+            return Appodeal.isLoaded(Appodeal.INTERSTITIAL); } }
     private float timer;
     public static bool timerTicked = true;
     public readonly float interstitialInterval = 40f;
@@ -63,6 +67,7 @@ public class AdController : MonoBehaviour, IInterstitialAdListener, IRewardedVid
         Pause(false);
         //point
         //StartCoroutine(UpdateTimer());
+        giveReward?.Invoke();
         timer = 0f;
         timerTicked = false;
         AnalyticsController.sendEvent("InterstitialClosed");
@@ -97,13 +102,18 @@ public class AdController : MonoBehaviour, IInterstitialAdListener, IRewardedVid
     #endregion
 
     public static void ShowInterstitial() {
+#if UNITY_EDITOR
+        giveReward?.Invoke();
+        //giveReward = null; 
+#endif
         Debug.Log("Interstitial ShowInterstitial");
         Debug.Log("Interstitial timerTicked: " + timerTicked);
         Debug.Log("Interstitial USER_GROUP_AD: " + PlayerPrefs.GetInt("USER_GROUP_AD", -1));
         Debug.Log("Interstitial IAPManager.vip: " + IAPManager.vip);
         Debug.Log("Interstitial ready: " + IsInterstitialReady);
-        if (IsInterstitialReady && !IAPManager.vip && (timerTicked || PlayerPrefs.GetInt("USER_GROUP_AD", -1) < 3) && LevelController.level >= PlayerPrefs.GetInt("USER_GROUP_AD", -1)) {
-            Debug.Log("ShowInterstitial 2");
+        //if (IsInterstitialReady && !IAPManager.vip && (timerTicked || PlayerPrefs.GetInt("USER_GROUP_AD", -1) < 3) && LevelController.level >= PlayerPrefs.GetInt("USER_GROUP_AD", -1)) {
+            if (IsInterstitialReady) { 
+                Debug.Log("ShowInterstitial 2");
             Pause(true);
             AnalyticsController.sendEvent("InterstitialShow");
 
@@ -150,11 +160,7 @@ public class AdController : MonoBehaviour, IInterstitialAdListener, IRewardedVid
 
     }
 
-    private IEnumerator InterstitialClosedCoroutine() {
-        yield return new WaitForSecondsRealtime(0.1f);
-        Pause(false);
-        OnInterstitialWatched?.Invoke();
-    }
+
     private void RewardedVideoClosed(bool finished) {
         Pause(false);
         if (finished) {
@@ -166,17 +172,7 @@ public class AdController : MonoBehaviour, IInterstitialAdListener, IRewardedVid
         }
     }
 
-    private IEnumerator RewardedVideoClosedCoroutine(bool finished) {
-        yield return new WaitForSecondsRealtime(0.1f);
-        Pause(false);
-        if (finished) {
-            Debug.Log("OnRewardedVideoClosed and finished=true");
-            giveReward?.Invoke();
-        }
-        else {
-            Debug.Log("OnRewardedVideoClosed and finished=false");
-        }
-    }
+
 
     private static void Pause(bool isOn) {
         AudioListener.pause = isOn;

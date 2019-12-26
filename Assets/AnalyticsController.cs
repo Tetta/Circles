@@ -35,10 +35,10 @@ public class AnalyticsController : MonoBehaviour {
             //point start 1
             //group = 30%, other random 2-9
             int r;
-            List<int> l = new List<int> { 1, 2, 4, 5, 6, 7, 10 };
+            List<int> l = new List<int> {  4, 10 };
             //if (UnityEngine.Random.Range(0, 1f) < 0.3f) r = 1;
             //else r = UnityEngine.Random.Range(2, 10);
-            r = l[UnityEngine.Random.Range(0, 7)];
+            r = l[UnityEngine.Random.Range(0, 2)];
             Debug.Log("-----------------------");
             Debug.Log(r);
 
@@ -57,7 +57,7 @@ public class AnalyticsController : MonoBehaviour {
         {
             int r = UnityEngine.Random.Range(0, 2);
             PlayerPrefs.SetInt("USER_GROUP_BUTTONS_VIEW", r);
-            sendEvent("UserGroupButtonsView", new Dictionary<string, object> { { "Group", r } });
+            //sendEvent("UserGroupButtonsView", new Dictionary<string, object> { { "Group", r } });
         }
         // after level, 5or 7 with 40s delay
         if (PlayerPrefs.GetInt("USER_GROUP_AD", -1) == -1)
@@ -71,7 +71,7 @@ public class AnalyticsController : MonoBehaviour {
 
             //r = 0;
             PlayerPrefs.SetInt("USER_GROUP_AD", r);
-            sendEvent("UserGroupAd", new Dictionary<string, object> { { "Group", r } });
+            //sendEvent("UserGroupAd", new Dictionary<string, object> { { "Group", r } });
 
         }
         //1 shield for ads, 2 shield -> VipUI, 3 VipUI, 4 disable offer

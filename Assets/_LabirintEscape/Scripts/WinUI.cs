@@ -56,7 +56,8 @@ public class WinUI : MonoBehaviour {
         Debug.Log(gemsCollectedCount);
         //gemsCollectedCount always >= LevelController.allGems. Why? Physics 2d?
         GemsController.gemsOnLevel = 100 + LevelController.level * 20;
-        if (level >= 2 && gemsCollectedCount >= LevelController.allGems) GemsController.AddGems((int)GemsController.gemsOnLevel , "ForLevel");
+        //if (level >= 2 && gemsCollectedCount >= LevelController.allGems) 
+            GemsController.AddGems((int)GemsController.gemsOnLevel , "ForLevel");
 
         
         //default
@@ -219,13 +220,13 @@ public class WinUI : MonoBehaviour {
 
     public void continueClick() {
         //after 3 and  20
-        //fix if iOS
+
         //if (!GameController.lion) {
             //if (LevelController.level == 3 || LevelController.level == 20) iOSReviewRequest.Request();
             //after 5
 
             //else 
-                AdController.ShowInterstitial();
+                //AdController.ShowInterstitial();
         //}
         LevelController.addLevel();
         GameController.instance.restart();
